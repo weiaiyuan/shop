@@ -31,7 +31,8 @@ class CateController extends Controller
      */
     public function getIndex()
     {
-        return view('admin.layout.index');
+        //return view('admin.layout.index');
+        return view('admin.cates.index',['cate'=>$this->getCates()]);
     }
 
     /**

@@ -92,20 +92,19 @@
 					<ul class="nav nav-tabs nav-stacked main-menu">
 					
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 分类类别</span><span class="label label-important"> 3 </span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 分类类别</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/cate/in"><i class="icon-file-alt"></i><span class="hidden-tablet">类别列表</span></a></li>
 								<li><a class="submenu" href="/admin/cate/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 类别添加</span></a></li>
-								<li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> 回收站</span></a></li>
 							</ul>	
 						</li>
 						
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">用户管理 </span><span class="label label-important"> 3 </span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">分类详情 </span></a>
 							<ul>
-								<li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet">用户添加</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i>用户列表</a></li>
-								<li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i>用户注销</a></li>
+								<li><a class="submenu" href="/admin/good/create"><i class="icon-file-alt"></i><span class="hidden-tablet">分类详情添加</span></a></li>
+								<li><a class="submenu" href="/admin/good"><i class="icon-file-alt"></i>分类详情列表</a></li>
+								<li><a class="submenu" href="/admin/goodlook/create"><i class="icon-file-alt"></i>详情回收站</a></li>
 							</ul>	
 						</li>
 						

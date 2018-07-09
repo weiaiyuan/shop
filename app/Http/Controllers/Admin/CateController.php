@@ -15,7 +15,7 @@ class CateController extends Controller
     public static function getCates()
     {
 
-        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->paginate(10);
+        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->paginate(2);
         foreach($cate as $k=>$v) 
         {
             // 统计，号的次数

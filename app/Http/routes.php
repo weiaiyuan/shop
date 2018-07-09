@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+	echo 'aa';
     return view('welcome');
 });
 
@@ -129,7 +130,7 @@ Route::get('/', function () {
 /*
 |---------------葛景伟 开始位置 (130~185行) -----------
 */
-
+Route::resource('/admin/links','Admin\LinkController');
 
 
 

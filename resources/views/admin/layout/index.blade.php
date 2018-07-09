@@ -109,6 +109,26 @@
 							</ul>	
 						</li>
 						
+					<!--友情链接-->
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 友情链接</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/links/create"><i class="icon-file-alt"></i><span class="hidden-tablet">链接添加</span></a></li>
+								<li><a class="submenu" href="/admin/links"><i class="icon-file-alt"></i><span class="hidden-tablet"> 链接列表</span></a></li>
+								
+							</ul>	
+	
+						<!--网站配置-->
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 网站配置</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/links/create"><i class="icon-file-alt"></i><span class="hidden-tablet">网站标题</span></a></li>
+								<li><a class="submenu" href="/admin/links"><i class="icon-file-alt"></i><span class="hidden-tablet"> 网站LOGO</span></a></li>
+								<li><a class="submenu" href="/admin/links"><i class="icon-file-alt"></i><span class="hidden-tablet"> 网站维护</span></a></li>
+								
+							</ul>	
+						</li>
+						</li>
 					</ul>
 				</div>
 			</div>

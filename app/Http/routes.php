@@ -19,13 +19,10 @@ Route::get('/', function () {
 |----------------  雒小刚 开始位置 (20~70行) ---------------------
 */
 
-Route::get('admin/', function () {
+Route::get('/admin', function () {
     return view('admin.index.index');
 });
-
-
-
-
+Route::controller('/admin/order','Admin\OrderController');
 
 
 

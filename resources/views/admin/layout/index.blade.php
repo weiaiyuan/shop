@@ -90,24 +90,33 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-							<li>
+						<li>
 							<a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet">用户管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/user/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户添加</span></a></li>
 								<li><a class="submenu" href="/admin/user"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户列表</span></a></li>
-								<li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> 回收站</span></a></li>
+								<li><a class="submenu" href="submenu3.html"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>
 							</ul>	
 						</li>
 					
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 分类类别</span><span class="label label-important"> 3 </span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">商品分类</span><span class="label label-important"></span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/cate/in"><i class="icon-file-alt"></i><span class="hidden-tablet">类别列表</span></a></li>
 								<li><a class="submenu" href="/admin/cate/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 类别添加</span></a></li>
 								<li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> 回收站</span></a></li>
 							</ul>	
 						</li>
-						
+
+								<!-- 订单管理开始 -->
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-list"></i><span class="hidden-tablet">订单管理</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/order/index"><i class="icon-align-left"></i><span class="hidden-tablet">订单列表</span></a></li>
+								<li><a class="submenu" href="#"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>
+							</ul>	
+						</li>						
+								<!-- 订单管理结束 -->
 						
 						
 					</ul>
@@ -128,8 +137,8 @@
 			
 			<ul class="breadcrumb">
 				<li>
-					<i class="icon-home"></i>
-					<a href="index.html">管理列表</a> 
+					<i class="#"></i>
+					<a href="#>管理列表</a> 
 					<i class="icon-angle-right"></i>
 				</li>
 				<li><a href="#">欢迎Admin</a></li>
@@ -154,9 +163,6 @@
 
 
 			</div>		
-
-			
-       
 
 	</div><!--/.fluid-container-->
 	

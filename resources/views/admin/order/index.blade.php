@@ -17,34 +17,36 @@
 		<table class="table table-striped table-bordered bootstrap-datatable " id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
 		  <thead>
 			  <tr role="row">
-			  	<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="用户名: activate to sort column descending" style="width: 166px;">订单编号</th>
-			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Date registered: activate to sort column ascending" style="width: 248px;">订单时间</th>
-			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 137px;">下单人</th>
-			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 148px;">状态</th>
-			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 289px;">操作</th></tr>
+			  	<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="用户名: activate to sort column descending" style="width:40px;">订单编号</th>
+			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Date registered: activate to sort column ascending" style="width: 70px;">订单时间</th>
+			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 50px;">下单人</th>
+			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 50px;">收货人</th>
+			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 150px;">收货地址</th>
+			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 90px;">联系电话</th>
+			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 20px;">状态</th>
+			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width:50px;">操作</th></tr>
 		  </thead>   
 			  
 		  <tbody role="alert" aria-live="polite" aria-relevant="all">
-		  	@foreach($data as $v)
+		  	@foreach($orders as $v)
 		  		<tr class="odd">
 					<td class="  sorting_1">{{ $v ->id }}</td>
 					<td class="center ">{{ $v->created_at }}</td>
 					<td class="center ">{{ $v-> uid}}</td>
+					<td class="center ">{{ $v-> rec}}</td>
+					<td class="center ">{{ $v-> addr}}</td>
+					<td class="center ">{{ $v-> tel}}</td>
 					<td class="center ">
-						<span class="label label-success">{{{ $v ->orderstatus }}}</span>
+						<span class="label label-success">{{{ $v ->status }}}</span>
 					</td>
 					<td class="center ">
 						<a class="btn btn-success" href="/admin/order/detail/{{$v->id}}">订单详情</a>
-						<a class="btn btn-info" href="#">
-							<i class="halflings-icon white edit"></i>  
-						</a>
-						<a class="btn btn-danger" href="/admin/oreder/deltel">删除</a>
 					</td>
 				</tr>
 			@endforeach
 			</tbody>
 		</table>
-		<div class="pagination pagination-centered">{!! $data->render()!!}</div>
+		<div class="pagination pagination-centered">{!! $orders->render()!!}</div>
 	</div>
 </div>
 @endsection

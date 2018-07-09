@@ -44,9 +44,9 @@
 								<table class="table table-striped table-bordered bootstrap-datatable datatable dataTable" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
 										
 							  <tr role="row">
-							  	<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 197.2px;" aria-sort="ascending" aria-label="Username: activate to sort column descending">ID</th>
-							  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"  aria-label="Date registered: activate to sort column ascending">用户名</th>
-							  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"  aria-label="Role: activate to sort column ascending">手机号</th>
+							  	<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 30px;" aria-sort="ascending" aria-label="Username: activate to sort column descending">ID</th>
+							  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"   aria-label="Date registered: activate to sort column ascending">用户名</th>
+							  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;" aria-label="Role: activate to sort column ascending">手机号</th>
 							  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"  aria-label="Role: activate to sort column ascending">邮箱</th>
 							  		<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"  aria-label="Role: activate to sort column ascending">权限</th>
 							  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"  aria-label="Actions: activate to sort column ascending">性别</th>

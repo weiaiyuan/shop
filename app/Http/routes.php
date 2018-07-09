@@ -184,7 +184,7 @@ Route::get('/', function () {
 /*
 |----------------蒋旺生 开始位置 (185行之后) -----------
 */
-
+Route::controller('/admin/cate','Admin\CateController');
 
 
 

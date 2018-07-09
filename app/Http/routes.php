@@ -19,7 +19,9 @@ Route::get('/', function () {
 |----------------  雒小刚 开始位置 (20~70行) ---------------------
 */
 
-
+Route::get('admin/', function () {
+    return view('admin.index.index');
+});
 
 
 
@@ -75,7 +77,9 @@ Route::get('/', function () {
 |----------------张纯泽 开始位置 (75~125行) -----------
 */
 
-
+ //用户管理
+ 
+Route::resource('/admin/user','Admin\UserController');
 
 
 

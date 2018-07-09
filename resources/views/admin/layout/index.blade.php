@@ -4,7 +4,7 @@
 	
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
+	<title>后台</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -52,7 +52,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html"><span>后台管理</span></a>
+				<a class="brand" href="/admin/"><span>后台管理</span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
@@ -90,6 +90,14 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
+							<li>
+							<a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet">用户管理</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/user/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户添加</span></a></li>
+								<li><a class="submenu" href="/admin/user"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户列表</span></a></li>
+								<li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> 回收站</span></a></li>
+							</ul>	
+						</li>
 					
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 分类类别</span><span class="label label-important"> 3 </span></a>
@@ -100,14 +108,7 @@
 							</ul>	
 						</li>
 						
-						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">用户管理 </span><span class="label label-important"> 3 </span></a>
-							<ul>
-								<li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet">用户添加</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i>用户列表</a></li>
-								<li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i>用户注销</a></li>
-							</ul>	
-						</li>
+						
 						
 					</ul>
 				</div>

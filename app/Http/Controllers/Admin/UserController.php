@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Showuser;
 class UserController extends Controller
 {
     /**
@@ -17,10 +16,10 @@ class UserController extends Controller
     public function index()
     {
         //用户添加视图
-        $user = Showuser::get();
+        
         
 
-        return view('admin.user.list',['user'=>$user]);
+        return view('admin.user.list');
     
     }
 
@@ -45,17 +44,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-            $show = $request -> except('_token');
-            $user = new Showuser;
-            $user->user = $show['user'];
-            $user->pass = $show['pass'];
-            $user->qpass = $show['qpass'];
-            $user->email = $show['email'];
-            $user->phone = $show['phone'];
-            $user->sex = $show['sex'];
-            $user->save();
-          
-             return redirect('/admin/user');
+     
+             
     }
 
     /**

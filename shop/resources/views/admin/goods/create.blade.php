@@ -9,7 +9,7 @@
             @endforeach
         </ul>
     </div>
-@endif
+@endif 
 <!-- 配置文件 -->
     <script type="text/javascript" src="/utf8-php/ueditor.config.js"></script>
     <!-- 编辑器源码文件 -->

@@ -184,7 +184,7 @@ Route::resource('/admin/user','Admin\UserController');
 /*
 |----------------蒋旺生 开始位置 (185行之后) -----------
 */
-Route::controller('/admin/cate','Admin\CateController');
+Route::controller('/admin/cate','Admin\CateController'); 
 Route::resource('/admin/good','Admin\GoodsController');
 Route::controller('/admin/goodlook','Admin\ChaController');//查看内容
 

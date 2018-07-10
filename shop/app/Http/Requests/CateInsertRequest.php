@@ -11,7 +11,7 @@ class CateInsertRequest extends Request
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize() 
     {
         return true;
     }

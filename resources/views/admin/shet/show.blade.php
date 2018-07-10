@@ -25,53 +25,28 @@
 	<div class="box-content">
 		<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid">
 			<div class="row-fluid">
-				<div class="span6">
-					<div id="DataTables_Table_0_length" class="dataTables_length">
-					</div>
-					<div class="span6">
-						<div class="dataTables_filter" id="DataTables_Table_0_filter">
-							<label>
-								<form action="/admin/cate/show" method="post">
-									{{ csrf_field() }}
-									搜索: <input type="text" aria-controls="DataTables_Table_0" name="cname">
-									<input type="submit" name="" class="btn btn-info">
-								</form>
-							</label>
-						</div>
-					</div>
-				</div>
 				<table class="table table-striped table-bordered bootstrap-datatable text-center" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" >
 				  	<tr>
 						<td class="  sorting_1">ID</td>
-						<td>连接名称</td>
-						<td>url地址</td>
-						<td>连接图片</td>
+						<td>网站标题</td>
+						<td>网站LOGO</td>
 						<td>操作</td>
 					</tr>
-					@foreach($data as $k=>$v)	
+				@foreach($data as $K=>$v)
 					<tr>
 						<td>{{ $v->id }}</td>
-						<td>{{ $v->lname }}</td>
-						<td>{{ $v->url }}</td>
-						<td><img src="/images/{{ $v->limg }}" style="width:50px"></td>
+						<td>{{ $v->title }}</td>
+						<td>{{ $v->logo }}</td>
 						<td>
-							<form action="/admin/links/{{ $v->id }}/edit" method="get" style="display:inline">
-								<input type="submit" name="" value="修改" class="btn btn-warning" >
-							</form>
-							<form action="/admin/links/{{ $v->id }}" method="post" style="display:inline">
-								{{ csrf_field() }}
-								{{ method_field('DELETE') }}
-								<input type="submit" name="" value="删除" class="btn btn-danger" >
-							</form>
-							
+							<a href="/admin/restores/{{ $v->id }}" class="btn btn-success">恢复数据</a>
+							<a href="/admin/del/{{ $v->id }}" class="btn btn-danger" onclick="alert('确认要彻底删除吗？')">彻底删除</a>
 						</td>
 					</tr>
-					@endforeach
+				@endforeach
 				</table>
 
 				<div class="dataTables_paginate paging_bootstrap pagination">
-					<div class="text-center"><ul>{!! $data->render() !!}</ul></div>
-
+					
 				</div>
 			</div>
 		</div>

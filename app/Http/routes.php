@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-	echo 'aa';
     return view('welcome');
 });
 
@@ -20,10 +19,10 @@ Route::get('/', function () {
 |----------------  雒小刚 开始位置 (20~70行) ---------------------
 */
 
-
-
-
-
+Route::get('/admin', function () {
+    return view('admin.index.index');
+});
+Route::controller('/admin/order','Admin\OrderController');
 
 
 
@@ -76,7 +75,9 @@ Route::get('/', function () {
 |----------------张纯泽 开始位置 (75~125行) -----------
 */
 
-
+ //用户管理
+ 
+Route::resource('/admin/user','Admin\UserController');
 
 
 
@@ -130,7 +131,12 @@ Route::get('/', function () {
 /*
 |---------------葛景伟 开始位置 (130~185行) -----------
 */
+//友情链接路由
 Route::resource('/admin/links','Admin\LinkController');
+//网站配置路由
+Route::resource('/admin/shet','Admin\ShetController');
+Route::get('/admin/restores/{id}','Admin\ShetController@restores');
+Route::get('/admin/del/{id}','Admin\ShetController@del');
 
 
 

@@ -56,7 +56,7 @@ class LinkController extends Controller
 
             $name =  $temp_name.'.'.$ext;
             //$dirname = date('Ymd',time());
-            $fri -> limg -> move('./Admin/link/img/',$name);
+            $fri -> limg -> move('./images/',$name);
             //dump($res);
             $fri -> limg = $name;
         }       

@@ -9,13 +9,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Orders;
 use App\Models\Order_detail;
 use App\Models\Shopusers;
+use App\Models\Shop_goods;
+use App\Models\Shop_orders;
 use DB;
 class OrderController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * [订单表显示页面]
+     * @param  Request $request [接收搜索条件]
+     * @return order.index页面
      */
     public function getIndex(Request $request)
     {
@@ -31,13 +33,21 @@ class OrderController extends Controller
                 -> paginate(3)->appends($request->input());
         return view('admin.order.index',['orders'=>$orders]);
     }
-    // 订单详情
+
+    /**
+     * 订单详情页
+     * @param  [int] $id [订单表对应id]
+     * @return 订单详情展示页面
+     */
     public function getDetail($id)
     {
-        $order = Orders::find($id);
-        $users = Shopusers::get();
+        $shop_goods = Shop_goods::get();            //获取所有的商品
+        // dump($shop_goods);
         $order_detail = Order_detail::where('oid','=',$id)->find($id);
         // dump($order_detail);
-        return view('admin.order.order_detail',['order'=>$order,'order_detail'=>$order_detail]);
+        return view('admin.order.order_detail',[
+                        'order_detail' => $order_detail,
+                        'shop_goods' => $shop_goods
+                    ]);
     }
 }

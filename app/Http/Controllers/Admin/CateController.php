@@ -15,7 +15,7 @@ class CateController extends Controller
     public static function getCates()
     {
 
-        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->paginate(10);
+        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->paginate(3);
         foreach($cate as $k=>$v) 
         {
             // 统计，号的次数
@@ -32,6 +32,8 @@ class CateController extends Controller
     public function getIndex()
     {
         return view('admin.layout.index');
+        //return view('admin.layout.index');
+        return view('admin.cates.index',['cate'=>$this->getCates()]);
     }
 
     /**
@@ -136,7 +138,7 @@ class CateController extends Controller
 
         if($cates -> save())
         {
-            return redirect('admin/cate/in')->with('success','修改成功');
+            return redirect('/admin/cate/in')->with('success','修改成功');
         }else{
             return back()->with('error','修改失败');
         }
@@ -154,7 +156,7 @@ class CateController extends Controller
         $data = Shop_cates::where('pid','=',$id)->first();
         if (empty($data)) {
             Shop_cates::destroy($id);
-            return back()->with('success','删除成功！  ');
+            return back()->with('success','删除成功!');
         } else {
             return back()->with('error','当前分类有子分类，不允许删除');
         }

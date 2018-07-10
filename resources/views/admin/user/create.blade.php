@@ -2,6 +2,16 @@
 
 
 @section('content')
+
+@if (count($errors) > 0 )
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
            <div class="box span12">
 					<div class="box-header" data-original-title="">
 						<h2><i class="halflings-icon white edit"></i><span class="break"></span>用户添加</h2>
@@ -18,15 +28,11 @@
 							<div class="control-group">
 							  <label class="control-label" for="typeahead">用户姓名</label>
 							  <div class="controls">
-								<input class="span6 typeahead" id="typeahead" data-provide="typeahead" data-items="4"  type="text" name="uname">
+								<input class="span6 typeahead" id="typeahead" data-provide="typeahead" data-items="4"  type="text" name="uname" placeholder="请输入用户名最小8位最大20位">
 							  </div><br>
 							  <label class="control-label" for="typeahead">用户密码</label>
 							  <div class="controls">
 								<input class="span6 typeahead" id="typeahead" data-provide="typeahead" data-items="4"  type="text" name="pass">
-							  </div><br>
-							   <label class="control-label" for="typeahead">确认密码</label>
-							  <div class="controls">
-								<input class="span6 typeahead" id="typeahead" data-provide="typeahead" data-items="4"  type="text" name="repass">
 							  </div><br>
 							  <label class="control-label" for="typeahead">用户邮箱</label>
 							  <div class="controls">

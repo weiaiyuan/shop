@@ -12,7 +12,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal" method="post" action="/admin/user/{{ $data->id }}" enctype="multipart/form-data">
+						<form class="form-horizontal" method="post" action="/admin/user/{{ $data ->id }}" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							{{ method_field('PUT') }}
 						  <fieldset>

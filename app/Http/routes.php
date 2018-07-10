@@ -65,7 +65,6 @@ Route::controller('/admin/order','Admin\OrderController');
 
 
 
-
 /*
 |----------------雒小刚 结束位置---------------------
 */
@@ -78,6 +77,8 @@ Route::controller('/admin/order','Admin\OrderController');
  //用户管理
  
 Route::resource('/admin/user','Admin\UserController');
+//用户软删除
+Route::controller('/user/show','Admin\SoftController');
 
 
 
@@ -193,7 +194,8 @@ Route::get('/admin/weihu','Admin\ShetController@weihu');
 |----------------蒋旺生 开始位置 (185行之后) -----------
 */
 Route::controller('/admin/cate','Admin\CateController');
-
+Route::resource('/admin/good','Admin\GoodsController');
+Route::controller('/admin/goodlook','Admin\ChaController');//查看内容
 
 
 

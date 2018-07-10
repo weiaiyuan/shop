@@ -14,12 +14,10 @@ class CateController extends Controller
 {
     public static function getCates()
     {
-
-<<<<<<< HEAD
         $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->paginate(3);
-=======
+
         $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->paginate(2);
->>>>>>> origin/wei
+
         foreach($cate as $k=>$v) 
         {
             // 统计，号的次数

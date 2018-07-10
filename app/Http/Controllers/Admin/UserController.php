@@ -10,6 +10,8 @@ use App\Http\Userdetail;
 use App\User;
 use App\Models\ShopUsers;
 use DB;
+use Hash;
+use App\Http\Requests\UserPostRequest;
 class UserController extends Controller
 {
     /**
@@ -21,14 +23,11 @@ class UserController extends Controller
     {
         //用户添加视图
         //搜索 //分页
-        $data = $request -> input('user');
+        $user = $request -> input('user');
+        
+         $data = ShopUsers::where('uname','like','%'.$user.'%')->paginate(5);
        
-        $user = DB::table('shop_users')
-        ->where('uname','like','%'.$data.'%')
-        ->orWhere('email','like','%'.$data.'%')
-         ->orWhere('phone','like','%'.$data.'%')
-        ->paginate(5)->appends($request->input());
-        return view('admin.user.list',['user'=>$user,'data'=>$data]);
+        return view('admin.user.list',['data'=>$data]);
     
     }
 
@@ -51,12 +50,25 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserPostRequest $request)
     {
-            $data = $request->except(['_token']); 
-             $user = new ShopUsers;
-                  $user->uname = $data['uname'] ;
-              $user->pass = $data['pass'];
+              $data = $request->except(['_token']); 
+              $user = new ShopUsers;
+              $user->uname = $data['uname'] ;
+             
+              //哈希加密
+              $user->pass = Hash::make($data['pass']); 
+              dump($user->pass);
+
+              if(Hash::check($data['repass'],$user->pass)==true)
+              {
+                   $user->repass=$data['repass'];
+              }else{
+                  echo '密码不一致';   
+              };
+              
+
+
               $user->repass = $data['repass'];
               $user->qx = $data['qx'];
               $user->sex=$data['sex'];
@@ -73,13 +85,20 @@ class UserController extends Controller
             $name =  $temp_name.'.'.$ext;
             $dirname = date('Ymd',time());
             $res = $profile -> move('./uploads/'.$dirname,$name);
+            $data['tou'] = $res;
+            $user->tou=$dirname.'/'.$name;
              }
 
-              $data['tou'] = $res;
-              $user->tou=$dirname.'/'.$name;
+             
+            
              // dump($user->tou);die;
-              $user->save();
-            return redirect('/admin/user');
+              
+              if($user->save()){
+                    return redirect('/admin/user')->with('success','添加成功');
+              }else{
+                   return back()->with('error','添加失败');
+              }
+          
 
     
 
@@ -106,7 +125,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $data = DB::table('shop_users')->where('id','=',$id)->first();
-              
+           
                
                
         return view('admin.user.edit',['data'=>$data]);
@@ -121,6 +140,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
               $data = $request -> except(['_token','_method']);
               $user = ShopUsers::find($id); 
               $user->uname = $data['uname'] ;
@@ -144,11 +164,16 @@ class UserController extends Controller
               $user->tou=$dirname.'/'.$name;
              }
 
+                   
+            if( $user->save()){
+                return redirect('/admin/user');
+            }
             
-            
-              $user->save();
-            return redirect('/admin/user');
-    }
+         
+        
+
+    }  
+    
 
     /**
      * Remove the specified resource from storage.
@@ -157,9 +182,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-
-          DB::table('shop_users')->where('id','=',$id)->delete();
+     {
+          $soft = ShopUsers::find($id);     
+        $soft -> delete();
+         
           return redirect('/admin/user');
     }
 }

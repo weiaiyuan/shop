@@ -64,11 +64,7 @@ Route::controller('/admin/order','Admin\OrderController');
 
 
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> origin/wei
 /*
 |----------------雒小刚 结束位置---------------------
 */
@@ -81,6 +77,8 @@ Route::controller('/admin/order','Admin\OrderController');
  //用户管理
  
 Route::resource('/admin/user','Admin\UserController');
+//用户软删除
+Route::controller('/user/show','Admin\SoftController');
 
 
 

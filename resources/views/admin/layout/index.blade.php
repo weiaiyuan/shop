@@ -53,10 +53,6 @@
 					<span class="icon-bar"></span>
 				</a>
 				<a class="brand" href="/admin"><span>后台管理</span></a>
-<<<<<<< HEAD
-=======
-								
->>>>>>> origin/wei
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
@@ -98,7 +94,11 @@
 							<ul>
 								<li><a class="submenu" href="/admin/user/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户添加</span></a></li>
 								<li><a class="submenu" href="/admin/user"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户列表</span></a></li>
+<<<<<<< HEAD
 								<li><a class="submenu" href="submenu3.html"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>
+=======
+								<li><a class="submenu" href="/user/show/show"><i class="icon-file-alt"></i><span class="hidden-tablet"> 回收站</span></a></li>
+>>>>>>> origin/zcz
 							</ul>	
 						</li>
 					

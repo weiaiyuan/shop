@@ -53,6 +53,10 @@
 					<span class="icon-bar"></span>
 				</a>
 				<a class="brand" href="/admin"><span>后台管理</span></a>
+<<<<<<< HEAD
+=======
+								
+>>>>>>> origin/wei
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
@@ -128,6 +132,30 @@
 							</ul>	
 						</li>
 						
+					<!--友情链接-->
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 友情链接</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/links/create"><i class="icon-file-alt"></i><span class="hidden-tablet">链接添加</span></a></li>
+								<li><a class="submenu" href="/admin/links"><i class="icon-file-alt"></i><span class="hidden-tablet"> 链接列表</span></a></li>
+								
+							</ul>	
+	
+						<!--网站配置-->
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 网站配置</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/shet/create"><i class="icon-file-alt"></i><span class="hidden-tablet">网站配置添加</span></a></li>
+
+								<li><a class="submenu" href="/admin/shet"><i class="icon-file-alt"></i><span class="hidden-tablet"> 网站配置表</span></a></li>
+	
+								<li><a class="submenu" href="/admin/shet/$id"><i class="icon-file-alt"></i><span class="hidden-tablet">网站配置回收站</span></a></li>
+
+								<li><a class="submenu" href="/admin/links"><i class="icon-file-alt"></i><span class="hidden-tablet"> 网站维护</span></a></li>
+								
+							</ul>	
+						</li>
+						</li>
 					</ul>
 				</div>
 			</div>

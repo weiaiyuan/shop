@@ -27,8 +27,11 @@
 			</thead>   
 			<tbody role="alert" aria-live="polite" aria-relevant="all">
 				<tr class="odd">
-					<td class="center"></td>
-					<td class="center"></td>
+					<td class="center">{{$order_detail->goods_info->gname}}</td>
+					<td class="center">
+						<img src="/images/goods/{{$order_detail->goods_info->gpic}}" style="width: 100px;height: 60px">
+					</td>
+					
 					<td class="center">{{ $order_detail->oprice }}</td>
 					<td class="center">{{ $order_detail->cnt }}</td>
 					<td class="center">{{ $order_detail->sum }}</td>

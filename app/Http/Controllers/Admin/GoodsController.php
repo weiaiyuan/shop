@@ -18,7 +18,6 @@ class GoodsController extends Controller
      */
     public function index()
     {
-
         $data = Shop_goods::paginate(2);
         return view('admin.goods.index',['data'=>$data]);
     }

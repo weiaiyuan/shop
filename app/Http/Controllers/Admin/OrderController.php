@@ -45,6 +45,7 @@ class OrderController extends Controller
         // dump($shop_goods);
         $order_detail = Order_detail::where('oid','=',$id)->find($id);
         // dump($order_detail);
+        // exit;
         return view('admin.order.order_detail',[
                         'order_detail' => $order_detail,
                         'shop_goods' => $shop_goods

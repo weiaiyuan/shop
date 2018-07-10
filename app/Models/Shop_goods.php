@@ -12,4 +12,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Shop_goods extends Model
 {
     use SoftDeletes;
+
+	public function goods_info()
+    {
+    	return $this->hasOne('App\Models\Order_detail','gid');
+    }    
 }

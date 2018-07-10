@@ -138,7 +138,7 @@
 	
 								<li><a class="submenu" href="/admin/shet/$id"><i class="icon-file-alt"></i><span class="hidden-tablet">网站配置回收站</span></a></li>
 
-								<li><a class="submenu" href="/admin/links"><i class="icon-file-alt"></i><span class="hidden-tablet"> 网站维护</span></a></li>
+								<li><a class="submenu" href="/admin/weihu"><i class="icon-file-alt"></i><span class="hidden-tablet"> 网站维护</span></a></li>
 								
 							</ul>	
 						</li>

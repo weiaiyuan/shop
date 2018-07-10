@@ -66,16 +66,9 @@ class ShetController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    
 
     /**
-     * Show the form for editing the specified resource.
+     * 加载修改页面
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -173,5 +166,17 @@ class ShetController extends Controller
        }else{
         return back()->with('error','删除失败');
        }
+    }
+
+    /**
+     * 维护开关
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function weihu()
+    {   
+
+        return view('admin.shet.weihu');
     }
 }

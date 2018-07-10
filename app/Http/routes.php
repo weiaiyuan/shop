@@ -137,6 +137,7 @@ Route::resource('/admin/links','Admin\LinkController');
 Route::resource('/admin/shet','Admin\ShetController');
 Route::get('/admin/restores/{id}','Admin\ShetController@restores');
 Route::get('/admin/del/{id}','Admin\ShetController@del');
+Route::get('/admin/weihu','Admin\ShetController@weihu');
 
 
 

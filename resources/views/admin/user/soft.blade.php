@@ -2,8 +2,8 @@
 
 
 @section('content')
-      
-				   <div class="box span12">
+
+ <div class="box span12">
 					<div class="box-header" data-original-title="">
 						<h2><i class="halflings-icon white edit"></i><span class="break"></span>用户列表</h2>
 						<div class="box-icon">
@@ -55,7 +55,7 @@
 							  </tr>
 								  
 					  <tbody role="alert" aria-live="polite" aria-relevant="all">
-					 		@foreach ($data as $k=>$v)	 
+					 		@foreach ($del_data as $k=>$v)	 
 					
                   
 
@@ -85,18 +85,9 @@
 									<img src="/uploads/{{$v->tou}}" width="50" height="50">
 								</td>
 								<td class="center ">
-									<a class="btn btn-info" href="/admin/user/{{$v->id}}/edit">
-										<i class="halflings-icon white edit"></i>  
-									</a>
-									<a class="btn btn-success" href="/admin/user/create">
-										<i class="halflings-icon white zoom-in"></i>  
-									</a>
+									<a href="/user/show/reset/{{$v->id}}" class="btn btn-warning">恢复</a>
 									
-									<form action="/admin/user/{{$v->id}}" method="post" style="display: inline;">
-										{{ csrf_field() }}
-										{{ method_field('DELETE') }}
-									<input type="submit" class="btn btn-danger" value="删除">
-									</form>	
+								   <a href="/user/show/del/{{$v->id}}" class="btn btn-danger" onclick="return confirm('确认删除吗?')">永久删除</a>
 									
 								</td>
 							</tr>
@@ -109,9 +100,8 @@
 				</div>
 					
 						<div class="dataTables_paginate paging_bootstrap pagination" center="center">
-								 
-								{!! $data->render() !!}
-									
+								
+									{!! $del_data->render() !!}
 					    
 					</div>
 					
@@ -122,13 +112,5 @@
 						
 						
 						
-					
-					 
 
 @endsection
-									
-									  
-							
-									
-							
-						

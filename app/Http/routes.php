@@ -80,6 +80,8 @@ Route::get('admin/', function () {
  //用户管理
  
 Route::resource('/admin/user','Admin\UserController');
+//用户软删除
+Route::controller('/user/show','Admin\SoftController');
 
 
 

@@ -95,7 +95,7 @@
 							<ul>
 								<li><a class="submenu" href="/admin/user/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户添加</span></a></li>
 								<li><a class="submenu" href="/admin/user"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户列表</span></a></li>
-								<li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> 回收站</span></a></li>
+								<li><a class="submenu" href="/user/show/show"><i class="icon-file-alt"></i><span class="hidden-tablet"> 回收站</span></a></li>
 							</ul>	
 						</li>
 					

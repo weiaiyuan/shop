@@ -94,12 +94,10 @@
 							<ul>
 								<li><a class="submenu" href="/admin/user/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户添加</span></a></li>
 								<li><a class="submenu" href="/admin/user"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户列表</span></a></li>
-<<<<<<< HEAD
 								<li><a class="submenu" href="submenu3.html"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>
-=======
 								<li><a class="submenu" href="/user/show/show"><i class="icon-file-alt"></i><span class="hidden-tablet"> 回收站</span></a></li>
->>>>>>> origin/zcz
-							</ul>	
+
+						</ul>	
 						</li>
 					
 
@@ -134,28 +132,42 @@
 						
 					<!--友情链接-->
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 友情链接</span></a>
+							<a class="dropmenu" href="#"><i class="icon-link"></i><span class="hidden-tablet"> 友情链接</span></a>
 							<ul>
-								<li><a class="submenu" href="/admin/links/create"><i class="icon-file-alt"></i><span class="hidden-tablet">链接添加</span></a></li>
-								<li><a class="submenu" href="/admin/links"><i class="icon-file-alt"></i><span class="hidden-tablet"> 链接列表</span></a></li>
+								<li><a class="submenu" href="/admin/links/create"><i class="icon-plus"></i><span class="hidden-tablet">链接添加</span></a></li>
+								<li><a class="submenu" href="/admin/links"><i class="icon-list"></i><span class="hidden-tablet"> 链接列表</span></a></li>
 								
 							</ul>	
+						</li>
+
+						<!--广告管理-->
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-dashboard"></i><span class="hidden-tablet"> 广告管理</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/ad/create"><i class="icon-plus"></i><span class="hidden-tablet">广告添加</span></a></li>
+
+								<li><a class="submenu" href="/admin/ad"><i class="icon-list"></i><span class="hidden-tablet"> 广告列表</span></a></li>
 	
+								<li><a class="submenu" href="/admin/ad/$id"><i class="icon-trash"></i><span class="hidden-tablet">广告回收站</span></a></li>
+							</ul>			
+						</li>
+
 						<!--网站配置-->
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 网站配置</span></a>
+							<a class="dropmenu" href="#"><i class="icon-cog"></i><span class="hidden-tablet"> 网站配置</span></a>
 							<ul>
-								<li><a class="submenu" href="/admin/shet/create"><i class="icon-file-alt"></i><span class="hidden-tablet">网站配置添加</span></a></li>
+								<li><a class="submenu" href="/admin/shet/create"><i class="icon-cogs"></i><span class="hidden-tablet">网站配置添加</span></a></li>
 
-								<li><a class="submenu" href="/admin/shet"><i class="icon-file-alt"></i><span class="hidden-tablet"> 网站配置表</span></a></li>
+								<li><a class="submenu" href="/admin/shet"><i class="icon-table"></i><span class="hidden-tablet"> 网站配置表</span></a></li>
 	
-								<li><a class="submenu" href="/admin/shet/$id"><i class="icon-file-alt"></i><span class="hidden-tablet">网站配置回收站</span></a></li>
+								<li><a class="submenu" href="/admin/shet/$id"><i class="icon-trash"></i><span class="hidden-tablet">网站配置回收站</span></a></li>
 
-								<li><a class="submenu" href="/admin/weihu"><i class="icon-file-alt"></i><span class="hidden-tablet"> 网站维护</span></a></li>
+								<li><a class="submenu" href="/admin/weihu"><i class="icon-magnet"></i><span class="hidden-tablet"> 网站维护</span></a></li>
 								
-							</ul>	
+							</ul>			
 						</li>
-						</li>
+
+
 					</ul>
 				</div>
 			</div>

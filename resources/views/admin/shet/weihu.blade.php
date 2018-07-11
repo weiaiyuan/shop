@@ -17,7 +17,7 @@
 	<div class="box-header" data-original-title="">
 		<h2><i class="halflings-icon white user"></i><span class="break"></span>网站状态</h2>
 		<div class="box-icon">
-			<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+			
 			<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
 			<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
 		</div>
@@ -29,7 +29,7 @@
 				  	<tr>
 						<td class="sorting_1">
 							<form action="/admin/weihu">
-								<h1 class="text-center">
+								<h1 class="text-center">确认状态：
 								<button class="btn btn-success" value="1">开启</button>
 								<button class="btn btn-danger" value="0">关闭</button>
 								</h1>

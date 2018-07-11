@@ -139,7 +139,10 @@ Route::resource('/admin/shet','Admin\ShetController');
 Route::get('/admin/restores/{id}','Admin\ShetController@restores');
 Route::get('/admin/del/{id}','Admin\ShetController@del');
 Route::get('/admin/weihu','Admin\ShetController@weihu');
-
+//广告管理路由
+Route::resource('/admin/ad','Admin\AdController');
+Route::get('/admin/restores/{id}','Admin\AdController@restores');
+Route::get('/admin/del/{id}','Admin\AdController@del');
 
 
 

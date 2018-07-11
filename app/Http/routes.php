@@ -19,14 +19,10 @@ Route::get('/', function () {
 |----------------  雒小刚 开始位置 (20~70行) ---------------------
 */
 
-Route::get('admin/', function () {
+Route::get('/admin', function () {
     return view('admin.index.index');
 });
-
-
-
-
-
+Route::controller('/admin/order','Admin\OrderController');
 
 
 
@@ -82,6 +78,10 @@ Route::get('admin/', function () {
 Route::resource('/admin/user','Admin\UserController');
 //用户软删除
 Route::controller('/user/show','Admin\SoftController');
+//后台登录
+Route::controller('/admin/login','Admin\LoginController');
+//轮播管理
+Route::controller('/admin/sowing','Admin\SowingController');
 
 
 
@@ -135,7 +135,12 @@ Route::controller('/user/show','Admin\SoftController');
 /*
 |---------------葛景伟 开始位置 (130~185行) -----------
 */
-
+//友情链接路由
+Route::resource('/admin/links','Admin\LinkController');
+//网站配置路由
+Route::resource('/admin/shet','Admin\ShetController');
+Route::get('/admin/restores/{id}','Admin\ShetController@restores');
+Route::get('/admin/del/{id}','Admin\ShetController@del');
 
 
 
@@ -191,7 +196,8 @@ Route::controller('/user/show','Admin\SoftController');
 |----------------蒋旺生 开始位置 (185行之后) -----------
 */
 Route::controller('/admin/cate','Admin\CateController');
-
+Route::resource('/admin/good','Admin\GoodsController');
+Route::controller('/admin/goodlook','Admin\ChaController');//查看内容
 
 
 

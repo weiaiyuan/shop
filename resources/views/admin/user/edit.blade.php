@@ -2,7 +2,7 @@
 
 
 @section('content')
-           <div class="box span12">
+          <div class="box span12">
 					<div class="box-header" data-original-title="">
 						<h2><i class="halflings-icon white edit"></i><span class="break"></span>用户修改</h2>
 						<div class="box-icon">
@@ -12,6 +12,8 @@
 						</div>
 					</div>
 					<div class="box-content">
+
+
 						<form class="form-horizontal" method="post" action="/admin/user/{{ $data ->id }}" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							{{ method_field('PUT') }}
@@ -20,14 +22,6 @@
 							  <label class="control-label" for="typeahead">用户姓名</label>
 							  <div class="controls">
 								<input class="span6 typeahead" id="typeahead" data-provide="typeahead" data-items="4"  type="text" name="uname" value="{{$data->uname}}">
-							  </div><br>
-							  <label class="control-label" for="typeahead">用户密码</label>
-							  <div class="controls">
-								<input class="span6 typeahead" id="typeahead" data-provide="typeahead" data-items="4"  type="text" name="pass" value="{{$data->pass}}">
-							  </div><br>
-							   <label class="control-label" for="typeahead">确认密码</label>
-							  <div class="controls">
-								<input class="span6 typeahead" id="typeahead" data-provide="typeahead" data-items="4"  type="text" name="repass" value="{{$data->repass}}">
 							  </div><br>
 							  <label class="control-label" for="typeahead">用户邮箱</label>
 							  <div class="controls">
@@ -91,5 +85,6 @@
 
 					</div>
 				</div>
+			
 
 @endsection

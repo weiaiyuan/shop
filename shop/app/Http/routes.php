@@ -187,6 +187,7 @@ Route::resource('/admin/user','Admin\UserController');
 Route::controller('/admin/cate','Admin\CateController'); 
 Route::resource('/admin/good','Admin\GoodsController');
 Route::controller('/admin/goodlook','Admin\ChaController');//查看内容
+Route::resource('/home/cate','Home\HomeCateController');
 
 
 

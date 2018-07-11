@@ -35,7 +35,7 @@
 				@foreach($data as $k=>$v)
 					<tr>
 						<td>{{ $v->id }}</td>
-						<td><img src="/images/{{ $v->pic }}" style="width:70px;" ></td>
+						<td><img src="/images/{{ $v->pic }}" width="50"  height="50"></td>
 						<td> {{ $v->pic }}</td>
 						<td>
 							<a href="/admin/sowing/edit/{{ $v->id }}" class="btn btn-warning">修改</a>

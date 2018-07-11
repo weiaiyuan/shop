@@ -132,6 +132,8 @@ Route::controller('/user/show','Admin\SoftController');
 /*
 |---------------葛景伟 开始位置 (130~185行) -----------
 */
+//后台路由
+
 //友情链接路由
 Route::resource('/admin/links','Admin\LinkController');
 //网站配置路由
@@ -144,7 +146,9 @@ Route::resource('/admin/ad','Admin\AdController');
 Route::get('/admin/restores/{id}','Admin\AdController@restores');
 Route::get('/admin/del/{id}','Admin\AdController@del');
 
+//前台用户
 
+Route::get('/home/index','Home\ShetController@homes');
 
 
 

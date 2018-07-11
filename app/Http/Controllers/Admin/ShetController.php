@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Shop_shet;
-
+use App\Http\Requests\ShetRequest;
 class ShetController extends Controller
 {
     /**
@@ -40,30 +40,7 @@ class ShetController extends Controller
      */
     public function store(Request $request)
     {
-        $shet = new Shop_shet;
-        $shet -> title = $request -> input('title');
-        //dump($request -> hasFile('logo'));die;
-        if($request -> hasFile('logo')){
-            $shet -> logo = $request -> file('logo');
 
-            //var_dump($carousel -> img);die;
-            $ext = $shet -> logo ->getClientOriginalExtension();
-            //var_dump($ext);die;
-            // 处理文件名称
-            $temp_name = str_random(20);
-
-            $name =  $temp_name.'.'.$ext;
-            //$dirname = date('Ymd',time());
-            $shet -> logo -> move('./images/',$name);
-            //dump($res);
-            $shet -> logo = $name;
-        }
-          //验证添加
-        if ($shet -> save()) {
-            return redirect('/admin/shet')->with('success','添加成功');
-        } else {
-            return back() -> with('error','添加失败');
-        }
     }
 
 

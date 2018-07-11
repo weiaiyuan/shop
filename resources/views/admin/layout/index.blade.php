@@ -156,8 +156,6 @@
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-cog"></i><span class="hidden-tablet"> 网站配置</span></a>
 							<ul>
-								<li><a class="submenu" href="/admin/shet/create"><i class="icon-cogs"></i><span class="hidden-tablet">网站配置添加</span></a></li>
-
 								<li><a class="submenu" href="/admin/shet"><i class="icon-table"></i><span class="hidden-tablet"> 网站配置表</span></a></li>
 	
 								<li><a class="submenu" href="/admin/shet/$id"><i class="icon-trash"></i><span class="hidden-tablet">网站配置回收站</span></a></li>

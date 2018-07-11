@@ -13,8 +13,7 @@
 						<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid"><div class="row-fluid">
 						<div class="span6"><div id="DataTables_Table_0_length" class="dataTables_length"></div>
 						<div class="span6"><div class="dataTables_filter" id="DataTables_Table_0_filter">
-						<label><form action="/admin/cate/show" method="post">
-						{{ csrf_field() }}
+						<label><form>
 						搜索: <input type="text" aria-controls="DataTables_Table_0" name="cname">
 						<input type="submit" name="" class="btn btn-info">
 						</form></label>
@@ -53,7 +52,7 @@
 						@endforeach
 						</table>
 					
-					<div class="dataTables_paginate paging_bootstrap pagination"><ul>{!! $cate->render() !!}</ul></div>
+					<div class="pagination pagination-centered"><ul>{!! $cate->render() !!}</ul></div>
 				</div>
 				</div>
 				</div>

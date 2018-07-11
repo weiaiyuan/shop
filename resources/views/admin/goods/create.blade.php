@@ -9,7 +9,7 @@
             @endforeach
         </ul>
     </div>
-@endif
+@endif 
 <!-- 配置文件 -->
     <script type="text/javascript" src="/utf8-php/ueditor.config.js"></script>
     <!-- 编辑器源码文件 -->
@@ -45,6 +45,17 @@
 							  <div class="controls">
 								<input type="text" class="input-xlarge datepicker hasDatepicker" id="date01" value="{{ old('title')}}" name="title">
 							  </div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="selectError3">所属分类</label>
+								<div class="controls">
+								  <select id="selectError3" name="cid">
+									<option value="">--请选择--</option>
+									@foreach ($data as $k=>$v)
+									<option value="{{ $v->id }}">{{ $v->cname}}</option>
+									@endforeach
+								  </select>
+								</div>
 							</div>
 						  <div class="control-group">
 							  <label class="control-label" for="date01">图片提交</label>

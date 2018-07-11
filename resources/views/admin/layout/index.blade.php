@@ -119,7 +119,7 @@
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">分类管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/cate/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加分类</span></a></li>
-								<li><a class="submenu" href="/admin/cate/in"><i class="icon-file-alt"></i><span class="hidden-tablet">分类列表</span></a></li>
+								<li><a class="submenu" href="/admin/cate"><i class="icon-file-alt"></i><span class="hidden-tablet">分类列表</span></a></li>
 							</ul>	
 						</li>
 						
@@ -245,7 +245,7 @@
 	<footer>
 
 		<p>
-			<span style="text-align:left;float:left">&copy; 2018 <a href="downloads/janux-free-responsive-admin-dashboard-template/" alt="Bootstrap_Metro_Dashboard">JANUX Responsive Dashboard</a></span>
+			<span style="text-align:left;float:left">&copy; 2018 <a href="downloads/janux-free-responsive-admin-dashboard-template/" alt="Bootstrap_Metro_Dashboard">Future star</a></span>
 			
 		</p>
 

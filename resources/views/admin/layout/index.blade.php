@@ -159,9 +159,15 @@
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 轮播图管理</span></a>
 							<ul>
+<<<<<<< HEAD
 								<li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet"> 轮播图添加</span></a></li>
 
 								<li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet"> 轮播图列表</span></a></li>	
+=======
+								<li><a class="submenu" href="/admin/sowing/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 轮播图添加</span></a></li>
+
+								<li><a class="submenu" href="/admin/sowing/index"><i class="icon-file-alt"></i><span class="hidden-tablet"> 轮播图列表</span></a></li>	
+>>>>>>> origin/zcz
 							</ul>	
 						</li>
 						</li>

@@ -58,18 +58,6 @@ class UserController extends Controller
              
               //哈希加密
               $user->pass = Hash::make($data['pass']); 
-              dump($user->pass);
-
-              if(Hash::check($data['repass'],$user->pass)==true)
-              {
-                   $user->repass=$data['repass'];
-              }else{
-                  echo '密码不一致';   
-              };
-              
-
-
-              $user->repass = $data['repass'];
               $user->qx = $data['qx'];
               $user->sex=$data['sex'];
               $user->email=$data['email'];
@@ -91,7 +79,7 @@ class UserController extends Controller
 
              
             
-             // dump($user->tou);die;
+             
               
               if($user->save()){
                     return redirect('/admin/user')->with('success','添加成功');

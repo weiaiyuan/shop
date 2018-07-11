@@ -33,6 +33,12 @@ class CateController extends Controller
     {
         $a = $request->input('cname');//dump($a);
         $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->where('cname','like','%'.$a.'%')->paginate(1)->appends($request->input());
+
+
+        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->paginate(3);
+
+        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->paginate(2);
+
         foreach($cate as $k=>$v) 
         {
             // 统计，号的次数

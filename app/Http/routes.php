@@ -62,9 +62,6 @@ Route::controller('/admin/order','Admin\OrderController');
 
 
 
-
-
-
 /*
 |----------------雒小刚 结束位置---------------------
 */
@@ -79,6 +76,10 @@ Route::controller('/admin/order','Admin\OrderController');
 Route::resource('/admin/user','Admin\UserController');
 //用户软删除
 Route::controller('/user/show','Admin\SoftController');
+//后台登录
+Route::controller('/admin/login','Admin\LoginController');
+//轮播管理
+Route::controller('/admin/sowing','Admin\SowingController');
 
 
 

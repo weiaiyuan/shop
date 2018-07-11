@@ -3,7 +3,7 @@
 
 @section('content')
 
- <div class="box span12">
+ 				<div class="box span12">
 					<div class="box-header" data-original-title="">
 						<h2><i class="halflings-icon white edit"></i><span class="break"></span>用户列表</h2>
 						<div class="box-icon">
@@ -17,9 +17,6 @@
 							<div class="row-fluid">
 								<div class="span6">
 									<div id="DataTables_Table_0_length" class="dataTables_length">
-									
-											
-										
 										<form  action="" method="get">
 											<div class="span6">
 											<div class="dataTables_filter" id="DataTables_Table_0_filter">
@@ -27,7 +24,7 @@
 													搜素: <input aria-controls="DataTables_Table_0" type="text" name="user" placeholder="用户名">
 												</label>
 											</div>
-										</div>
+										    </div>
 										  <button type="submit" class="btn btn-success">搜索</button>
 										</form>
 									</div>
@@ -99,7 +96,7 @@
 					</table> 
 				</div>
 					
-						<div class="dataTables_paginate paging_bootstrap pagination" center="center">
+						<div class="pagination pagination-centered">
 								
 									{!! $del_data->render() !!}
 					    
@@ -109,8 +106,10 @@
 				</div>	
 				</div>		
 							
-						
-						
-						
+		
+	    
+	
+	    			
+	 					
 
 @endsection

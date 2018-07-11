@@ -145,6 +145,8 @@ Route::get('/admin/weihu','Admin\ShetController@weihu');
 Route::resource('/admin/ad','Admin\AdController');
 Route::get('/admin/restores/{id}','Admin\AdController@restores');
 Route::get('/admin/del/{id}','Admin\AdController@del');
+//评论管理路由
+Route::resource('/admin/commend','Admin\CommentController');
 
 //前台用户
 

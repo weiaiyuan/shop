@@ -129,7 +129,15 @@
 								<li><a class="submenu" href="/admin/goodlook/create"><i class="icon-file-alt"></i>回收站</a></li>
 							</ul>	
 						</li>
-						
+
+						<!--评价管理-->
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-link"></i><span class="hidden-tablet"> 评价管理</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/links/create"><i class="icon-plus"></i><span class="hidden-tablet">评价操作</span></a></li>
+							</ul>	
+						</li>
+
 					<!--友情链接-->
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-link"></i><span class="hidden-tablet"> 友情链接</span></a>

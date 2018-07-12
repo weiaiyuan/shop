@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'suaigezhangchunze@163.com', 'name' => '【美女都爱张纯泽】'],
 
     /*
     |--------------------------------------------------------------------------

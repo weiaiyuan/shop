@@ -11,6 +11,7 @@ use App\Models\Order_detail;
 use App\Models\Shopusers;
 use App\Models\Shop_goods;
 use App\Models\Shop_orders;
+use App\Http\Requests\OrdereditRequest;
 use DB;
 class OrderController extends Controller
 {
@@ -28,10 +29,13 @@ class OrderController extends Controller
                 ->orWhere('uid','like','%'.$search.'%')
                 ->orWhere('status','like','%'.$search.'%')
                 ->orWhere('rec','like','%'.$search.'%')
-                ->orWhere('tel','like','%'.$search.'%')
+                ->orWhere('phone','like','%'.$search.'%')
                 ->orWhere('addr','like','%'.$search.'%')
                 -> paginate(3)->appends($request->input());
-        return view('admin.order.index',['orders'=>$orders]);
+        // dump($orders);
+        $shop_users = Shopusers::get();
+        // dump($shop_users);
+        return view('admin.order.index',['orders'=>$orders,'shop_users'=>$shop_users]);
     }
 
     /**
@@ -41,13 +45,43 @@ class OrderController extends Controller
      */
     public function getDetail($id)
     {
-        $shop_goods = Shop_goods::get();            //获取所有的商品
+       
         // dump($shop_goods);
-        $order_detail = Order_detail::where('oid','=',$id)->find($id);
+        $order_detail = Shop_orders::find($id);
         // dump($order_detail);
+        // exit;
         return view('admin.order.order_detail',[
                         'order_detail' => $order_detail,
-                        'shop_goods' => $shop_goods
                     ]);
+    }
+
+    /**
+     *  订单编辑页面 收货地址 收货人 联系电话的修改
+     * 
+     */
+    public function getEdit($id)
+    {
+        $order_edit = Shop_orders::find($id);
+        // dump($order_edit);
+        return view('admin.order.order_edit',['order_edit'=>$order_edit]);
+    }
+
+    /**
+     * 更新修改
+     */
+    public function postUpdate(OrdereditRequest $request,$id)
+    {
+        $data = $request -> except('_token');
+        // dump($data);
+        $order = Shop_orders::find($id);
+        $order ->rec = $request -> input('rec'); 
+        $order ->phone = $request -> input('phone'); 
+        $order ->addr = $request -> input('addr'); 
+
+        if ($order -> save()) {
+            return redirect('/admin/order/detail/'.$id)->with('success','修改成功！');
+        }else{
+            return back()->with('error','修改失败！');
+        }
     }
 }

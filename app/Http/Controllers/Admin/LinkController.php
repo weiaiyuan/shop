@@ -119,10 +119,10 @@ class LinkController extends Controller
 
             $name =  $temp_name.'.'.$ext;
             //$dirname = date('Ymd',time());
-            $data -> limg -> move('./Admin/link/img/',$name);
+            $data -> limg -> move('./images/',$name);
             //dump($res);
             $data -> limg = $name;
-            dump($data);
+            //dump($data);
         }
 
           if($data -> save())

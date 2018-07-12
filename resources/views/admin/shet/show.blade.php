@@ -15,9 +15,9 @@
 
 <div class="box span12">
 	<div class="box-header" data-original-title="">
-		<h2><i class="halflings-icon white user"></i><span class="break"></span>分类列表</h2>
+		<h2><i class="halflings-icon white user"></i><span class="break"></span>配置回收站</h2>
 		<div class="box-icon">
-			<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+			
 			<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
 			<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
 		</div>

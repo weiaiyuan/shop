@@ -4,7 +4,6 @@
 	<div class="box-header" data-original-title="">
 		<h2><i class="halflings-icon white align-justify"></i><span class="break"></span>订单列表页</h2>
 		<div class="box-icon">
-			<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 			<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
 			<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
 		</div>
@@ -18,12 +17,9 @@
 		  <thead>
 			  <tr role="row">
 			  	<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="用户名: activate to sort column descending" style="width:40px;">订单编号</th>
-			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Date registered: activate to sort column ascending" style="width: 70px;">订单时间</th>
-			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 50px;">下单人</th>
-			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 50px;">收货人</th>
-			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 150px;">收货地址</th>
-			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 90px;">联系电话</th>
-			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 20px;">状态</th>
+			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Date registered: activate to sort column ascending" style="width: 160px;">订单时间</th>
+			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 60px;">下单人</th>
+			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 60px;">状态</th>
 			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width:50px;">操作</th></tr>
 		  </thead>   
 			  
@@ -32,10 +28,12 @@
 		  		<tr class="odd">
 					<td class="  sorting_1">{{ $v ->id }}</td>
 					<td class="center ">{{ $v->created_at }}</td>
-					<td class="center ">{{ $v-> uid}}</td>
-					<td class="center ">{{ $v-> rec}}</td>
-					<td class="center ">{{ $v-> addr}}</td>
-					<td class="center ">{{ $v-> tel}}</td>
+					<!-- 用户表中id 等于订单表中的uid时输出用户名 -->
+		  		@foreach($shop_users as $kel => $val)
+					@if( $v->uid == $val->id)
+					<td>{{ $val->uname }}</td>
+					@endif
+				@endforeach
 					<td class="center ">
 						<span class="label label-success">{{{ $v ->status }}}</span>
 					</td>

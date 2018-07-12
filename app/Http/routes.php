@@ -81,6 +81,10 @@ Route::controller('/admin/login','Admin\LoginController');
 Route::controller('/admin/sowing','Admin\SowingController');
 //前台注册
 Route::controller('/home/zhuce','Home\ZhuceController');
+//前台登录
+Route::controller('/home/login','Home\LoginController');
+//前台手机注册
+Route::post('/home/zhuze/homeindex','Home\ZhuceController@postHomeindex');
 
 
 

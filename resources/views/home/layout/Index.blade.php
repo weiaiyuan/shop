@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
 
-	<head> 
+	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -26,8 +26,8 @@
 				<ul class="message-l">
 					<div class="topMessage">
 						<div class="menu-hd">
-							<a href="#" target="_top" class="h">亲，请登录</a>
-							<a href="#" target="_top">免费注册</a>
+							<a href="/home/login/index" target="_top" class="h">亲，请登录</a>
+							<a href="/home/zhuce/index" target="_top">免费注册</a>
 						</div>
 					</div>
 				</ul>
@@ -51,7 +51,7 @@
 				<div class="nav white">
 					<div class="logo"><img src="/static/home/images/logo.png" /></div>
 					<div class="logoBig">
-						<li><img src="/static/home/images/logobig.png" /></li>
+						<li><img src="/images/{{ $logos -> logo}}" /></li>
 					</div>
 
 					<div class="search-bar pr">
@@ -76,11 +76,11 @@
 
 							</ul>
 						</div>
-						<div class="clear"></div>	
+						<div class="clear"></div>
 			</div>
 			<div class="shopNav">
 				<div class="slideall">
-					
+
 					   <div class="long-title"><span class="all-goods">全部分类</span></div>
 					   <div class="nav-cont">
 							<ul>
@@ -94,7 +94,7 @@
 						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
 						    	<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
 						    </div>
-						</div>					
+						</div>
 <!--蒋旺生做的前台分类-->
 			<div id="nav" class="navfull">
 				<div class="area clearfix">
@@ -125,7 +125,7 @@
 							</dt>
 							<dd>
 							@foreach($cates as $ka=>$va)
-							@if($v->id == $va->pid)
+								@if($v->id == $va->pid)
 							@foreach($catess as $kaa=>$vaa)
 							@if($va->id == $vaa->pid)
 							<a title="{{ $vaa->cname}}" href="#"><span>
@@ -142,17 +142,17 @@
 							</div>
 							</div>
 							</div>
-							<b class="arrow"></b>	
+							<b class="arrow"></b>
 							</li>
 							@endforeach
 						</ul>
-				</div>					
 				</div>
 				</div>
-			</div>					
+				</div>
+			</div>
 <!--蒋旺生的前台分类结束-->
 				<!--轮播-->
-						
+
 						<script type="text/javascript">
 							$(function() {
 								$('.am-slider').flexslider();
@@ -203,14 +203,14 @@
 							<ul>
 								<li class="title-first"><a target="_blank" href="#">
 									<img src="/static/home/images/TJ2.jpg"></img>
-									<span>[特惠]</span>商城爆品1分秒								
+									<span>[特惠]</span>商城爆品1分秒
 								</a></li>
 								<li class="title-first"><a target="_blank" href="#">
 									<span>[公告]</span>商城与广州市签署战略合作协议
 								     <img src="/static/home/images/TJ.jpg"></img>
 								     <p>XXXXXXXXXXXXXXXXXX</p>
 							    </a></li>
-							    
+
 						<div class="mod-vip">
 							<div class="m-baseinfo">
 								<a href="person/index.html">
@@ -218,12 +218,12 @@
 								</a>
 								<em>
 									Hi,<span class="s-name">小叮当</span>
-									<a href="#"><p>点击更多优惠活动</p></a>									
+									<a href="#"><p>点击更多优惠活动</p></a>
 								</em>
 							</div>
 							<div class="member-logout">
-								<a class="am-btn-warning btn" href="login.html">登录</a>
-								<a class="am-btn-warning btn" href="register.html">注册</a>
+								<a class="am-btn-warning btn" href="/home/login/index">登录</a>
+								<a class="am-btn-warning btn" href="/home/zhuce/index">注册</a>
 							</div>
 							<div class="member-login">
 								<a href="#"><strong>0</strong>待收货</a>
@@ -231,13 +231,13 @@
 								<a href="#"><strong>0</strong>待付款</a>
 								<a href="#"><strong>0</strong>待评价</a>
 							</div>
-							<div class="clear"></div>	
-						</div>																	    
-							    
+							<div class="clear"></div>
+						</div>
+
 								<li><a target="_blank" href="#"><span>[特惠]</span>洋河年末大促，低至两件五折</a></li>
 								<li><a target="_blank" href="#"><span>[公告]</span>华北、华中部分地区配送延迟</a></li>
 								<li><a target="_blank" href="#"><span>[特惠]</span>家电狂欢千亿礼券 买1送1！</a></li>
-								
+
 							</ul>
                         <div class="advTip"><img src="/static/home/images/advTip.jpg"/></div>
 						</div>
@@ -279,7 +279,7 @@
 							<div class="recommendationMain one">
 								<a href="introduction.html"><img src="/static/home/images/tj.png "></img></a>
 							</div>
-						</div>						
+						</div>
 						<div class="am-u-sm-4 am-u-lg-3 ">
 							<div class="info ">
 								<h3>囤货过冬</h3>
@@ -313,14 +313,14 @@
 					 <div class="am-g am-g-fixed ">
 		@foreach ($activity as $ks=>$vs)
 						<div class="am-u-sm-3">
-							<div class="icon-sale outer-con " ></div>	
-								<h4 style="color:cyan;size:7px">{{ $vs->title }}</h4>							
+							<div class="icon-sale outer-con " ></div>
+								<h4 style="color:cyan;size:7px">{{ $vs->title }}</h4>
 							<div class="activityMain" title="{{ $vs->title }}">
 								<img src="/images/activity/{{ $vs->price}}" style="width:281;height: 300;"></img>
 							</div>
 							<div class="info ">
 								<a><h3 style="color:orange">{{ $vs->content}}</h3></a>
-							</div>														
+							</div>
 						</div>
 		@endforeach
 					 </div>
@@ -331,7 +331,7 @@
 
                     <div id="f1">
 					<!--甜点-->
-					
+
 					<div class="am-container ">
 						<div class="shopTitle ">
 							<h4>甜品</h4>
@@ -349,16 +349,16 @@
                         </span>
 						</div>
 					</div>
-					
+
 					<div class="am-g am-g-fixed floodFour">
 						<div class="am-u-sm-5 am-u-md-4 text-one list ">
 							<div class="word">
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>	
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>									
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 							</div>
 							<a href="# ">
 								<div class="outer-con ">
@@ -367,18 +367,18 @@
 									</div>
 									<div class="sub-title ">
 										零食大礼包
-									</div>									
+									</div>
 								</div>
-                                  <img src="/static/home/images/act1.png " />								
+                                  <img src="/static/home/images/act1.png " />
 							</a>
-							<div class="triangle-topright"></div>						
+							<div class="triangle-topright"></div>
 						</div>
-						
+
 							<div class="am-u-sm-7 am-u-md-4 text-two sug">
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>									
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -454,10 +454,10 @@
 						</div>
 
 					</div>
-                 <div class="clear "></div>  
+                 <div class="clear "></div>
                  </div>
-                 
-  
+
+
                     <div id="f2">
 					<!--坚果-->
 					<div class="am-container ">
@@ -482,20 +482,20 @@
 							<div class="word">
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>	
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>									
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 							</div>
 							<a href="# ">
 								<img src="/static/home/images/act1.png " />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>									
+									</div>
 								</div>
 							</a>
-							<div class="triangle-topright"></div>	
+							<div class="triangle-topright"></div>
 						</div>
 						<div class="am-u-sm-4 text-four">
 							<a href="# ">
@@ -503,7 +503,7 @@
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>								
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -525,35 +525,35 @@
 								</div>
 							</a>
 						</div>
-						
+
 						<div class="am-u-sm-6 am-u-md-3 text-five big ">
 							<a href="# ">
 								<img src="/static/home/images/10.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>		
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
-						</div>						
+						</div>
 						<div class="am-u-sm-6 am-u-md-3 text-five ">
 							<a href="# ">
 								<img src="/static/home/images/8.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>	
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
-						</div>						
+						</div>
 						<div class="am-u-sm-6 am-u-md-3 text-five sug">
 							<a href="# ">
 								<img src="/static/home/images/9.jpg" />
@@ -574,7 +574,7 @@
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>			
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -582,16 +582,16 @@
 								</div>
 							</a>
 						</div>
-						
+
 					</div>
 
 					<div class="clear "></div>
 					</div>
 
-        
+
                     <div id="f3">
 					<!--甜点-->
-					
+
 					<div class="am-container ">
 						<div class="shopTitle ">
 							<h4>甜品</h4>
@@ -609,16 +609,16 @@
                         </span>
 						</div>
 					</div>
-					
+
 					<div class="am-g am-g-fixed floodFour">
 						<div class="am-u-sm-5 am-u-md-4 text-one list ">
 							<div class="word">
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>	
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>									
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 							</div>
 							<a href="# ">
 								<div class="outer-con ">
@@ -627,18 +627,18 @@
 									</div>
 									<div class="sub-title ">
 										零食大礼包
-									</div>									
+									</div>
 								</div>
-                                  <img src="/static/home/images/act1.png " />								
+                                  <img src="/static/home/images/act1.png " />
 							</a>
-							<div class="triangle-topright"></div>						
+							<div class="triangle-topright"></div>
 						</div>
-						
+
 							<div class="am-u-sm-7 am-u-md-4 text-two sug">
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>									
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -714,9 +714,9 @@
 						</div>
 
 					</div>
-                 <div class="clear "></div>                 
+                 <div class="clear "></div>
                  </div>
-  
+
 
                     <div id="f4">
 					<!--坚果-->
@@ -742,20 +742,20 @@
 							<div class="word">
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>	
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>									
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 							</div>
 							<a href="# ">
 								<img src="/static/home/images/act1.png " />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>									
+									</div>
 								</div>
 							</a>
-							<div class="triangle-topright"></div>	
+							<div class="triangle-topright"></div>
 						</div>
 						<div class="am-u-sm-4 text-four">
 							<a href="# ">
@@ -763,7 +763,7 @@
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>								
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -785,35 +785,35 @@
 								</div>
 							</a>
 						</div>
-						
+
 						<div class="am-u-sm-6 am-u-md-3 text-five big ">
 							<a href="# ">
 								<img src="/static/home/images/10.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>		
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
-						</div>						
+						</div>
 						<div class="am-u-sm-6 am-u-md-3 text-five ">
 							<a href="# ">
 								<img src="/static/home/images/8.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>	
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
-						</div>						
+						</div>
 						<div class="am-u-sm-6 am-u-md-3 text-five sug">
 							<a href="# ">
 								<img src="/static/home/images/9.jpg" />
@@ -834,7 +834,7 @@
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>			
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -842,7 +842,7 @@
 								</div>
 							</a>
 						</div>
-						
+
 					</div>
 
 					<div class="clear "></div>
@@ -851,7 +851,7 @@
 
                      <div id="f5">
 					<!--甜点-->
-					
+
 					<div class="am-container ">
 						<div class="shopTitle ">
 							<h4>甜品</h4>
@@ -869,16 +869,16 @@
                         </span>
 						</div>
 					</div>
-					
+
 					<div class="am-g am-g-fixed floodFour">
 						<div class="am-u-sm-5 am-u-md-4 text-one list ">
 							<div class="word">
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>	
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>									
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 							</div>
 							<a href="# ">
 								<div class="outer-con ">
@@ -887,18 +887,18 @@
 									</div>
 									<div class="sub-title ">
 										零食大礼包
-									</div>									
+									</div>
 								</div>
-                                  <img src="/static/home/images/act1.png " />								
+                                  <img src="/static/home/images/act1.png " />
 							</a>
-							<div class="triangle-topright"></div>						
+							<div class="triangle-topright"></div>
 						</div>
-						
+
 							<div class="am-u-sm-7 am-u-md-4 text-two sug">
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>									
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -974,9 +974,9 @@
 						</div>
 
 					</div>
-                 <div class="clear "></div>                 
+                 <div class="clear "></div>
                  </div>
-  
+
 
                   <div id="f6">
 					<!--坚果-->
@@ -1002,20 +1002,20 @@
 							<div class="word">
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>	
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>									
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 							</div>
 							<a href="# ">
 								<img src="/static/home/images/act1.png " />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>									
+									</div>
 								</div>
 							</a>
-							<div class="triangle-topright"></div>	
+							<div class="triangle-topright"></div>
 						</div>
 						<div class="am-u-sm-4 text-four">
 							<a href="# ">
@@ -1023,7 +1023,7 @@
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>								
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -1045,35 +1045,35 @@
 								</div>
 							</a>
 						</div>
-						
+
 						<div class="am-u-sm-6 am-u-md-3 text-five big ">
 							<a href="# ">
 								<img src="/static/home/images/10.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>		
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
-						</div>						
+						</div>
 						<div class="am-u-sm-6 am-u-md-3 text-five ">
 							<a href="# ">
 								<img src="/static/home/images/8.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>	
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
-						</div>						
+						</div>
 						<div class="am-u-sm-6 am-u-md-3 text-five sug">
 							<a href="# ">
 								<img src="/static/home/images/9.jpg" />
@@ -1094,7 +1094,7 @@
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>			
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -1102,17 +1102,17 @@
 								</div>
 							</a>
 						</div>
-						
+
 					</div>
 
 					<div class="clear "></div>
 				   </div>
-   
-   
-   
+
+
+
                      <div id="f7">
 					<!--甜点-->
-					
+
 					<div class="am-container ">
 						<div class="shopTitle ">
 							<h4>甜品</h4>
@@ -1130,16 +1130,16 @@
                         </span>
 						</div>
 					</div>
-					
+
 					<div class="am-g am-g-fixed floodFour">
 						<div class="am-u-sm-5 am-u-md-4 text-one list ">
 							<div class="word">
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>	
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>									
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 							</div>
 							<a href="# ">
 								<div class="outer-con ">
@@ -1148,18 +1148,18 @@
 									</div>
 									<div class="sub-title ">
 										零食大礼包
-									</div>									
+									</div>
 								</div>
-                                  <img src="/static/home/images/act1.png " />								
+                                  <img src="/static/home/images/act1.png " />
 							</a>
-							<div class="triangle-topright"></div>						
+							<div class="triangle-topright"></div>
 						</div>
-						
+
 							<div class="am-u-sm-7 am-u-md-4 text-two sug">
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>									
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -1235,9 +1235,9 @@
 						</div>
 
 					</div>
-                 <div class="clear "></div>  
+                 <div class="clear "></div>
                  </div>
-                 
+
                     <div id="f8">
 					<!--坚果-->
 					<div class="am-container ">
@@ -1262,20 +1262,20 @@
 							<div class="word">
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>	
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>									
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 							</div>
 							<a href="# ">
 								<img src="/static/home/images/act1.png " />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>									
+									</div>
 								</div>
 							</a>
-							<div class="triangle-topright"></div>	
+							<div class="triangle-topright"></div>
 						</div>
 						<div class="am-u-sm-4 text-four">
 							<a href="# ">
@@ -1283,7 +1283,7 @@
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>								
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -1305,35 +1305,35 @@
 								</div>
 							</a>
 						</div>
-						
+
 						<div class="am-u-sm-6 am-u-md-3 text-five big ">
 							<a href="# ">
 								<img src="/static/home/images/10.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>		
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
-						</div>						
+						</div>
 						<div class="am-u-sm-6 am-u-md-3 text-five ">
 							<a href="# ">
 								<img src="/static/home/images/8.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>	
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
-						</div>						
+						</div>
 						<div class="am-u-sm-6 am-u-md-3 text-five sug">
 							<a href="# ">
 								<img src="/static/home/images/9.jpg" />
@@ -1354,7 +1354,7 @@
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>			
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -1362,15 +1362,15 @@
 								</div>
 							</a>
 						</div>
-						
+
 					</div>
 
 					<div class="clear "></div>
 					</div>
-  
+
                     <div id="f9">
 					<!--甜点-->
-					
+
 					<div class="am-container ">
 						<div class="shopTitle ">
 							<h4>甜品</h4>
@@ -1388,16 +1388,16 @@
                         </span>
 						</div>
 					</div>
-					
+
 					<div class="am-g am-g-fixed floodFour">
 						<div class="am-u-sm-5 am-u-md-4 text-one list ">
 							<div class="word">
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>	
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>									
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 							</div>
 							<a href="# ">
 								<div class="outer-con ">
@@ -1406,18 +1406,18 @@
 									</div>
 									<div class="sub-title ">
 										零食大礼包
-									</div>									
+									</div>
 								</div>
-                                  <img src="/static/home/images/act1.png " />								
+                                  <img src="/static/home/images/act1.png " />
 							</a>
-							<div class="triangle-topright"></div>						
+							<div class="triangle-topright"></div>
 						</div>
-						
+
 							<div class="am-u-sm-7 am-u-md-4 text-two sug">
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>									
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -1493,10 +1493,10 @@
 						</div>
 
 					</div>
-                 <div class="clear "></div>  
+                 <div class="clear "></div>
                  </div>
-                 
-  
+
+
                     <div id="f10">
 					<!--坚果-->
 					<div class="am-container ">
@@ -1521,20 +1521,20 @@
 							<div class="word">
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>	
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
-								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>									
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+								<a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
 							</div>
 							<a href="# ">
 								<img src="/static/home/images/act1.png " />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>									
+									</div>
 								</div>
 							</a>
-							<div class="triangle-topright"></div>	
+							<div class="triangle-topright"></div>
 						</div>
 						<div class="am-u-sm-4 text-four">
 							<a href="# ">
@@ -1542,7 +1542,7 @@
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>								
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -1564,35 +1564,35 @@
 								</div>
 							</a>
 						</div>
-						
+
 						<div class="am-u-sm-6 am-u-md-3 text-five big ">
 							<a href="# ">
 								<img src="/static/home/images/10.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>		
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
-						</div>						
+						</div>
 						<div class="am-u-sm-6 am-u-md-3 text-five ">
 							<a href="# ">
 								<img src="/static/home/images/8.jpg" />
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>	
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
 								</div>
 							</a>
-						</div>						
+						</div>
 						<div class="am-u-sm-6 am-u-md-3 text-five sug">
 							<a href="# ">
 								<img src="/static/home/images/9.jpg" />
@@ -1613,7 +1613,7 @@
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
-									</div>			
+									</div>
 									<div class="sub-title ">
 										¥13.8
 									</div>
@@ -1621,14 +1621,14 @@
 								</div>
 							</a>
 						</div>
-						
+
 					</div>
 
 					<div class="clear "></div>
 					</div>
-   
-   
-   
+
+
+
 					<div class="footer ">
 						<div class="footer-hd ">
 							<p>
@@ -1658,8 +1658,8 @@
 		<div class="navCir">
 			<li class="active"><a href="home.html"><i class="am-icon-home "></i>首页</a></li>
 			<li><a href="sort.html"><i class="am-icon-list"></i>分类</a></li>
-			<li><a href="shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>	
-			<li><a href="person/index.html"><i class="am-icon-user"></i>我的</a></li>					
+			<li><a href="shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>
+			<li><a href="person/index.html"><i class="am-icon-user"></i>我的</a></li>
 		</div>
 
 

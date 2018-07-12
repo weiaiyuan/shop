@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Shop_activity;
 use App\Models\Shop_cates;
 use App\Http\Controllers\Home\HomeActivityController;
-
+use DB;
 class HomeActivityController extends Controller
 {
     /**
@@ -17,7 +17,7 @@ class HomeActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
     public function index()
     {
         $cates = Shop_cates::all();
@@ -49,8 +49,9 @@ class HomeActivityController extends Controller
         $catess = Shop_cates::find($a);
         // $goods = Shop_goods::all();
         $activity = Shop_activity::all();
+        $logos = DB::table('shop_shet')->first();
         // dd($activity);
-        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'activity'=>$activity]);
+        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'activity'=>$activity,'logos'=>$logos]);
         // return view('home.layout.index',['activity'=>$activity]);
     }
 

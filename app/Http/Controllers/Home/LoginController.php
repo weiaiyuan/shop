@@ -29,7 +29,7 @@ class LoginController extends Controller
      */
     public function postCreate(BsPostRequest $request)
     {
-       
+
         $user = $request->input('user');
         $pass = $request->input('pass');
          //获取用户数据
@@ -38,13 +38,15 @@ class LoginController extends Controller
                     ->orWhere('email','=',$user)
                     ->orWhere('phone','=',$user)
                     ->get();
-       
+
         //获取数据库密码
         foreach ($arr as $key => $value) {
             $password = ($value->pass);
+            // dump($password);
+            // exit;
         }
          if(Hash::check($pass,$password)){
-             return redirect('/home/cate/activity')->with('success', '登录成功');
+             return redirect('/home/activity')->with('success', '登录成功');
         }else{
             return back();
         }

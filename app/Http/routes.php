@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/','Home\HomeActivityController@index');     //前台首页
 
 /*
 |----------------  雒小刚 开始位置 (20~70行) ---------------------

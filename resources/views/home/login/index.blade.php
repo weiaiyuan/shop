@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
-  <meta name="format-detection" content="telephone=no" /> 
-  <meta name="renderer" content="webkit" /> 
-  <meta http-equiv="Cache-Control" content="no-siteapp" /> 
-  <link rel="stylesheet" href="/static/home/AmazeUI-2.4.2/assets/css/amazeui.min.css" /> 
-  <link href="/static/home/css/dlstyle.css" rel="stylesheet" type="text/css" /> 
-  <script src="/static/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script> 
-  <script src="/static/home/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="/static/home/AmazeUI-2.4.2/assets/css/amazeui.min.css" />
+  <link href="/static/home/css/dlstyle.css" rel="stylesheet" type="text/css" />
+  <script src="/static/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+  <script src="/static/home/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
   <script src="/static/home/layui/layui.all.js"></script>
-  
- </head> 
 
- <body> 
-  @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-               <script>
-                 layer.alert('{{$error}}', {icon: 6});
-               </script>
-            @endforeach
-        </ul>
-    </div>
+ </head>
+
+ <body>
+@if (count($errors) > 0)
+ <div class="alert alert-danger">
+     <ul>
+         @foreach ($errors->all() as $error)
+            <script>
+              layer.alert('{{$error}}', {icon: 6});
+            </script>
+         @endforeach
+     </ul>
+ </div>
 @endif
+
 		<div class="login-boxtitle">
 			<a href="home.html"><img alt="logo" src="/static/home/images/logobig.png" /></a>
 		</div>
@@ -38,7 +39,7 @@
 							<h3 class="title">登录商城</h3>
 
 							<div class="clear"></div>
-						
+
 						<div class="login-form">
 						  <form method="post" action="/home/login/create">
                                 	{{ csrf_field() }}
@@ -50,26 +51,26 @@
 								    <label for="password"><i class="am-icon-lock"></i></label>
 								    <input type="password" name="pass" id="password" placeholder="请输入密码">
                  </div>
-            
+
            </div>
-            
+
             <div class="login-links">
-                
+
 								<a href="/home/zhuce/index" class="zcnext am-fr am-btn-default" >注册</a>
 								<br />
             </div>
 								<div class="am-cf">
 									<input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
 								</div>
-				  </form>				
-						<div class="partner">		
+				  </form>
+						<div class="partner">
 								<h3>合作账号</h3>
 							<div class="am-btn-group">
 								<li><a href="#"><i class="am-icon-qq am-icon-sm"></i><span>QQ登录</span></a></li>
 								<li><a href="#"><i class="am-icon-weibo am-icon-sm"></i><span>微博登录</span> </a></li>
 								<li><a href="#"><i class="am-icon-weixin am-icon-sm"></i><span>微信登录</span> </a></li>
 							</div>
-						</div>	
+						</div>
 
 				</div>
 			</div>

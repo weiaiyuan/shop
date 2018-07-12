@@ -29,51 +29,48 @@ class ZhuceController extends Controller
         $arr['pass'] = Hash::make($request->input('pass'));
         $arr['token'] = str_random(50);
         $id =  DB::table('shop_users')->insertGetId($arr);
-       $request->all();
-        
+        $request->all();
 
-        if($id){
-               $token = $arr['token'];
+        if ($id) {
+                $token = $arr['token'];
                 $email = $arr['email'];
                 //发送者  $email;
                 //发送者id $id
                 //token验证 $token
                 //
-               
                self::sendmail($email,$id,$token);
-              echo '注册成功';
-        }else{
-            echo '注册失败';
+              echo '<script>alert("注册成功,请查看邮箱激活");window.location.href="/home/login/index";</script>';
+              // return redirect('/home/login/index');
+        } else {
+
+            echo '<script>alert("注册失败");window.location.href="/home/zhuce/index";</script>';
         }
     }
 
     //激活用户状态
     public function getJihuo($id,$token,Request $request)
     {
-     $user = DB::table('shop_users')->where('id',$id)->first(); 
+     $user = DB::table('shop_users')->where('id',$id)->first();
        if($user->token == $token){
           if($user->status == 1){
             $res =  DB::table('shop_users')->where('id',$id)->update(['status'=>2,'token'=>str_random(50)]);
-        
           //处理激活结果
-                         if($res){
-                            echo '激活成功';
-                         }else{
-                            echo '激活失败';
-                         }
+                 if ($res) {
+                    echo '<script>alert("激活成功,请登录 啥都有 商城");window.location.href="/home/login/index";</script>';
+                 }else{
+                    echo '激活失败';
+                }
             }else{
                 echo '用户已激活';
             }
-          }else{
+          } else {
             echo '无效链接';
-         }
-        
-
-       }
+        }
+    }
     //ajax方法  专门发送手机短信验证
     public function getSendcode(Request $request){
        $phone = $request->input('phone','13366572482');
-       dump($phone);die;
+       // dump($phone);die;
         // 15946089699
         $str = rand(1000,9999);
         session(['phonecode'=>$str]);
@@ -93,18 +90,19 @@ class ZhuceController extends Controller
     public function postHomeindex(ZhucetowPostRequest $request)
     {
         // dump($request->all());
+        // die;
          $arr['phone'] = $request->input('phone');
          $arr['pass']=Hash::make($request->input('pass'));
-      
+
          DB::table('shop_users')->insert($arr);
 
-        //  if(session('phonecode') != $request->input('phonecode')){
-        //     echo '<script>alert("手机验证码错误")</script>';
-        // }else{
-        //     echo '<script>alert("注册成功")</script>';
-        // }
+         if(session('phonecode') != $request->input('phonecode')){
+            echo '<script>alert("手机验证码错误")</script>';
+        }else{
+            echo '<script>alert("注册成功,请登录");window.location.href="/home/login/index";</script>';
+        }
     }
-    
+
     //发送邮件
         static public function sendmail($email,$id,$token)
     {
@@ -116,5 +114,5 @@ class ZhuceController extends Controller
             $m->to($email)->subject('注册邮件，点击激活');
         });
     }
-  
+
 }

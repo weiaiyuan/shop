@@ -8,7 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Shop_cates;
 use App\Models\Shop_goods;
-
+use App\Models\Shop_shet;
+use DB;
 class HomeCateController extends Controller
 {
     /**
@@ -46,7 +47,12 @@ class HomeCateController extends Controller
         $cates = Shop_cates::find($z);
         $catess = Shop_cates::find($a);
         // $goods = Shop_goods::all();
-        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess]);
+
+        $logos = DB::table('shop_shet')->first();
+
+        // dump($logos);
+        // exit;
+        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'logos'=>$logos]);
     }
 
     /**

@@ -127,6 +127,13 @@
 								<li><a class="submenu" href="/admin/goodlook/create"><i class="icon-trash"></i>回收站</a></li>
 							</ul>	
 						</li>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">活动管理</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/activity/create"><i class="icon-star"></i><span class="hidden-tablet">添加活动</span></a></li>
+								<li><a class="submenu" href="/admin/activity"><i class="icon-file-alt"></i>活动列表</a></li>
+							</ul>	
+						</li>
 						
 					</ul>
 				</div>

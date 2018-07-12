@@ -49,15 +49,14 @@ class CateController extends Controller
      */
     public function getCreate(Request $request)
     {
-        $name = $request->input('cname');
-        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->where('cname','like','%'.$request->input('name').'%')->paginate();
-        foreach($cate as $k=>$v) 
+        $cates = Shop_cates::all();
+        foreach($cates as $k=>$v) 
         {
             // 统计，号的次数
             $n = substr_count($v->path,',');
             $v->cname = str_repeat('|----',$n).$v->cname;
         }
-        return view('admin.cates.cate',['cates'=>$cate]);
+        return view('admin.cates.cate',['cates'=>$cates]);
     }
 
     /**

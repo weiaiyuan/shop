@@ -8,12 +8,12 @@
 		<hr/>
 
 		<div class="comment-main">
-			<form action="/home/comment/store" method="post">
+			<form action="/home/comment/store/{{ $data->id }}" method="post">
 				{{ csrf_field() }}
 				<div class="comment-list">
 					<div class="item-pic">
 						<a href="#" class="J_MakePoint">
-							<img src="/static/home/images/comment.jpg_400x400.jpg" class="itempic">
+							<img src="/images/goods/{{ $data->gpic }}" class="itempic">
 						</a>
 					</div>
 
@@ -21,7 +21,7 @@
 
 						<div class="item-name">
 							<a href="#">
-								<p class="item-basic-info">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
+								<p class="item-basic-info">{{ $data->gname }}</p>
 							</a>
 						</div>
 						<div class="item-info">
@@ -30,7 +30,7 @@
 								<span>包装：裸装</span>
 							</div>
 							<div class="item-price">
-								价格：<strong>19.88元</strong>
+								价格：<strong>{{ $data->price }}元</strong>
 							</div>										
 						</div>
 					</div>

@@ -45,19 +45,22 @@ class OrderController extends Controller
      */
     public function getDetail($id)
     {
-       
+
+        $shop_goods = Shop_goods::get();        // 获取所有的商品信息
         // dump($shop_goods);
-        $order_detail = Shop_orders::find($id);
+
+        $order_detail = Shop_orders::find($id);      // 订单详情
         // dump($order_detail);
         // exit;
         return view('admin.order.order_detail',[
                         'order_detail' => $order_detail,
+                        'shop_goods'  => $shop_goods,
                     ]);
     }
 
     /**
      *  订单编辑页面 收货地址 收货人 联系电话的修改
-     * 
+     *
      */
     public function getEdit($id)
     {
@@ -74,9 +77,9 @@ class OrderController extends Controller
         $data = $request -> except('_token');
         // dump($data);
         $order = Shop_orders::find($id);
-        $order ->rec = $request -> input('rec'); 
-        $order ->phone = $request -> input('phone'); 
-        $order ->addr = $request -> input('addr'); 
+        $order ->rec = $request -> input('rec');
+        $order ->phone = $request -> input('phone');
+        $order ->addr = $request -> input('addr');
 
         if ($order -> save()) {
             return redirect('/admin/order/detail/'.$id)->with('success','修改成功！');

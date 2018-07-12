@@ -6,38 +6,57 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Shop_orders;
-use App\Models\ShopUsers;
+use App\Models\Shop_cates;
 use App\Models\Shop_goods;
 
-class commentController extends Controller
+class HomeCateController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function index()
     {
-        echo 'aa';
+        $cates = Shop_cates::all();
+        $n = [];
+        foreach ($cates as $k=>$v)
+        {
+            if (substr_count($v->path,',')==0) {
+                $n[] = $v->id;
+            }
+        }
+        $z = [];
+        foreach ($cates as $k=>$v)
+        {
+            if (substr_count($v->path,',')==1) {
+                $z[] = $v->id;
+            }
+        }
+        $a = [];
+        foreach ($cates as $k=>$v)
+        {
+            if (substr_count($v->path,',')==2) {
+                $a[] = $v->id;
+            }
+        }
+        // dd($n);
+        // dd(Shop_cates::find($n));
+        $cate = Shop_cates::find($n);
+        $cates = Shop_cates::find($z);
+        $catess = Shop_cates::find($a);
+        // $goods = Shop_goods::all();
+        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess]);
     }
 
     /**
-     * Show the foorm for creating a new resource.
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getCreate()
+    public function create()
     {
-        $id = 19;
-        $order = Shop_orders::find($id);
-        $gid = $order->gid;
-        // dump($gid);
-        // exit;
-        $data = Shop_goods::find($gid);
-
-        //return view('home.comment.index',['data'=>$data]);
-        return view('home.comment.create',['data'=>$data]);
+        //
     }
 
     /**
@@ -46,10 +65,9 @@ class commentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postStore(Request $request)
+    public function store(Request $request)
     {
-        //dump($id);
-        dump($request -> all());
+        //
     }
 
     /**

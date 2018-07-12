@@ -16,16 +16,22 @@
 		<table class="table table-striped table-bordered bootstrap-datatable " id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
 			<thead>
 				<tr role="row">
+					<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 120px;">商品名称</th>
 					<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 120px;">收货人</th>
 			  		<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 200px;">收货地址</th>
-			  		<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 150px;">联系电话</th>				
+			  		<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 150px;">联系电话</th>
 					<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 50px;">数量</th>
 					<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 90px;">总价</th>
 					<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 150px;">操作</th>
 				</tr>
-			</thead>   
+			</thead>
 			<tbody role="alert" aria-live="polite" aria-relevant="all">
 				<tr class="odd">
+					@foreach($shop_goods as $k => $v)
+						@if($v->id == $order_detail-> gid )
+					<td class="center">{{ $v -> gname }}</td>
+						@endif
+					@endforeach
 					<td class="center">{{ $order_detail ->rec }}</td>
 					<td class="center">{{ $order_detail ->addr }}</td>
 					<td class="center">{{ $order_detail ->phone }}</td>

@@ -10,8 +10,7 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal" action="/admin/cate/update/{{$id}}" method="post">
-						{{ csrf_field() }}
+						<form class="form-horizontal" action="/admin/cate/update/{{ $cate->id }}" method="get">
 							<fieldset>
 							  <div class="control-group">
 								<label class="control-label" for="focusedInput">类别名称</label>

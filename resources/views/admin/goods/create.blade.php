@@ -50,7 +50,7 @@
 								<label class="control-label" for="selectError3">所属分类</label>
 								<div class="controls">
 								  <select id="selectError3" name="cid">
-									<option value="">--请选择--</option>
+									<option value="0">--请选择--</option>
 									@foreach ($data as $k=>$v)
 									<option value="{{ $v->id }}">{{ $v->cname}}</option>
 									@endforeach

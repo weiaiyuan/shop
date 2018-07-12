@@ -72,7 +72,7 @@ Route::controller('/admin/order','Admin\OrderController');
 */
 
  //用户管理
- 
+
 Route::resource('/admin/user','Admin\UserController');
 //用户软删除
 Route::controller('/user/show','Admin\SoftController');
@@ -206,9 +206,11 @@ Route::controller('home/comment','Home\CommentController');
 /*
 |----------------蒋旺生 开始位置 (185行之后) -----------
 */
-Route::controller('/admin/cate','Admin\CateController');
-Route::resource('/admin/good','Admin\GoodsController');
+Route::controller('/admin/cate','Admin\CateController'); //商品类别
+Route::resource('/admin/good','Admin\GoodsController'); //商品详情
 Route::controller('/admin/goodlook','Admin\ChaController');//查看内容
-
+Route::resource('/home/cate','Home\HomeCateController');//前台类别
+Route::resource('/admin/activity','Admin\ActivityController');//活动模块
+Route::resource('/home/activity','Home\HomeActivityController');//前台活动控制器
 
 

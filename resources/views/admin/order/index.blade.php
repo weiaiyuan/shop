@@ -21,8 +21,8 @@
 			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 60px;">下单人</th>
 			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 60px;">状态</th>
 			  	<th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width:50px;">操作</th></tr>
-		  </thead>   
-			  
+		  </thead>
+
 		  <tbody role="alert" aria-live="polite" aria-relevant="all">
 		  	@foreach($orders as $v)
 		  		<tr class="odd">

@@ -75,7 +75,7 @@ class OrderController extends Controller
         // dump($data);
         $order = Shop_orders::find($id);
         $order ->rec = $request -> input('rec'); 
-        $order ->tel = $request -> input('phone'); 
+        $order ->phone = $request -> input('phone'); 
         $order ->addr = $request -> input('addr'); 
 
         if ($order -> save()) {

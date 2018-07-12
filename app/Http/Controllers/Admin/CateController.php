@@ -32,7 +32,7 @@ class CateController extends Controller
     public function getIndex(Request $request)
     {
         $a = $request->input('cname');//dump($a);
-        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->where('cname','like','%'.$a.'%')->paginate(1)->appends($request->input());
+        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->where('cname','like','%'.$a.'%')->paginate(5)->appends($request->input());
         foreach($cate as $k=>$v) 
         {
             // 统计，号的次数
@@ -49,15 +49,14 @@ class CateController extends Controller
      */
     public function getCreate(Request $request)
     {
-        $name = $request->input('cname');
-        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->where('cname','like','%'.$request->input('name').'%')->paginate(10);
-        foreach($cate as $k=>$v) 
+        $cates = Shop_cates::all();
+        foreach($cates as $k=>$v) 
         {
             // 统计，号的次数
             $n = substr_count($v->path,',');
             $v->cname = str_repeat('|----',$n).$v->cname;
         }
-        return view('admin.cates.cate',['cates'=>$cate]);
+        return view('admin.cates.cate',['cates'=>$cates]);
     }
 
     /**
@@ -85,11 +84,12 @@ class CateController extends Controller
             $cates -> path = '0';
         }else{
             $a = Shop_cates::find($pid);
-        }
-        if (substr_count($a->path,',') == 2) {
+            $cates -> path = $a->path.','.$a->id;
+            if (substr_count($a->path,',') == 2) {
             return back()->with('error','并不允许选择超过三级分类');
+            }
         }
-        $cates -> path = $a->path.','.$a->id;
+       
         $cates -> cname = $request->input('cname','');
         $cates -> pid = $request->input('pid','');
 
@@ -120,8 +120,14 @@ class CateController extends Controller
     {
         //
         $cate = Shop_cates::find($id);
-      
-        return view('admin.cates.edit',['cates'=>self::getCates(),'cate'=>$cate,'id'=>$id]);
+        $cates = Shop_cates::all();
+        foreach($cates as $k=>$v) 
+        {
+            // 统计，号的次数
+            $n = substr_count($v->path,',');
+            $v->cname = str_repeat('|----',$n).$v->cname;
+        }
+        return view('admin.cates.edit',['cates'=>$cates,'cate'=>$cate,'id'=>$id]);
     }
 
     /**
@@ -131,27 +137,31 @@ class CateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function postUpdate(CateInsertRequest $request, $id)
+    public function getUpdate(Request $request, $id)
     {
+      
         $cates = Shop_cates::find($id);
         $pid = $request->input('pid','');
         if($pid == 0){
             $cates -> path = '0';
         }else{
             $a = Shop_cates::find($pid);
+            if (substr_count($a->path,',') == 2) {
+            return redirect('/admin/cate/')->with('error','并不允许选择超过三级分类');
+            }
             $cates -> path = $a->path.','.$a->id;
         }
-        if($cates->path)
         $cates -> cname = $request->input('cname','');
         $cates -> pid = $request->input('pid','');
 
         if($cates -> save())
         {
-            return redirect('/admin/cate/in')->with('success','修改成功');
+            return redirect('/admin/cate')->with('success','修改成功');
         }else{
             return back()->with('error','修改失败');
         }
     }
+    
 
     /**
      * Remove the specified resource from storage.

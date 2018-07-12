@@ -6,8 +6,7 @@
     <div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button>
         <ul>
             @foreach ($errors->all() as $error)
-            
-               {{ $error }}
+            	{{ $error }}
             @endforeach
         </ul>
     </div>
@@ -36,7 +35,7 @@
 				<label class="control-label" for="selectError3">所属分类</label>
 				<div class="controls">
 				  <select id="selectError3" name="pid">
-					<option value="0">--请选择--</option>
+					<option value="0">--请选择--(默认顶级)--</option>
 					@foreach ($cates as $k=>$v)
 					<option value="{{ $v->id }}">{{ $v->cname}}</option>
 					@endforeach

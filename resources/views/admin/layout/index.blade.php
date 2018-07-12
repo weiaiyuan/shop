@@ -53,7 +53,6 @@
 					<span class="icon-bar"></span>
 				</a>
 				<a class="brand" href="/admin"><span>后台管理</span></a>
-
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
@@ -89,97 +88,53 @@
 			<!-- start: Main Menu -->
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
-					         <!--用户管理开始-->
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet">用户管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/user/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户添加</span></a></li>
 								<li><a class="submenu" href="/admin/user"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户列表</span></a></li>
-								<li><a class="submenu" href="/user/show/show"><i class="icon-file-alt"></i><span class="hidden-tablet"> 回收站</span></a></li>	
-								<li><a class="submenu" href="/user/show/show"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>					
+								<li><a class="submenu" href="submenu3.html"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>
 							</ul>	
-
 						</li>
-					       <!--用户管理结束-->
+					
 
 								<!-- 订单管理开始 -->
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-list"></i><span class="hidden-tablet">订单管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/order/index"><i class="icon-align-left"></i><span class="hidden-tablet">订单列表</span></a></li>
+								<li><a class="submenu" href="#"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>
 							</ul>	
 						</li>						
-								<!-- 订单管理结束 <--></-->
+								<!-- 订单管理结束 -->
+						
+
+					
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">分类管理</span></a>
+							<a class="dropmenu" href="#"><i class="icon-tasks"></i><span class="hidden-tablet">分类管理</span></a>
 							<ul>
-								<li><a class="submenu" href="/admin/cate/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加分类</span></a></li>
-								<li><a class="submenu" href="/admin/cate"><i class="icon-file-alt"></i><span class="hidden-tablet">分类列表</span></a></li>
+								<li><a class="submenu" href="/admin/cate/create"><i class="icon-star"></i><span class="hidden-tablet"> 添加分类</span></a></li>
+								<li><a class="submenu" href="/admin/cate"><i class="icon-align-justify"></i><span class="hidden-tablet">分类列表</span></a></li>
 							</ul>	
 						</li>
 						
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">商品管理</span></a>
 							<ul>
-								<li><a class="submenu" href="/admin/good/create"><i class="icon-file-alt"></i><span class="hidden-tablet">添加商品</span></a></li>
+								<li><a class="submenu" href="/admin/good/create"><i class="icon-star"></i><span class="hidden-tablet">添加商品</span></a></li>
 								<li><a class="submenu" href="/admin/good"><i class="icon-file-alt"></i>商品列表</a></li>
-								<li><a class="submenu" href="/admin/goodlook/create"><i class="icon-file-alt"></i>回收站</a></li>
+								<li><a class="submenu" href="/admin/goodlook/create"><i class="icon-trash"></i>回收站</a></li>
 							</ul>	
 						</li>
-
-						<!--评价管理-->
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-link"></i><span class="hidden-tablet"> 评价管理</span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">活动管理</span></a>
 							<ul>
-								<li><a class="submenu" href="/admin/links/create"><i class="icon-plus"></i><span class="hidden-tablet">评价操作</span></a></li>
+								<li><a class="submenu" href="/admin/activity/create"><i class="icon-star"></i><span class="hidden-tablet">添加活动</span></a></li>
+								<li><a class="submenu" href="/admin/activity"><i class="icon-file-alt"></i>活动列表</a></li>
 							</ul>	
 						</li>
-
-					<!--友情链接-->
-						<li>
-							<a class="dropmenu" href="#"><i class="icon-link"></i><span class="hidden-tablet"> 友情链接</span></a>
-							<ul>
-								<li><a class="submenu" href="/admin/links/create"><i class="icon-plus"></i><span class="hidden-tablet">链接添加</span></a></li>
-								<li><a class="submenu" href="/admin/links"><i class="icon-list"></i><span class="hidden-tablet"> 链接列表</span></a></li>
-								
-							</ul>	
-						</li>
-
-						<!--广告管理-->
-						<li>
-							<a class="dropmenu" href="#"><i class="icon-dashboard"></i><span class="hidden-tablet"> 广告管理</span></a>
-							<ul>
-								<li><a class="submenu" href="/admin/ad/create"><i class="icon-plus"></i><span class="hidden-tablet">广告添加</span></a></li>
-
-								<li><a class="submenu" href="/admin/ad"><i class="icon-list"></i><span class="hidden-tablet"> 广告列表</span></a></li>
-	
-								<li><a class="submenu" href="/admin/ad/$id"><i class="icon-trash"></i><span class="hidden-tablet">广告回收站</span></a></li>
-							</ul>			
-						</li>
-
-						<!--网站配置-->
-						<li>
-							<a class="dropmenu" href="#"><i class="icon-cog"></i><span class="hidden-tablet"> 网站配置</span></a>
-							<ul>
-								<li><a class="submenu" href="/admin/shet"><i class="icon-table"></i><span class="hidden-tablet"> 网站配置表</span></a></li>
-	
-								<li><a class="submenu" href="/admin/shet/$id"><i class="icon-trash"></i><span class="hidden-tablet">网站配置回收站</span></a></li>
-
-								<li><a class="submenu" href="/admin/weihu"><i class="icon-magnet"></i><span class="hidden-tablet"> 网站维护</span></a></li>			
-							</ul>	
-						</li>
-						<!--轮播图-->
-						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 轮播图管理</span></a>
-							<ul>
-								<li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet"> 轮播图添加</span></a></li>
-
-								<li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet"> 轮播图列表</span></a></li>	
-							</ul>	
-						</li>
-
-
+						
 					</ul>
 				</div>
 			</div>
@@ -260,7 +215,7 @@
 	<footer>
 
 		<p>
-			<span style="text-align:left;float:left">&copy; 2018 <a href="downloads/janux-free-responsive-admin-dashboard-template/" alt="Bootstrap_Metro_Dashboard">Future star</a></span>
+			<span style="text-align:left;float:left">&copy; 2018 <a href="downloads/janux-free-responsive-admin-dashboard-template/" alt="Bootstrap_Metro_Dashboard">JANUX Responsive Dashboard</a></span>
 			
 		</p>
 

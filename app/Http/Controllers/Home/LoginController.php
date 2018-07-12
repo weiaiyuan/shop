@@ -44,7 +44,7 @@ class LoginController extends Controller
             $password = ($value->pass);
         }
          if(Hash::check($pass,$password)){
-             return redirect('/admin/user')->with('success', '登录成功');
+             return redirect('/home/cate/activity')->with('success', '登录成功');
         }else{
             return back();
         }

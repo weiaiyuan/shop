@@ -53,6 +53,7 @@
 					<span class="icon-bar"></span>
 				</a>
 				<a class="brand" href="/admin"><span>后台管理</span></a>
+
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
@@ -88,36 +89,33 @@
 			<!-- start: Main Menu -->
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
+					         <!--用户管理开始-->
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet">用户管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/user/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户添加</span></a></li>
 								<li><a class="submenu" href="/admin/user"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户列表</span></a></li>
-								<li><a class="submenu" href="submenu3.html"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>
-								<li><a class="submenu" href="/user/show/show"><i class="icon-file-alt"></i><span class="hidden-tablet"> 回收站</span></a></li>
+								<li><a class="submenu" href="/user/show/show"><i class="icon-file-alt"></i><span class="hidden-tablet"> 回收站</span></a></li>	
+								<li><a class="submenu" href="/user/show/show"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>					
+							</ul>	
 
-						</ul>	
 						</li>
-					
+					       <!--用户管理结束-->
 
 								<!-- 订单管理开始 -->
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-list"></i><span class="hidden-tablet">订单管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/order/index"><i class="icon-align-left"></i><span class="hidden-tablet">订单列表</span></a></li>
-								<li><a class="submenu" href="#"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>
 							</ul>	
 						</li>						
-								<!-- 订单管理结束 -->
-						
-
-					
+								<!-- 订单管理结束 <--></-->
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">分类管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/cate/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加分类</span></a></li>
-								<li><a class="submenu" href="/admin/cate/in"><i class="icon-file-alt"></i><span class="hidden-tablet">分类列表</span></a></li>
+								<li><a class="submenu" href="/admin/cate"><i class="icon-file-alt"></i><span class="hidden-tablet">分类列表</span></a></li>
 							</ul>	
 						</li>
 						
@@ -168,9 +166,17 @@
 	
 								<li><a class="submenu" href="/admin/shet/$id"><i class="icon-trash"></i><span class="hidden-tablet">网站配置回收站</span></a></li>
 
-								<li><a class="submenu" href="/admin/weihu"><i class="icon-magnet"></i><span class="hidden-tablet"> 网站维护</span></a></li>
-								
-							</ul>			
+								<li><a class="submenu" href="/admin/weihu"><i class="icon-magnet"></i><span class="hidden-tablet"> 网站维护</span></a></li>			
+							</ul>	
+						</li>
+						<!--轮播图-->
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 轮播图管理</span></a>
+							<ul>
+								<li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet"> 轮播图添加</span></a></li>
+
+								<li><a class="submenu" href="#"><i class="icon-file-alt"></i><span class="hidden-tablet"> 轮播图列表</span></a></li>	
+							</ul>	
 						</li>
 
 
@@ -254,7 +260,7 @@
 	<footer>
 
 		<p>
-			<span style="text-align:left;float:left">&copy; 2018 <a href="downloads/janux-free-responsive-admin-dashboard-template/" alt="Bootstrap_Metro_Dashboard">JANUX Responsive Dashboard</a></span>
+			<span style="text-align:left;float:left">&copy; 2018 <a href="downloads/janux-free-responsive-admin-dashboard-template/" alt="Bootstrap_Metro_Dashboard">Future star</a></span>
 			
 		</p>
 

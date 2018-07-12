@@ -13,19 +13,18 @@
 						<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid"><div class="row-fluid">
 						<div class="span6"><div id="DataTables_Table_0_length" class="dataTables_length"></div>
 						<div class="span6"><div class="dataTables_filter" id="DataTables_Table_0_filter">
-						<label ><form action="/admin/goodlook/show" method="get" style="display:inline">
-						
-						搜索: <input type="text" aria-controls="DataTables_Table_0" name="name">
+						<label ><form method="get" style="display:inline">
+						搜索: <input type="text" aria-controls="DataTables_Table_0" name="cname">
 						<input type="submit" name="" value="搜索" class="btn btn-info">
 						</form></label>
 						</div></div></div>
 						<table class="table table-striped table-bordered bootstrap-datatable text-center" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" >
 						  <tr>
-								
 								<td>商品id</td>
 								<td>商品名称</td>
 								<td>商品价格</td>
 								<td>商品图片</td>
+								<td>所属类别</td>
 								<td>销量</td>
 								<td>库存</td>
 								<td>主题</td>
@@ -37,6 +36,11 @@
 							<td>{{ $v->gname }}</td>
 							<td>{{ $v->price }}</td>
 							<td><img src="/images/goods/{{ $v->gpic }}" style="width: 100px;height: 60px"></td>
+							<td>
+							@foreach ($cate as $key=>$val)
+							{{ $v->cid==$val->id ? $val->cname : ''}}
+							@endforeach
+							</td>
 							<td>{{ $v->salecnt or 50}}</td>
 							<td>{{ $v->stock or 50}}</td>
 							<td>{{ $v->title }}</td>
@@ -53,7 +57,7 @@
 									<form action="/admin/good/{{$v->id}}" method="post" style="display:inline">
 										{{ csrf_field() }}
 										{{ method_field('DELETE')}}
-										<input type="submit" name="" value="删除" class="btn btn-danger" >
+										<input type="submit" name="" value="回收" class="btn btn-danger" >
 									</form>
 									<button class="btn btn-info"><a href="/admin/goodlook/index/{{ $v->id }}" style="text-decoration: none">查看</a></button>
 								</td>
@@ -61,7 +65,7 @@
 						@endforeach
 						</table>
 					
-					<div class="dataTables_paginate paging_bootstrap pagination"><ul>{!! $data->render() !!}</ul></div>
+					<div class="pagination pagination-centered"><ul>{!! $data->render() !!}</ul></div>
 				</div>
 				</div>
 				</div>

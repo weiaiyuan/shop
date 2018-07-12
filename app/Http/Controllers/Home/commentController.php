@@ -1,24 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Home;
 
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Shop_goods;
 
-class ChaController extends Controller
+class commentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex($id)
+    public function getIndex()
     {
-        $data = Shop_goods::find($id);
-        return view('admin.goods.look',['data'=>$data]);
+        echo 'aa';   
     }
 
     /**
@@ -28,8 +26,7 @@ class ChaController extends Controller
      */
     public function getCreate()
     {
-        $data = Shop_goods::onlyTrashed()->paginate(3);
-        return view('admin.goods.show',['data'=>$data]);
+        return view('home.comment.create');
     }
 
     /**
@@ -38,9 +35,10 @@ class ChaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function postStore(Request $request)
     {
-        //
+        $data = $request -> all();
+        return view('home.comment.index');
     }
 
     /**
@@ -49,10 +47,9 @@ class ChaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getShow(Request $request)
+    public function show($id)
     {
-         $data = Shop_goods::where('gname','like','%'.$request->input('name').'%')->paginate();
-          return view('admin.goods.index',['data'=>$data]);
+        //
     }
 
     /**
@@ -61,14 +58,9 @@ class ChaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getEdit($id)
+    public function edit($id)
     {
-        $a = Shop_goods::withTrashed()->where('id', $id)->restore();
-        if($a = 0) {
-            return back()->with('error','恢复失败');
-        } else {
-            return back()->with('success','恢复成功');
-        }
+        //
     }
 
     /**
@@ -78,15 +70,9 @@ class ChaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getUpdate($id)
+    public function update(Request $request, $id)
     {
-        $ids = Shop_goods::onlyTrashed()->find($id); 
-        $res = $ids ->forceDelete();
-        if( $res == 0 ) {
-            return back()->with('success','永久删除成功');
-        } else {
-            return back()->with('error','永久删除失败');
-        }
+        //
     }
 
     /**

@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CateInsertRequest extends Request
+class OrdereditRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize() 
+    public function authorize()
     {
         return true;
     }
@@ -24,18 +24,17 @@ class CateInsertRequest extends Request
     public function rules()
     {
         return [
-            //
-             'cname' => 'required|unique:shop_cates',
-        'pid' => 'required',
+            'phone' =>  'required|regex:/^[1][3,4,5,7,8][0-9]{9}$/',
         ];
     }
+
     public function messages()
     {
+    
         return [
-            'cname.required'=>'名称未填写',
-            //正则限制：'cname.regex'=>'格式不正确',
-            'cname.unique'=>'名称已存在',
-            'pid.required'=>'类别未选择',
+            'phone.required' =>  '手机号不能为空',
+            'phone.regex'    =>  '手机号格式不正确'
         ];
-    }
+
+    }    
 }

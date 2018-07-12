@@ -17,7 +17,7 @@
 						<table class="table table-striped table-bordered bootstrap-datatable text-center" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" >
 						  <tr>
 								
-								<td>商品id</td>
+								<td>商品id</td> 
 								<td>商品名称</td>
 								<td>商品价格</td>
 								<td>商品图片</td>
@@ -31,7 +31,7 @@
 							<td>{{ $v->id }}</td>
 							<td>{{ $v->gname }}</td>
 							<td>{{ $v->price }}</td>
-							<td><img src="/Admin/goods/{{ $v->gpic }}" style="width: 100px;height: 60px"></td>
+							<td><img src="/images/goods/{{ $v->gpic }}" style="width: 100px;height: 60px"></td>
 							<td>{{ $v->salecnt or 50}}</td>
 							<td>{{ $v->stock or 50}}</td>
 							<td>{{ $v->title }}</td>

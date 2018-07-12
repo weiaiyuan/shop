@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
+ 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Shop_goods;
+use App\Models\Shop_cates;
 use App\Http\Requests\GoodInsertRequest;
 
 class GoodsController extends Controller
@@ -16,11 +17,11 @@ class GoodsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-
-        $data = Shop_goods::paginate(2);
-        return view('admin.goods.index',['data'=>$data]);
+        $cate = Shop_cates::all();
+        $data = Shop_goods::where('gname','like','%'.$request->input('cname').'%')->paginate(1)->appends($request->input());
+        return view('admin.goods.index',['data'=>$data,'cate'=>$cate]);
     }
 
     /**
@@ -30,7 +31,14 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        return view('admin.goods.create');
+        $data = Shop_cates::all();
+        foreach($data as $k=>$v) 
+        {
+            // 统计，号的次数
+            $n = substr_count($v->path,',');
+            $v->cname = str_repeat('|----',$n).$v->cname;
+        }
+        return view('admin.goods.create',['data'=>$data]);
     }
 
     /**
@@ -56,6 +64,11 @@ class GoodsController extends Controller
         //     ]);
         //     
         //获取文件
+        $ids = $request->input('cid');//获取当前cid的值
+        $path = Shop_cates::find($ids);    //获取在cid中的
+        if(substr_count($path->path,',') != 2) {
+            return back()->with('error','必选选择3级分类');
+        }
         $file = $request->file('gpic');
         // dump($file);
         //获取文件扩展名
@@ -70,7 +83,7 @@ class GoodsController extends Controller
         $goods = new Shop_goods;
         // dd($data.'/'.$filename);
         $goods -> gpic = $data.'/'.$filename;
-
+        $goods -> cid = $ids;
         $goods -> gname = $request -> input('gname','');
         $goods -> price = $request -> input('price','');
         $goods -> desc = $request -> input('desc','');
@@ -106,8 +119,15 @@ class GoodsController extends Controller
         // echo $id;
         // $data = Shop_goods::find($id);s
         $data = Shop_goods::where('id','=',$id)->first();
+        $cates = Shop_cates::all();
+        foreach($cates as $k=>$v) 
+        {
+            // 统计，号的次数
+            $n = substr_count($v->path,',');
+            $v->cname = str_repeat('|----',$n).$v->cname;
+        }
         // dump($data);
-        return view('admin.goods.edit',['data'=>$data,'id'=>$id]);
+        return view('admin.goods.edit',['data'=>$data,'id'=>$id,'cates'=>$cates]);
     }
 
     /**
@@ -134,6 +154,11 @@ class GoodsController extends Controller
         //     ]);
         //     
         //获取文件
+        $ids = $request->input('cid');//获取当前cid的值
+        $path = Shop_cates::find($ids);    //获取在cid中的
+        if(substr_count($path->path,',') != 2) {
+            return back()->with('error','必选选择3级分类');
+        }
         $file = $request->file('gpic');
         // dump($file);
         //获取文件扩展名
@@ -145,10 +170,10 @@ class GoodsController extends Controller
         $data = date('Ymd',time());
         // echo $str;//存入public公共部分中
         $file -> move('./images/goods/'.$data,$filename);
-       $goods = Shop_goods::find($id);
+        $goods = Shop_goods::find($id);
         // dd($data.'/'.$filename);
         $goods -> gpic = $data.'/'.$filename;
-
+        $goods -> cid = $ids;
         $goods -> gname = $request -> input('gname','');
         $goods -> price = $request -> input('price','');
         $goods -> desc = $request -> input('desc','');

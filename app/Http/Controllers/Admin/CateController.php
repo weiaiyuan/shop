@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -12,30 +12,34 @@ use DB;
 
 class CateController extends Controller
 {
-    public static function getCates()
+    // public static function getCates(Request $request)
+    // {
+    //     $name = $request->input('cname');
+    //     $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->where('cname','like','%'.$request->input('name').'%')->paginate(10);
+    //     foreach($cate as $k=>$v) 
+    //     {
+    //         // 统计，号的次数
+    //         $n = substr_count($v->path,',');
+    //         $v->cname = str_repeat('|----',$n).$v->cname;
+    //     }
+    //         return $cate;
+    // }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getIndex(Request $request)
     {
-        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->paginate(3);
-
-        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->paginate(2);
-
+        $a = $request->input('cname');//dump($a);
+        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->where('cname','like','%'.$a.'%')->paginate(1)->appends($request->input());
         foreach($cate as $k=>$v) 
         {
             // 统计，号的次数
             $n = substr_count($v->path,',');
             $v->cname = str_repeat('|----',$n).$v->cname;
         }
-            return $cate;
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function getIndex()
-    {
-        return view('admin.layout.index');
-        //return view('admin.layout.index');
-        return view('admin.cates.index',['cate'=>$this->getCates()]);
+        return view('admin.cates.index',['cate'=>$cate]);
     }
 
     /**
@@ -43,9 +47,17 @@ class CateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getCreate()
+    public function getCreate(Request $request)
     {
-        return view('admin.cates.cate',['cates'=>self::getCates()]);
+        $name = $request->input('cname');
+        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->where('cname','like','%'.$request->input('name').'%')->paginate(10);
+        foreach($cate as $k=>$v) 
+        {
+            // 统计，号的次数
+            $n = substr_count($v->path,',');
+            $v->cname = str_repeat('|----',$n).$v->cname;
+        }
+        return view('admin.cates.cate',['cates'=>$cate]);
     }
 
     /**
@@ -66,35 +78,30 @@ class CateController extends Controller
         // ]);
         //压入数据库
         //数据库
+        
         $cates = new Shop_cates;
         $pid = $request->input('pid','');
         if($pid == 0){
             $cates -> path = '0';
         }else{
             $a = Shop_cates::find($pid);
-            $cates -> path = $a->path.','.$a->id;
         }
+        if (substr_count($a->path,',') == 2) {
+            return back()->with('error','并不允许选择超过三级分类');
+        }
+        $cates -> path = $a->path.','.$a->id;
         $cates -> cname = $request->input('cname','');
         $cates -> pid = $request->input('pid','');
 
         if($cates -> save())
         {
-            return redirect('admin/cate/in')->with('success','添加成功');
+            return redirect('admin/cate')->with('success','添加成功');
         }else{
             return back()->with('error','添加失败');
         }
     }
-    public function getIn()
-    {
-        return view('admin.cates.index',['cate'=>$this->getCates()]);
-    }
-    public function postShow(Request $request)
-    {
-        $name = $request->input('cname');
-      
-        $cate = Shop_cates::where('cname','like','%'."$name".'%')->paginate(3);
-        return view('admin.cates.index',['cate'=>$cate]);
-    }
+    
+   
     /**
      * Display the specified resource.
      *

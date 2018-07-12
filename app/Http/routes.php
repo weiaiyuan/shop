@@ -146,12 +146,13 @@ Route::resource('/admin/ad','Admin\AdController');
 Route::get('/admin/restores/{id}','Admin\AdController@restores');
 Route::get('/admin/del/{id}','Admin\AdController@del');
 //评论管理路由
-Route::resource('/admin/commend','Admin\CommentController');
+Route::resource('/admin/comment','Admin\CommentController');
 
 //前台用户
-
+//LOGO 标题路由
 Route::get('/home/index','Home\ShetController@homes');
-
+//评论路由
+Route::controller('home/comment','Home\CommentController');
 
 
 

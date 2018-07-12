@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Models\Shop_sowing;
-class SowingController extends Controller
+ class SowingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -151,3 +151,4 @@ class SowingController extends Controller
          return back();
     }
 }
+

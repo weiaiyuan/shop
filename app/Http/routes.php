@@ -80,6 +80,8 @@ Route::controller('/user/show','Admin\SoftController');
 Route::controller('/admin/login','Admin\LoginController');
 //轮播管理
 Route::controller('/admin/sowing','Admin\SowingController');
+//前台注册
+Route::controller('/home/zhuce','Home\ZhuceController');
 
 
 

@@ -18,7 +18,6 @@ Route::get('/', function () {
 /*
 |----------------  雒小刚 开始位置 (20~70行) ---------------------
 */
-
 Route::get('/admin', function () {
     return view('admin.index.index');
 });
@@ -135,9 +134,6 @@ Route::controller('/home/zhuce','Home\ZhuceController');
 /*
 |---------------葛景伟 开始位置 (130~185行) -----------
 */
-//后台路由
-
-//友情链接路由
 Route::resource('/admin/links','Admin\LinkController');
 //网站配置路由
 Route::resource('/admin/shet','Admin\ShetController');
@@ -156,6 +152,11 @@ Route::resource('/admin/comment','Admin\CommentController');
 Route::get('/home/index','Home\ShetController@homes');
 //评论路由
 Route::controller('home/comment','Home\CommentController');
+
+
+
+
+
 
 
 

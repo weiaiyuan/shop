@@ -11,5 +11,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Shop_goods extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes; 
 }

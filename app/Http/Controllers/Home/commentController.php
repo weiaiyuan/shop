@@ -31,10 +31,14 @@ class commentController extends Controller
     {
         $id = 19;
         $order = Shop_orders::find($id);
+
         $gid = $order->gid;
         // dump($gid);
         // exit;
         $data = Shop_goods::find($gid);
+
+        $uid = $order->uid;
+        $data = ShopUsers::find($uid);
 
         //return view('home.comment.index',['data'=>$data]);
         return view('home.comment.create',['data'=>$data]);
@@ -48,8 +52,10 @@ class commentController extends Controller
      */
     public function postStore(Request $request)
     {
+
         //dump($id);
         dump($request -> all());
+
     }
 
     /**

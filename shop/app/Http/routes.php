@@ -18,11 +18,11 @@ Route::get('/', function () {
 /*
 |----------------  雒小刚 开始位置 (20~70行) ---------------------
 */
-
 Route::get('/admin', function () {
     return view('admin.index.index');
 });
 Route::controller('/admin/order','Admin\OrderController');
+
 
 
 
@@ -76,6 +76,8 @@ Route::controller('/admin/order','Admin\OrderController');
  //用户管理
  
 Route::resource('/admin/user','Admin\UserController');
+//用户软删除
+Route::controller('/user/show','Admin\SoftController');
 
 
 
@@ -129,6 +131,24 @@ Route::resource('/admin/user','Admin\UserController');
 /*
 |---------------葛景伟 开始位置 (130~185行) -----------
 */
+Route::resource('/admin/links','Admin\LinkController');
+//网站配置路由
+Route::resource('/admin/shet','Admin\ShetController');
+Route::get('/admin/restores/{id}','Admin\ShetController@restores');
+Route::get('/admin/del/{id}','Admin\ShetController@del');
+Route::get('/admin/weihu','Admin\ShetController@weihu');
+//广告管理路由
+Route::resource('/admin/ad','Admin\AdController');
+Route::get('/admin/restores/{id}','Admin\AdController@restores');
+Route::get('/admin/del/{id}','Admin\AdController@del');
+//评论管理路由
+Route::resource('/admin/comment','Admin\CommentController');
+
+//前台用户
+//LOGO 标题路由
+Route::get('/home/index','Home\ShetController@homes');
+//评论路由
+Route::controller('home/comment','Home\CommentController');
 
 
 

@@ -32,7 +32,7 @@
 			  <div class="control-group">
 				  <label class="control-label" for="date01">过期时间</label>
 				  <div class="controls">
-					<input type="date" class="input-xlarge datepicker hasDatepicker" id="date01" value="{{ $activity->day or '无'}}" name="day" placeholder="请选择时间">
+					<input type="date" class="input-xlarge datepicker hasDatepicker" id="date01" value="{{ $activity->day}}" name="day" placeholder="请选择时间">
 				  </div>
 			  </div>
 			  <div class="control-group">

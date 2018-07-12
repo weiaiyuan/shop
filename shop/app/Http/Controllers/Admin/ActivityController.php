@@ -30,6 +30,14 @@ class ActivityController extends Controller
      */
     public function create()
     {
+        $ac = Shop_activity::all();
+        $a = 0; 
+        foreach ($ac as $key => $value) {
+            $a += 1;
+        }
+        if ($a == 4) {
+            return back()->with('error','抱歉，活动已满,最多只能添加4个哦！');
+        }
         return view('admin.activity.create');
     }
 

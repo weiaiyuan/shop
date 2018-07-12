@@ -1,57 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Shop_activity;
-use App\Models\Shop_cates;
-use App\Http\Controllers\Home\HomeActivityController;
 
-class HomeActivityController extends Controller
+class PosterController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    
     public function index()
     {
-        $cates = Shop_cates::all();
-        $n = [];
-        foreach ($cates as $k=>$v)
-        {
-            if (substr_count($v->path,',')==0) {
-                $n[] = $v->id;
-            }
-        }
-        $z = [];
-        foreach ($cates as $k=>$v)
-        {
-            if (substr_count($v->path,',')==1) {
-                $z[] = $v->id;
-            }
-        }
-        $a = [];
-        foreach ($cates as $k=>$v)
-        {
-            if (substr_count($v->path,',')==2) {
-                $a[] = $v->id;
-            }
-        }
-        // dd($n);
-        // dd(Shop_cates::find($n));
-        $cate = Shop_cates::find($n);
-        $cates = Shop_cates::find($z);
-        $catess = Shop_cates::find($a);
-        // $goods = Shop_goods::all();
-        $activity = Shop_activity::all();
-        // dd($activity);
-        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'activity'=>$activity]);
-        // return view('home.layout.index',['activity'=>$activity]);
+        //
     }
 
     /**

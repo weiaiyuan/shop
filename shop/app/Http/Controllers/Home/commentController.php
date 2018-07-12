@@ -6,52 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Shop_activity;
-use App\Models\Shop_cates;
-use App\Http\Controllers\Home\HomeActivityController;
+use App\Models\Shop_orders;
+use App\Models\ShopUsers;
+use App\Models\Shop_goods;
 
-class HomeActivityController extends Controller
+class commentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    
-    public function index()
+    public function getIndex()
     {
-        $cates = Shop_cates::all();
-        $n = [];
-        foreach ($cates as $k=>$v)
-        {
-            if (substr_count($v->path,',')==0) {
-                $n[] = $v->id;
-            }
-        }
-        $z = [];
-        foreach ($cates as $k=>$v)
-        {
-            if (substr_count($v->path,',')==1) {
-                $z[] = $v->id;
-            }
-        }
-        $a = [];
-        foreach ($cates as $k=>$v)
-        {
-            if (substr_count($v->path,',')==2) {
-                $a[] = $v->id;
-            }
-        }
-        // dd($n);
-        // dd(Shop_cates::find($n));
-        $cate = Shop_cates::find($n);
-        $cates = Shop_cates::find($z);
-        $catess = Shop_cates::find($a);
-        // $goods = Shop_goods::all();
-        $activity = Shop_activity::all();
-        // dd($activity);
-        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'activity'=>$activity]);
-        // return view('home.layout.index',['activity'=>$activity]);
+        echo 'aa';   
     }
 
     /**
@@ -59,9 +27,14 @@ class HomeActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getCreate()
     {
-        //
+        $id = 19;
+        $order = Shop_orders::find($id);
+        $uid = $order->uid;
+        $data = ShopUsers::find($uid);
+        //return view('home.comment.index',['data'=>$data]);
+        return view('home.comment.create',['data'=>$data]);
     }
 
     /**
@@ -70,9 +43,9 @@ class HomeActivityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function postStore(Request $request)
     {
-        //
+
     }
 
     /**

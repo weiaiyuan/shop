@@ -114,24 +114,28 @@
 							<div class="menu-srot">
 							<div class="sort-side">
 							<dl class="dl-sort">
-							<dt><span title="蛋糕">
+							<dt>
 							@foreach($cates as $ka=>$va)
 							@if($v->id == $va->pid)
-								{{$va->cname}}
+							<span title="蛋糕">
+								{{$va->cname}} -
+							</span>
 							@endif
 							@endforeach
-							</span></dt>
-							<dd><a title="蒸蛋糕" href="#"><span>
+							</dt>
+							<dd>
 							@foreach($cates as $ka=>$va)
 							@if($v->id == $va->pid)
 							@foreach($catess as $kaa=>$vaa)
 							@if($va->id == $vaa->pid)
+							<a title="{{ $vaa->cname}}" href="#"><span>
 								{{ $vaa->cname }} |
+							</span></a>
 							@endif
 							@endforeach
 							@endif
 							@endforeach
-							</span></a></dd>
+							</dd>
 							</dl>
 							</div>
 							</div>
@@ -294,7 +298,6 @@
 								<img src="/static/home/images/tj2.png "></img>
 							</div>
 						</div>
-
 					</div>
 					<div class="clear "></div>
 					<!--热门活动 -->
@@ -307,54 +310,23 @@
                               <a href="# ">全部活动<i class="am-icon-angle-right" style="padding-left:10px ;" ></i></a>
                         </span>
 						</div>
-					  <div class="am-g am-g-fixed ">
-						<div class="am-u-sm-3 ">
-							<div class="icon-sale one "></div>	
-								<h4>秒杀</h4>							
-							<div class="activityMain ">
-								<img src="/static/home/images/activity1.jpg "></img>
+					 <div class="am-g am-g-fixed ">
+		@foreach ($activity as $ks=>$vs)
+						<div class="am-u-sm-3">
+							<div class="icon-sale outer-con " ></div>	
+								<h4 style="color:cyan;size:7px">{{ $vs->title }}</h4>							
+							<div class="activityMain" title="{{ $vs->title }}">
+								<img src="/images/activity/{{ $vs->price}}" style="width:281;height: 300;"></img>
 							</div>
 							<div class="info ">
-								<h3>春节送礼优选</h3>
+								<a><h3 style="color:orange">{{ $vs->content}}</h3></a>
 							</div>														
 						</div>
-						
-						<div class="am-u-sm-3 ">
-						  <div class="icon-sale two "></div>	
-							<h4>特惠</h4>
-							<div class="activityMain ">
-								<img src="/static/home/images/activity2.jpg "></img>
-							</div>
-							<div class="info ">
-								<h3>春节送礼优选</h3>								
-							</div>							
-						</div>						
-						
-						<div class="am-u-sm-3 ">
-							<div class="icon-sale three "></div>
-							<h4>团购</h4>
-							<div class="activityMain ">
-								<img src="/static/home/images/activity3.jpg "></img>
-							</div>
-							<div class="info ">
-								<h3>春节送礼优选</h3>
-							</div>							
-						</div>						
-
-						<div class="am-u-sm-3 last ">
-							<div class="icon-sale "></div>
-							<h4>超值</h4>
-							<div class="activityMain ">
-								<img src="/static/home/images/activity.jpg "></img>
-							</div>
-							<div class="info ">
-								<h3>春节送礼优选</h3>
-							</div>													
-						</div>
-
-					  </div>
+		@endforeach
+					 </div>
                    </div>
-					<div class="clear "></div>
+				 <div class="clear ">
+				</div>
 <!-- 蒋旺生做的前台活动结束 -->
 
                     <div id="f1">

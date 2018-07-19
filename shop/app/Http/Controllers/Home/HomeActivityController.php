@@ -8,6 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Shop_activity;
 use App\Models\Shop_cates;
+use App\Models\Shop_pushs;
+use App\Models\Shop_goods;
+use App\Models\Goshop;
 use App\Http\Controllers\Home\HomeActivityController;
 
 class HomeActivityController extends Controller
@@ -17,26 +20,36 @@ class HomeActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+    public  static function cate($pid)
+    {
+        $cates = Shop_cates::where('pid',$pid)->get();
+        foreach ($cates as $k => $v)
+        {
+            $v['sub'] = self::cate($v->id);
+        }
+        return $cates;
+    }
     public function index()
     {
-        $cates = Shop_cates::all();
+        $cates = self::cate(0);
+        // dd($cates);
+        // $cates = Shop_cates::all();
         $n = [];
-        foreach ($cates as $k=>$v)
+        foreach ($cates as $k=>$v) //一级分类
         {
             if (substr_count($v->path,',')==0) {
                 $n[] = $v->id;
             }
         }
         $z = [];
-        foreach ($cates as $k=>$v)
+        foreach ($cates as $k=>$v) //二级分类
         {
             if (substr_count($v->path,',')==1) {
                 $z[] = $v->id;
             }
         }
         $a = [];
-        foreach ($cates as $k=>$v)
+        foreach ($cates as $k=>$v) //三级分类
         {
             if (substr_count($v->path,',')==2) {
                 $a[] = $v->id;
@@ -45,12 +58,40 @@ class HomeActivityController extends Controller
         // dd($n);
         // dd(Shop_cates::find($n));
         $cate = Shop_cates::find($n);
-        $cates = Shop_cates::find($z);
+        // $cates = Shop_cates::find($z);
         $catess = Shop_cates::find($a);
         // $goods = Shop_goods::all();
-        $activity = Shop_activity::all();
+        $activity = Shop_activity::all();//获取所有活动遍历
+        $push = Shop_pushs::all(); //获取所有推荐位
+        $goods = Shop_goods::all();//获取所有商品
+        $arr = []; 
+        foreach ($goods as $k=>$v) //遍历所有商品
+        {
+            foreach ($push as $key => $value) { //遍历商品里面的推荐位 1-1关系
+                if ($v->id == $value->uid) { //如果商品id等于推荐表的uid
+                    $arr[]=$v -> id;    //则压入数组
+                }
+            }
+        }
+        $good  = Shop_goods::find($arr); //商品查找所有与推荐表有关联的商品
+        $goshop = Goshop::all(); ///获取所有购物车内的商品
+        $gid = [];
+        foreach ($goshop as $k=>$v) //遍历所有购物车里的商品
+        {
+            $gid[] = $v->gid; //压入商品id
+        }
+        // dd($gid);
+        $num = 0;
+        foreach ($gid as $key => $value) { //遍历有多少次商品id
+            $num += 1; //计算总数，遍历到view视图中
+        }
+        // dd($num);
+        $goshop = Shop_goods::find($gid); //查找商品里在购物车里的
+        // dd($goshop);
+
+        // dd($good);
         // dd($activity);
-        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'activity'=>$activity]);
+        return view('home.layout.qiantai',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'activity'=>$activity,'push'=>$push,'good'=>$good,'goods'=>$goods,'num'=>$num]);
         // return view('home.layout.index',['activity'=>$activity]);
     }
 
@@ -61,7 +102,7 @@ class HomeActivityController extends Controller
      */
     public function create()
     {
-        //
+      
     }
 
     /**

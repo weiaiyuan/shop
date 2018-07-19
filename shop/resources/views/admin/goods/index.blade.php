@@ -26,6 +26,8 @@
 								<td>商品图片</td>
 								<td>所属类别</td>
 								<td>销量</td>
+								<td>颜色</td>
+								<td>包装</td>
 								<td>库存</td>
 								<td>主题</td>
 								<td>操作</td>
@@ -42,6 +44,8 @@
 							@endforeach
 							</td>
 							<td>{{ $v->salecnt or 50}}</td>
+							<td>{{ $v->color}}</td>
+							<td>{{ $v->pack }}</td>
 							<td>{{ $v->stock or 50}}</td>
 							<td>{{ $v->title }}</td>
 							<td>

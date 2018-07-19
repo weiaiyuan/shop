@@ -64,11 +64,7 @@ class GoodsController extends Controller
         //     ]);
         //     
         //获取文件
-        $ids = $request->input('cid');//获取当前cid的值
-        $path = Shop_cates::find($ids);    //获取在cid中的
-        if(substr_count($path->path,',') != 2) {
-            return back()->with('error','必选选择3级分类');
-        }
+        // dd($request->input('color'));
         $file = $request->file('gpic');
         // dump($file);
         //获取文件扩展名
@@ -80,6 +76,11 @@ class GoodsController extends Controller
         $data = date('Ymd',time());
         // echo $str;//存入public公共部分中
         $file -> move('./images/goods/'.$data,$filename);
+        $ids = $request->input('cid');//获取当前cid的值
+        $path = Shop_cates::find($ids);    //获取在cid中的
+        if(substr_count($path->path,',') != 2) {
+            return back()->with('error','必需选择3级分类');
+        }
         $goods = new Shop_goods;
         // dd($data.'/'.$filename);
         $goods -> gpic = $data.'/'.$filename;
@@ -88,6 +89,8 @@ class GoodsController extends Controller
         $goods -> price = $request -> input('price','');
         $goods -> desc = $request -> input('desc','');
         $goods -> title = $request -> input('title','');
+        $goods -> color = $request -> input('color','');
+        $goods -> pack = $request -> input('pack','');
         if ($goods -> save()) {
             return redirect('/admin/good')->with('success','添加成功！');
         }else{
@@ -126,7 +129,7 @@ class GoodsController extends Controller
             $n = substr_count($v->path,',');
             $v->cname = str_repeat('|----',$n).$v->cname;
         }
-        // dump($data);
+        // dd($data->pack);
         return view('admin.goods.edit',['data'=>$data,'id'=>$id,'cates'=>$cates]);
     }
 
@@ -175,6 +178,8 @@ class GoodsController extends Controller
         $goods -> gpic = $data.'/'.$filename;
         $goods -> cid = $ids;
         $goods -> gname = $request -> input('gname','');
+        $goods -> pack = $request -> input('pack','');
+        $goods -> color = $request -> input('color','');
         $goods -> price = $request -> input('price','');
         $goods -> desc = $request -> input('desc','');
         $goods -> title = $request -> input('title','');

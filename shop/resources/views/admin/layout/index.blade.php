@@ -134,7 +134,14 @@
 								<li><a class="submenu" href="/admin/activity"><i class="icon-file-alt"></i>活动列表</a></li>
 							</ul>	
 						</li>
-						
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">推荐位管理</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/push/create"><i class="icon-star"></i><span class="hidden-tablet">添加推荐位</span></a></li>
+								<li><a class="submenu" href="/admin/push"><i class="icon-file-alt"></i>推荐位列表</a></li>
+								<li><a class="submenu" href="/admin/push/$id"><i class="icon-file-alt"></i>回收站</a></li>
+							</ul>	
+						</li>
 					</ul>
 				</div>
 			</div>

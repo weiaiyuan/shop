@@ -57,7 +57,7 @@ class ActivityController extends Controller
         $file -> move('./images/activity/'.$time,$filename);
         $activity = new Shop_activity;
         $activity -> title =  $request->input('title','');
-        $activity -> day = ($request->input('day',''));
+        $activity -> day = $request->input('day','');
         $activity -> content =  $request->input('content','');
         $activity -> price = $filename;
         if($activity -> save()) {

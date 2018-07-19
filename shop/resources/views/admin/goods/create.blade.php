@@ -57,6 +57,33 @@
 								  </select>
 								</div>
 							</div>
+							<div class="control-group">
+								<label class="control-label" for="selectError3">包装</label>
+								<div class="controls">
+								  <select id="selectError3" name="pack">
+									<option value="裸装">--请选择--</option>
+									<option value="裸装">裸装</option>
+									<option value="全装">全装</option>
+								  </select>
+								</div>
+							</div>
+						<label class="control-label">推荐位选择</label>
+			<div class="controls">
+				  <label class="radio">
+					<div class="radio" id="uniform-optionsRadios1"><input type="radio" name="color" id="optionsRadios1" value="红色" ></div>
+					&nbsp &nbsp&nbsp         红色
+				  </label>
+				  <div style="clear:both"></div>
+				  <label class="radio">
+					<div class="radio" id="uniform-optionsRadios2"><input type="radio" name="color" id="optionsRadios2" value="灰色"></div>
+					&nbsp &nbsp&nbsp         灰色
+				  </label>
+				  <div style="clear:both"></div>
+				  <label class="radio">
+					<div class="radio" id="uniform-optionsRadios2"><input type="radio" name="color" id="optionsRadios2" value="白色"></div>
+					&nbsp &nbsp&nbsp         白色
+				  </label>
+			</div>
 						  <div class="control-group">
 							  <label class="control-label" for="date01">图片提交</label>
 							  <div class="controls">

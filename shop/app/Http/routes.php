@@ -209,7 +209,14 @@ Route::resource('/admin/good','Admin\GoodsController'); //商品详情
 Route::controller('/admin/goodlook','Admin\ChaController');//查看内容
 Route::resource('/home/cate','Home\HomeCateController');//前台类别
 Route::resource('/admin/activity','Admin\ActivityController');//活动模块
-Route::resource('/home/activity','Home\HomeActivityController');//前台活动控制器
+Route::resource('/home','Home\HomeActivityController');//前台活动控制器
+Route::resource('/admin/push','Admin\PushController');//后台推荐位管理
+Route::controller('/admin/pushhuifu','Admin\PushController');//推荐软删除
+Route::resource('/home/detail','Home\DetailController');//前台商品详情
+Route::controller('/home/goshop','Home\GoshopController');//商品购物车&&删除
+Route::resource('/home/soucang','Home\SoucangController');//我的收藏
+
+
 
 
 

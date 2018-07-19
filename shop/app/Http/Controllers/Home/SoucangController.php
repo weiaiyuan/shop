@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class PosterController extends Controller
+class SoucangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,6 +17,7 @@ class PosterController extends Controller
     public function index()
     {
         //
+        echo 1;
     }
 
     /**

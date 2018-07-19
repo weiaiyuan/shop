@@ -54,11 +54,39 @@
 								  <select id="selectError3" name="cid">
 									<option value="">--请选择--</option>
 									@foreach ($cates as $k=>$v)
-									<option value="{{ $v->id }}">{{ $v->cname}}</option>
+									<option value="{{ $v->id }}" {{ $v->id == $data->cid ? 'selected' : ''}}>{{ $v->cname}}</option>
 									@endforeach
 								  </select>
 								</div>
 							  </div>
+							  <div class="control-group">
+								<label class="control-label" for="selectError3">包装</label>
+								<div class="controls">
+								  <select id="selectError3" name="pack">
+									<option value="裸装">--请选择--</option>
+									<option value="裸装" {{ $data->pack == '裸装' ? 'selected' : ''}} >裸装</option>
+									<option value="全装" {{ $data->pack == '全装' ? 'selected' : ''}} >全装</option>
+								  </select>
+								</div>
+							</div>
+						<div class="control-group">
+								<label class="control-label" for="selectError3">颜色</label>
+								<div class="controls">
+								  <select id="selectError3" name="color">
+									<option value="红色">--请选择--</option>
+									<option value="红色" {{ $data->color == '红色' ? 'selected' : ''}}
+									 >红色</option>
+									<option value="灰色" {{$data->color == '灰色' ?  'selected'
+									: ''}}
+									
+									 >灰色</option>
+									<option value="白色"  {{$data->color == '白色' ?  'selected' 
+									: ''}}
+									
+									 >白色</option>
+								  </select>
+								</div>
+							</div>
 						  <div class="control-group">
 							  <label class="control-label" for="date01">图片提交</label>
 							  <div class="controls">

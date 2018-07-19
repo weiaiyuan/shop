@@ -38,7 +38,7 @@
 			  <div class="control-group">
 				<label class="control-label" for="date01">配图&nbsp</label>
 				  <div class="controls">
-					<input type="file" class="input-xlarge datepicker hasDatepicker" id="date01" value="{{ $activity->price }}" name="price">
+					<input type="file" class="input-xlarge datepicker hasDatepicker" id="date01" value="" name="price"><img src="/images/activity/{{ $activity->price }}" style="width:200px;height: 150px;">
 				  </div>
 			  </div>
 			 <div class="control-group hidden-phone">

@@ -10,7 +10,7 @@
 		<link href="/static/home/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
 		<link href="/static/home/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
 
-		<link href="/static/home/basic//css/demo.css" rel="stylesheet" type="text/css" />
+		<link href="/static/home/basic/css/demo.css" rel="stylesheet" type="text/css" />
 
 		<link href="/static/home/css/hmstyle.css" rel="stylesheet" type="text/css"/>
 		<link href="/static/home/css/skin.css" rel="stylesheet" type="text/css" />
@@ -24,7 +24,7 @@
 		<link type="text/css" href="css/style.css" rel="stylesheet" />
 
 		<script type="text/javascript" src="basic/js/jquery-1.7.min.js"></script>
-		<script type="text/javascript" src="basic/js/quick_links.js"></script>
+		<script type="text/javascript" src="/static/home/basic/js/quick_links.js"></script>
 
 		<script type="text/javascript" src="AmazeUI-2.4.2/assets/js/amazeui.js"></script>
 		<script type="text/javascript" src="js/jquery.imagezoom.min.js"></script>
@@ -56,7 +56,7 @@
 						<div class="menu-hd"><a id="mc-menu-hd" href="/home/goshop/show" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">{{ $num }}</strong></a></div>
 					</div>
 					<div class="topMessage favorite">
-						<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
+						<div class="menu-hd"><a href="/home/collect/index" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
 				</ul>
 				</div>
 
@@ -148,7 +148,7 @@
 							</div>
 							<div class="login_btnbox ">
 								<a href="# " class="login_order ">我的订单</a>
-								<a href="# " class="login_favorite ">我的收藏</a>
+								<a href="/home/collect/index" class="login_favorite ">我的收藏</a>
 							</div>
 							<i class="icon_arrow_white "></i>
 						</div>
@@ -184,7 +184,7 @@
 					</div>
 
 					<div id="brand " class="item ">
-						<a href="#">
+						<a href="/home/collect/index">
 							<span class="wdsc "><img src="/static/home/images/wdsc.png " /></span>
 						</a>
 						<div class="mp_tooltip ">
@@ -290,7 +290,7 @@
 			</div>
 		</div>
 		<script>
-			window.jQuery || document.write('<script src="/static/home/basic/js/jquery.min.js "><\/script>');
+			window.jQuery || document.write('<script src="/static/home/basic/js/jquery-1.7.min.js "><\/script>');
 		</script>
 		<script type="text/javascript " src="/static/home/basic/js/quick_links.js "></script>
 	</body>

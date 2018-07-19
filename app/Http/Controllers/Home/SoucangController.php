@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Goshop;
+use App\Models\Soucang;
+use App\Models\Shop_goods;
 
 class SoucangController extends Controller
 {
@@ -16,8 +19,19 @@ class SoucangController extends Controller
      */
     public function getIndex()
     {
-        //
-        echo 111;
+        $Goshop = Goshop::all();
+        $num = 0;
+        foreach ($Goshop as $key => $value) {
+            $num +=1;
+        }
+        $soucang = Soucang::all();
+        $a = [];
+        foreach ($soucang as $key => $value) {
+            $a[] = $value->sid;
+        }
+        $soucang = Shop_goods::find($a);
+        // dd($soucang);
+        return view('home.homecate.collect',['num'=>$num,'soucang'=>$soucang]);
     }
 
     /**
@@ -25,9 +39,17 @@ class SoucangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getCreate(Request $request)
     {
-        //
+        $id = $request -> input('id');
+        $soucang = new Soucang;
+        $soucang -> sid = $id;
+        // dd('success');
+        if ($soucang->save()) {
+            echo 'success';
+        } else {
+            echo 'error';
+        }
     }
 
     /**
@@ -36,9 +58,10 @@ class SoucangController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function getStore()
     {
-        //
+
+
     }
 
     /**

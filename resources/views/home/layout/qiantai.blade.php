@@ -330,7 +330,7 @@
 								<div class="sub-title ">
 									{{ $v->price }} ￥
 								</div>
-								<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+								<a href="#" title="添加收藏" class="soucang"><input type="hidden" class="hid" name="" value="{{ $v->id }}"><i class="am-icon-shopping-basket am-icon-md  seprate"></i></a>
 							</div>
 							<a href="/home/detail/{{ $v->id }}"><img src="/images/goods/{{ $v->gpic }}" style="width:150px;height: 150px" /></a>
 						</div>
@@ -339,5 +339,26 @@
 <!-- 蒋旺生做的商品详情结束 -->
                  <div class="clear "></div>  
                  </div>
-                 
+                 <script type="text/javascript">
+                 $('.soucang').click(function(){
+                 	if(confirm('确认收藏吗?')){
+						s = $(this).find('.hid').val();
+						// alert(s)
+						$.ajax({
+							'url':'/home/collect/create/',
+							'data':{'id':s},
+							'datatype':'html',
+							'type':'get',
+							'async':false,
+							success:function(msg){
+								if(msg == 'success'){
+									alert('(#^.^#)添加成功');
+								} else {
+									alert('┭┮﹏┭┮添加失败');
+								}
+							}
+						})
+                 	}
+                 })
+                 </script>
 @endsection

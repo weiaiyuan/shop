@@ -20,4 +20,8 @@ class Shop_goods extends Model
     {
     	return $this->hasOne('App\Models\Goshop','gid');
     }
+    public function shuyu() 
+    {
+    	return $this->beLongsTo('App\Models\Soucang','sid');
+    }
 }

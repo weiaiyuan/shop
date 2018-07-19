@@ -93,9 +93,10 @@ Route::controller('/admin/sowing','Admin\SowingController');
 //后台主页
 Route::get('/admin', function () {
     return view('admin.index.index');
+
+});
 //后台反馈管理
 Route::controller('/admin/wenti','Admin\WentiController');
-});
 });
 
 //后台登录

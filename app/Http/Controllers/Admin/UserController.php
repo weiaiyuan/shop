@@ -11,11 +11,7 @@ use App\Models\ShopUsers;
 use DB;
 use Hash;
 use App\Http\Requests\UserPostRequest;
-
 class UserController extends Controller {
-
-class UserController extends Controller
-{
     /**
      * Display a listing of the resource.
      *
@@ -28,18 +24,6 @@ class UserController extends Controller
         $data = ShopUsers::where('uname', 'like', '%' . $user . '%')->paginate(5);
         return view('admin.user.list', ['data' => $data]);
     }
-    public function index(Request $request)
-    {
-        //用户添加视图
-        //搜索 //分页
-        $user = $request -> input('user');
-        
-         $data = ShopUsers::where('uname','like','%'.$user.'%')->paginate(5);
-       
-        return view('admin.user.list',['data'=>$data]);
-    
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -48,14 +32,6 @@ class UserController extends Controller
     public function create(Request $request) {
         return view('admin.user.create');
     }
-    public function create(Request $request)
-    {
-        
-          
-          
-          return view('admin.user.create');
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -92,88 +68,26 @@ class UserController extends Controller
             return back()->with('error', '添加失败');
         }
     }
-    public function store(UserPostRequest $request)
-    {
-              $data = $request->except(['_token']); 
-              $user = new ShopUsers;
-              $user->uname = $data['uname'] ;
-             
-              //哈希加密
-              $user->pass = Hash::make($data['pass']); 
-              dump($user->pass);
-
-              if(Hash::check($data['repass'],$user->pass)==true)
-              {
-                   $user->repass=$data['repass'];
-              }else{
-                  echo '密码不一致';   
-              };
-              
-
-
-              $user->repass = $data['repass'];
-              $user->qx = $data['qx'];
-              $user->sex=$data['sex'];
-              $user->email=$data['email'];
-              $user->phone=$data['phone'];
-              //头像
-             if($request -> hasFile('tou')){
-
-            // 使用request 创建文件上传对象
-            $profile = $request -> file('tou');
-            $ext = $profile->getClientOriginalExtension();
-            // 处理文件名称
-            $temp_name = str_random(20);
-            $name =  $temp_name.'.'.$ext;
-            $dirname = date('Ymd',time());
-            $res = $profile -> move('./uploads/'.$dirname,$name);
-            $data['tou'] = $res;
-            $user->tou=$dirname.'/'.$name;
-             }
-
-             
-            
-             // dump($user->tou);die;
-              
-              if($user->save()){
-                    return redirect('/admin/user')->with('success','添加成功');
-              }else{
-                   return back()->with('error','添加失败');
-              }
-          
-
-    
-
-             
-    }
-
-
-    public function show($id)
-    {
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id) {
         //
+        
     }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function edit($id) {
         $data = ShopUsers::find($id);
         return view('admin.user.edit', ['data' => $data]);
     }
-
-    public function edit($id)
-    {
-        $data = DB::table('shop_users')->where('id','=',$id)->first();
-           
-               
-               
-        return view('admin.user.edit',['data'=>$data]);
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -202,57 +116,17 @@ class UserController extends Controller
             $data['tou'] = $res;
             $user->tou = $dirname . '/' . $name;
         }
-
+        
         if ($user->save()) {
             return redirect('/admin/user');
         }
     }
-=======
-    public function update(Request $request, $id)
-    {
-        
-              $data = $request -> except(['_token','_method']);
-              $user = ShopUsers::find($id); 
-              $user->uname = $data['uname'] ;
-              $user->pass = $data['pass'];
-              $user->repass = $data['repass'];
-              $user->qx = $data['qx'];
-              $user->sex=$data['sex'];
-              $user->email=$data['email'];
-              $user->phone=$data['phone'];
-             if($request -> hasFile('tou')){
-
-            // 使用request 创建文件上传对象
-             $profile = $request -> file('tou');
-             $ext = $profile->getClientOriginalExtension();
-            // 处理文件名称
-             $temp_name = str_random(20);
-             $name =  $temp_name.'.'.$ext;
-             $dirname = date('Ymd',time());
-             $res = $profile -> move('./uploads/'.$dirname,$name);
-               $data['tou'] = $res;
-              $user->tou=$dirname.'/'.$name;
-             }
-
-                   
-            if( $user->save()){
-                return redirect('/admin/user');
-            }
-            
-         
-        
-
-    }  
-    
-
->>>>>>> origin/jaing
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function destroy($id) {
         $soft = ShopUsers::find($id);
         $soft->delete();
@@ -260,18 +134,4 @@ class UserController extends Controller
     }
 }
 
-<<<<<<< HEAD
-
-=======
        
->>>>>>> origin/zcz
-=======
-    public function destroy($id)
-     {
-          $soft = ShopUsers::find($id);     
-        $soft -> delete();
-         
-          return redirect('/admin/user');
-    }
-}
->>>>>>> origin/jaing

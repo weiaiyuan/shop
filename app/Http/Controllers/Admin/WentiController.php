@@ -17,7 +17,7 @@ class WentiController extends Controller
      */
     public function getIndex()
     {    
-       
+        
             $data =DB::table('shop_wenti')->paginate(3);
          return view('admin.wenti.list',['data'=>$data]);        
     }
@@ -93,8 +93,13 @@ class WentiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+   public function getDel($id)
     {
-        //
+         $soft = Shop_wenti::find($id);
+          if ($soft->delete()) {
+            return redirect('/admin/wenti/index')->with('success','删除成功');
+        } else {
+            return back() -> with('error','删除失败');
+        }
     }
 }

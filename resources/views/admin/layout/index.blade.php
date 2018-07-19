@@ -69,7 +69,7 @@
  									<span>账号设置</span>
 								</li>
 								<li><a href="/"><i class="halflings-icon home"></i>前台</a></li>
-								<li><a href="/admin/login"><i class="halflings-icon off"></i>退出</a></li>
+								<li><a href="/admin/login/outlogin"><i class="halflings-icon off"></i>退出</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
@@ -92,12 +92,9 @@
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet">用户管理</span></a>
 							<ul>
-								<li><a class="submenu" href="/admin/user/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户添加</span></a></li>
-								<li><a class="submenu" href="/admin/user"><i class="icon-file-alt"></i><span class="hidden-tablet"> 用户列表</span></a></li>
-
 								<li><a class="submenu" href="/admin/user/create"><i class="icon-plus"></i><span class="hidden-tablet"> 用户添加</span></a></li>
 								<li><a class="submenu" href="/admin/user"><i class="icon-list"></i><span class="hidden-tablet"> 用户列表</span></a></li>
-								<li><a class="submenu" href="/user/show/show"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>
+								<li><a class="submenu" href="submenu3.html"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>
 							</ul>
 						</li>
 
@@ -110,6 +107,8 @@
 							</ul>
 						</li>
 								<!-- 订单管理结束 -->
+
+
 
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-tasks"></i><span class="hidden-tablet">分类管理</span></a>
@@ -134,12 +133,11 @@
 								<li><a class="submenu" href="/admin/activity"><i class="icon-file-alt"></i>活动列表</a></li>
 							</ul>
 						</li>
-						
-						<!--评价链接-->
-						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">评价管理</span></a>
-							<ul>	
-								<li><a class="submenu" href="/admin/comment"><i class="icon-file-alt"></i>评论列表</a></li>
+
+					    <li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">反馈管理</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/wenti/index"><i class="icon-file-alt"></i>反馈列表</a></li>
 							</ul>
 						</li>
 
@@ -180,13 +178,14 @@
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 轮播图管理</span></a>
 							<ul>
-
 								<li><a class="submenu" href="/admin/sowing/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 轮播图添加</span></a></li>
 
 								<li><a class="submenu" href="/admin/sowing/index"><i class="icon-file-alt"></i><span class="hidden-tablet"> 轮播图列表</span></a></li>
 
 							</ul>
 						</li>
+
+
 					</ul>
 				</div>
 			</div>

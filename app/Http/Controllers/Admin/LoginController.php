@@ -18,7 +18,6 @@ class LoginController extends Controller
      */
     public function getIndex()
     {
-
           return view('admin.login');
     }
 
@@ -31,7 +30,6 @@ class LoginController extends Controller
     {
          $uname = $request->input('uname');
          $pass = $request->input('pass');
-
          $user = ShopUsers::where('uname',$uname)->first();
          //判断用户是否存在
           if(empty($user)){
@@ -47,10 +45,15 @@ class LoginController extends Controller
            }
                  return back()->with('error','密码错误!');
            }elseif($user->qx==2){
+
                 return back()->with('error','权限不够');
            }
-
-
+              
+    }
+      public function getOutlogin()
+    {
+        session(['id'=>null]);
+        return redirect('/admin/login');
     }
 
     /**

@@ -76,7 +76,11 @@ class UserController extends Controller {
      */
     public function show($id) {
         //
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> origin/zcz
     }
     /**
      * Show the form for editing the specified resource.
@@ -116,6 +120,10 @@ class UserController extends Controller {
             $data['tou'] = $res;
             $user->tou = $dirname . '/' . $name;
         }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> origin/zcz
         if ($user->save()) {
             return redirect('/admin/user');
         }
@@ -133,4 +141,8 @@ class UserController extends Controller {
     }
 }
 
+<<<<<<< HEAD
 
+=======
+       
+>>>>>>> origin/zcz

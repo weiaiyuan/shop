@@ -15,8 +15,11 @@
 		
 		<link href="/static/home/css/personal.css" rel="stylesheet" type="text/css">
 		<link href="/static/home/css/infstyle.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="/static/home/layui/css/layui.css">
 		<script src="/static/home/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
 		<script src="/static/home/AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
+		<script src="/static/home/layui/layui.all.js"></script>
+        <script src="/static/home/layui/layui.js"></script>
 	</head>
 
 	<body>
@@ -27,11 +30,15 @@
 					<!--顶部导航条 -->
 					<div class="am-container header">
 						<ul class="message-l">
-							<div class="topMessage">
-								<div class="menu-hd">
-								<a href="/home/login/index" target="_top" class="h">亲，请登录</a>
+							<div class="menu-hd">
+									@if(session('username')==null)
+								<a href="/home/login/index" target="_top" class="h">请登录</a>
+								
 								<a href="/home/zhuce/index" target="_top">免费注册</a>
-								</div>
+								@elseif(session('username')!=null)
+								<a href="/home/geren/dall" target="_top" class="h">欢迎您：{{session('username')}} 登录</a>&nbsp &nbsp
+								<a href="/home/login/outlogin">退出</a>
+								@endif
 							</div>
 						</ul>
 						<ul class="message-r">
@@ -131,8 +138,8 @@
 						<a href="#">个人资料</a>
 						<ul>
 							<li class="active"> <a href="/home/geren/dall">个人信息</a></li>
-							<li> <a href="safety.html">安全设置</a></li>
-							<li> <a href="address.html">收货地址</a></li>
+							<li> <a href="/home/geren/show">安全设置</a></li>
+							<li> <a href="/home/dizhi/index">收货地址</a></li>
 						</ul>
 					</li>
 					<li class="person">

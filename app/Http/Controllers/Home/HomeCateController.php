@@ -52,7 +52,8 @@ class HomeCateController extends Controller
         $data = DB::table('shop_sowing')->get();
         // dump($logos);
         // exit;
-        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'logos'=>$logos,'data'=>$data]);
+         $link = DB::table('shop_link')->get();
+        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'logos'=>$logos,'data'=>$data,'link'=>$link]);
     }
 
     /**

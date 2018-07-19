@@ -54,6 +54,10 @@ class HomeActivityController extends Controller
       
         // dd($activity);
         return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'activity'=>$activity,'logos'=>$logos,'data'=>$data]);
+        $link = DB::table('shop_link')->get();
+      
+        // dd($activity);
+        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'activity'=>$activity,'logos'=>$logos,'data'=>$data,'link'=>$link]);
         // return view('home.layout.index',['activity'=>$activity]);
     }
 

@@ -10,23 +10,39 @@
   <link href="/static/home/css/dlstyle.css" rel="stylesheet" type="text/css" />
   <script src="/static/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
   <script src="/static/home/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
-  <script src="/static/home/layui/layui.all.js"></script>
+     <script src="/static/home/layui/layui.all.js"></script>
+       <script src="/static/home/layui/layui.js"></script>
 
  </head>
 
  <body>
-@if (count($errors) > 0)
- <div class="alert alert-danger">
-     <ul>
-         @foreach ($errors->all() as $error)
-            <script>
-              layer.alert('{{$error}}', {icon: 6});
-            </script>
-         @endforeach
-     </ul>
- </div>
+ 	  @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+               <script>
+                 layer.alert('{{$error}}', {icon: 6});
+               </script>
+            @endforeach
+        </ul>
+    </div>
 @endif
+         @if (session('success'))
+              
+                  <script>
+                  layer.alert('{{session('success')}}', {icon: 6});
+                  </script>
+                
+            @endif
 
+            @if (session('error'))
+              
+                  <script>
+                  layer.alert('{{session('error')}}', {icon: 2});
+                  </script>
+                
+            @endif
+     
 		<div class="login-boxtitle">
 			<a href="home.html"><img alt="logo" src="/static/home/images/logobig.png" /></a>
 		</div>
@@ -46,14 +62,27 @@
 							   <div class="user-name">
 								    <label for="user"><i class="am-icon-user"></i></label>
 								    <input type="text" name="user" id="user" placeholder="邮箱/手机/用户名">
-                 </div>
-                 <div class="user-pass">
+                          </div>
+                               <div class="user-pass">
 								    <label for="password"><i class="am-icon-lock"></i></label>
 								    <input type="password" name="pass" id="password" placeholder="请输入密码">
-                 </div>
-
-           </div>
-
+                               </div>                               
+                    
+                                 <div class="form-group code">
+									<img src="{{captcha_src()}}" title="点击切换" onclick="rand_code(this)" width="320" height="50">
+								</div>
+			                        <script type="text/javascript">
+			                        	  function rand_code(obj){
+			                        	  	obj.src = obj.src+'?a='+Math.random();
+			                        	  }
+			                        </script>
+                        <div class="login-form">
+                        	     <div class="user-pass">
+								    <label for="password"><i class="am-icon-lock"></i></label>
+								    <input type="text" name="captcha" id="password" placeholder="请输入验证码">
+                               </div>     
+                        </div>
+ 						</div>
             <div class="login-links">
 
 								<a href="/home/zhuce/index" class="zcnext am-fr am-btn-default" >注册</a>
@@ -99,6 +128,7 @@
 							</p>
 						</div>
 					</div>
+					
 	</body>
 
 </html>

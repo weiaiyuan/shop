@@ -14,6 +14,9 @@
 		<link href="/static/home/css/personal.css" rel="stylesheet" type="text/css">
 		<link href="/static/home/css/appstyle.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="/static/home/js/jquery-1.7.2.min.js"></script>
+
+		  <script src="/static/home/layui/layui.all.js"></script>
+          <script src="/static/home/layui/layui.js"></script>
 	</head>
 
 	<body>
@@ -34,6 +37,10 @@
 						<ul class="message-r">
 							<div class="topMessage home">
 								<div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+							</div>
+
+								<div class="topMessage home">
+								<div class="menu-hd"><a href="#" target="_top" class="h">问题反馈</a></div>
 							</div>
 							<div class="topMessage my-shangcheng">
 								<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>

@@ -27,7 +27,7 @@ class OrderController extends Controller
         $orders = Shop_orders::where('num','like','%'.$name.'%')->paginate(3);
         $user = ShopUsers::get();
         //dump($user);
-        return view('admin.order.index',['orders'=>$orders]);
+        return view('admin.order.index',['orders'=>$orders,'user'=>$user]);
     }  
 
      /**

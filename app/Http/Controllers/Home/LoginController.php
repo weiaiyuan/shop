@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
@@ -9,6 +8,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use Hash;
 use App\Http\Requests\BsPostRequest;
+use App\Models\ShopUsers;
 
 class LoginController extends Controller
 {
@@ -29,7 +29,7 @@ class LoginController extends Controller
      */
     public function postCreate(BsPostRequest $request)
     {
-
+       
         $user = $request->input('user');
         $pass = $request->input('pass');
          //获取用户数据
@@ -45,11 +45,21 @@ class LoginController extends Controller
             // dump($password);
             // exit;
         }
+        
          if(Hash::check($pass,$password)){
-             return redirect('/home/activity')->with('success', '登录成功');
+             $res2 = ShopUsers::where('uname',$user) -> orWhere('email',$user) ->orWhere('phone',$user)-> value('id');
+              
+            session(['username' => $user,'id' => $res2]);
+             return redirect('/')->with('success', '登录成功');
         }else{
-            return back();
+            return back()->with('error','登录失败');
         }
     }
+      public function getOutlogin()
+    {
+        session(['username'=>null]);
+        return redirect('/home/login');
+    }
+   
 
 }

@@ -18,6 +18,7 @@ use App\Models\Shop_sowing;
     public function getIndex()
     {
          $data =DB::table('shop_sowing')->paginate();
+         $data =DB::table('shop_sowing')->paginate(3);
         return view('admin.sowing.list',['data'=>$data]); 
     }
 

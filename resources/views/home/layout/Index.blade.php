@@ -19,6 +19,8 @@
 		<link href="/static/home/css/skin.css" rel="stylesheet" type="text/css" />
 		<script src="/static/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		<script src="/static/home/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+		<script src="/static/home/layui/layui.all.js"></script>
+  		<script src="/static/home/layui/layui.js"></script>
 
 	</head>
 
@@ -31,8 +33,14 @@
 						<ul class="message-l">
 							<div class="topMessage">
 								<div class="menu-hd">
-								<a href="/home/login/index" target="_top" class="h">亲，请登录</a>
+									@if(session('username')==null)
+								<a href="/home/login/index" target="_top" class="h">请登录</a>
+								
 								<a href="/home/zhuce/index" target="_top">免费注册</a>
+								@elseif(session('username')!=null)
+								<a href="/home/geren/dall" target="_top" class="h">{{session('username')}}</a>
+								<a href="/home/login/outlogin">退出</a>
+								@endif
 								</div>
 							</div>
 						</ul>
@@ -40,6 +48,10 @@
 							<div class="topMessage home">
 								<div class="menu-hd"><a href="/" target="_top" class="h">商城首页</a></div>
 							</div>
+							<div class="topMessage home">
+								<div class="menu-hd"><a href="/home/wenti/index" target="_top" class="h">问题反馈</a></div>
+							</div>
+
 							<div class="topMessage my-shangcheng">
 								<div class="menu-hd MyShangcheng"><a href="/home/geren/dall" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 							</div>
@@ -50,18 +62,16 @@
 								<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
 						</ul>
 						</div>
-
 					</div>
 				</ul>
 				</div>
-
-
 						<!--悬浮搜索框-->
 
 						<div class="nav white">
 					<div class="logo"><img src="/static/home/images/logo.png" /></div>
 					<div class="logoBig">
 						<li><img src="" /></li>
+						<li><img src="/images/{{ $logos -> logo}}" /></li>
 					</div>
 
 					<div class="search-bar pr">
@@ -84,6 +94,7 @@
 							<ul class="am-slides">
 								@foreach($data as $key=>$value)
 								<li class="banner2"><a><img src="/images/{{$value->pic}}" ></a></li>
+								<li class="banner1"><a><img src="/images/{{$value->pic}}" ></a></li>
 								@endforeach
 							</ul>
 						</div>
@@ -96,6 +107,7 @@
 					   <div class="nav-cont">
 							<ul>
 								<li class="index"><a href="/">首页</a></li>
+								<li class="index"><a href="#">首页</a></li>
                                 <li class="qc"><a href="#">闪购</a></li>
                                 <li class="qc"><a href="#">限时抢</a></li>
                                 <li class="qc"><a href="#">团购</a></li>
@@ -1662,7 +1674,10 @@
 							</p>
 						</div>
 					</div>
-
+					
+					    <div class="footer-bd ">
+					    </div>
+					</div>
 		</div>
 		</div>
 		<!--引导 -->

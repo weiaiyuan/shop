@@ -36,7 +36,7 @@
 								
 								<a href="/home/zhuce/index" target="_top">免费注册</a>
 								@elseif(session('username')!=null)
-								<a href="/home/geren/dall" target="_top" class="h">欢迎您：{{session('username')}} 登录</a>&nbsp &nbsp
+								欢迎您：<a href="/home/geren/dall" target="_top" class="h">{{session('username')}}</a> 登录&nbsp &nbsp
 								<a href="/home/login/outlogin">退出</a>
 								@endif
 							</div>

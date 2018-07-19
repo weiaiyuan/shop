@@ -6,12 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-<<<<<<< HEAD
 use App\Models\Shop_coms;
 use App\Models\Shop_goods;
-=======
-
->>>>>>> origin/zcz
 class CommentController extends Controller
 {
     /**
@@ -21,13 +17,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
         $res = Shop_coms::get();
         //dump($res);
         return view('admin.comment.index',['res'=>$res]);
-=======
-        return view('admin.comment.index');
->>>>>>> origin/zcz
     }
 
     /**
@@ -58,7 +50,6 @@ class CommentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-<<<<<<< HEAD
     {        
         //评论表数据
         $com = Shop_coms::where('id',$id)->first();
@@ -68,34 +59,6 @@ class CommentController extends Controller
         return view('admin.comment.content',['com'=>$com,'good'=>$good]);
     }
 
-=======
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
->>>>>>> origin/zcz
 
     /**
      * Remove the specified resource from storage.
@@ -105,15 +68,11 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-<<<<<<< HEAD
         $data = Shop_coms::where('id',$id)->first();
         if($data->delete()){
             return back()->with('success','删除成功');
         }else{
             return back()->with('error','删除失败');
         }
-=======
-        //
->>>>>>> origin/zcz
     }
 }

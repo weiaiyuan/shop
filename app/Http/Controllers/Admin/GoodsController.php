@@ -49,21 +49,9 @@ class GoodsController extends Controller
      */
     public function store(GoodInsertRequest $request)
     {
-        // $this->validate($request,[
-        //         'gname' => 'required|unique:shop_goods',
-        //         'price' => 'required',
-        //         'title' => 'required',
-        //         'gpic' => 'required',
-        //         'desc' => 'required'
-        //     ],[
-        //     'gname.required'=>'名称未填写',
-        //     'price.required'=>'价格未填写',
-        //     'title.required'=>'主题未填写',
-        //     'gpic.required'=>'图片未提交',
-        //     'desc.required'=>'描述未填写',
-        //     ]);
-        //     
+     
         //获取文件
+
         $ids = $request->input('cid');//获取当前cid的值
         $path = Shop_cates::find($ids);    //获取在cid中的
         if(substr_count($path->path,',') != 2) {
@@ -80,6 +68,11 @@ class GoodsController extends Controller
         $data = date('Ymd',time());
         // echo $str;//存入public公共部分中
         $file -> move('./images/goods/'.$data,$filename);
+        $ids = $request->input('cid');//获取当前cid的值
+        $path = Shop_cates::find($ids);    //获取在cid中的
+        if(substr_count($path->path,',') != 2) {
+            return back()->with('error','必需选择3级分类');
+        }
         $goods = new Shop_goods;
         // dd($data.'/'.$filename);
         $goods -> gpic = $data.'/'.$filename;
@@ -88,6 +81,9 @@ class GoodsController extends Controller
         $goods -> price = $request -> input('price','');
         $goods -> desc = $request -> input('desc','');
         $goods -> title = $request -> input('title','');
+        $goods -> color = $request -> input('color','');
+        $goods -> pack = $request -> input('pack','');
+
         if ($goods -> save()) {
             return redirect('/admin/good')->with('success','添加成功！');
         }else{
@@ -126,7 +122,6 @@ class GoodsController extends Controller
             $n = substr_count($v->path,',');
             $v->cname = str_repeat('|----',$n).$v->cname;
         }
-        // dump($data);
         return view('admin.goods.edit',['data'=>$data,'id'=>$id,'cates'=>$cates]);
     }
 
@@ -138,21 +133,7 @@ class GoodsController extends Controller
      * @return \Illuminate\Http\Response
      */
    public function update(GoodInsertRequest $request,$id)
-    {
-        // $this->validate($request,[
-        //         'gname' => 'required|unique:shop_goods',
-        //         'price' => 'required',
-        //         'title' => 'required',
-        //         'gpic' => 'required',
-        //         'desc' => 'required'
-        //     ],[
-        //     'gname.required'=>'名称未填写',
-        //     'price.required'=>'价格未填写',
-        //     'title.required'=>'主题未填写',
-        //     'gpic.required'=>'图片未提交',
-        //     'desc.required'=>'描述未填写',
-        //     ]);
-        //     
+    {   
         //获取文件
         $ids = $request->input('cid');//获取当前cid的值
         $path = Shop_cates::find($ids);    //获取在cid中的
@@ -175,6 +156,8 @@ class GoodsController extends Controller
         $goods -> gpic = $data.'/'.$filename;
         $goods -> cid = $ids;
         $goods -> gname = $request -> input('gname','');
+        $goods -> pack = $request -> input('pack','');
+        $goods -> color = $request -> input('color','');
         $goods -> price = $request -> input('price','');
         $goods -> desc = $request -> input('desc','');
         $goods -> title = $request -> input('title','');

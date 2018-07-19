@@ -47,7 +47,6 @@
 						<td>商品ID</td>
 						<td>订单ID</td>
 						<td>时间</td>
-<<<<<<< HEAD
 						<td>好评</td>
 						<td>操作</td>
 					</tr>
@@ -79,10 +78,6 @@
 							</td>
 						</tr>
 					@endforeach
-=======
-						<td>操作</td>
-					</tr>
->>>>>>> origin/zcz
 				</table>
 
 				<div class="dataTables_paginate paging_bootstrap pagination">

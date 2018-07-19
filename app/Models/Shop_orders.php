@@ -14,4 +14,5 @@ class Shop_orders extends Model
 	{
 		return $this->belongsTo('App\Models\Shop_goods','gid');
 	}   
+
 }

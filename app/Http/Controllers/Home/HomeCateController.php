@@ -46,14 +46,13 @@ class HomeCateController extends Controller
         $cate = Shop_cates::find($n);
         $cates = Shop_cates::find($z);
         $catess = Shop_cates::find($a);
-        // $goods = Shop_goods::all();
-
         $logos = DB::table('shop_shet')->first();
         $data = DB::table('shop_sowing')->get();
         // dump($logos);
         // exit;
          $link = DB::table('shop_link')->get();
         return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'logos'=>$logos,'data'=>$data,'link'=>$link]);
+        return view('home.layout.index',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess]);
     }
 
     /**

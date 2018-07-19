@@ -15,71 +15,98 @@
     <!-- 编辑器源码文件 -->
     <script type="text/javascript" src="/utf8-php/ueditor.all.js"></script>
 <div class="box span12">
-					<div class="box-header" data-original-title="">
-						<h2><i class="halflings-icon white edit"></i><span class="break"></span>分类详情添加</h2>
-						<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-							<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
-						</div>
-					</div>
-					<div class="box-content">
-						<form class="form-horizontal" method="post" action="/admin/good" enctype="multipart/form-data">
-						{{ csrf_field() }}
-						  <fieldset>
-							<div class="control-group">
-							  <label class="control-label" for="typeahead">商品名称</label>
-							  <div class="controls">
-								<input type="text" class="span6 typeahead" id="typeahead" value="{{ old('gname')}}" name="gname">'
-								
-							  </div>
-							</div>
-							<div class="control-group">
-							  <label class="control-label" for="date01">商品价格</label>
-							  <div class="controls">
-								<input type="text" class="input-xlarge datepicker hasDatepicker" id="date01" value="{{ old('price')}}" name="price" placeholder="默认￥">
-							  </div>
-							</div>
-							<div class="control-group">
-							  <label class="control-label" for="date01">商品主题</label>
-							  <div class="controls">
-								<input type="text" class="input-xlarge datepicker hasDatepicker" id="date01" value="{{ old('title')}}" name="title">
-							  </div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="selectError3">所属分类</label>
-								<div class="controls">
-								  <select id="selectError3" name="cid">
-									<option value="0">--请选择--</option>
-									@foreach ($data as $k=>$v)
-									<option value="{{ $v->id }}">{{ $v->cname}}</option>
-									@endforeach
-								  </select>
-								</div>
-							</div>
-						  <div class="control-group">
-							  <label class="control-label" for="date01">图片提交</label>
-							  <div class="controls">
-								<input type="file" class="input-xlarge datepicker hasDatepicker" id="date01" value="{{ old('gpic')}}" name="gpic">
-							  </div>
-							</div>
-							<div class="control-group hidden-phone">
-							  <label class="control-label" >商品描述</label>
-							  <div class="controls">
-							 <script id="container" name="desc" type="text/plain" style="width: 700px;height: 300px">
-        						
-   							</script>
-   							  <script type="text/javascript">
-        							var ue = UE.getEditor('container');
-    						</script>
-							</div>
-							</div>
-							<div class="form-actions">
-							  <button type="submit" class="btn btn-primary">提交</button>
-							  <button type="reset" class="btn btn-info">取消</button>
-							</div>
-						  </fieldset>
-						</form>   
+	<div class="box-header" data-original-title="">
+		<h2><i class="halflings-icon white edit"></i><span class="break"></span>分类详情添加</h2>
+		<div class="box-icon">
+			<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+			<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+			<a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+		</div>
+	</div>
+	<div class="box-content">
+		<form class="form-horizontal" method="post" action="/admin/good" enctype="multipart/form-data">
+		{{ csrf_field() }}
+		  <fieldset>
+			<div class="control-group">
+			  <label class="control-label" for="typeahead">商品名称</label>
+			  <div class="controls">
+				<input type="text" class="span6 typeahead" id="typeahead" value="{{ old('gname')}}" name="gname">'
+				
+			  </div>
+			</div>
+			<div class="control-group">
+			  <label class="control-label" for="date01">商品价格</label>
+			  <div class="controls">
+				<input type="text" class="input-xlarge datepicker hasDatepicker" id="date01" value="{{ old('price')}}" name="price" placeholder="默认￥">
+			  </div>
+			</div>
+			<div class="control-group">
+			  <label class="control-label" for="date01">商品主题</label>
+			  <div class="controls">
+				<input type="text" class="input-xlarge datepicker hasDatepicker" id="date01" value="{{ old('title')}}" name="title">
+			  </div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="selectError3">所属分类</label>
+				<div class="controls">
+				  <select id="selectError3" name="cid">
+					<option value="0">--请选择--</option>
+					@foreach ($data as $k=>$v)
+					<option value="{{ $v->id }}">{{ $v->cname}}</option>
+					@endforeach
+				  </select>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="selectError3">包装</label>
+				<div class="controls">
+				  <select id="selectError3" name="pack">
+					<option value="裸装">--请选择--</option>
+					<option value="裸装">裸装</option>
+					<option value="全装">全装</option>
+				  </select>
+				</div>
+			</div>
+		<label class="control-label">推荐位选择</label>
+			<div class="controls">
+				  <label class="radio">
+					<div class="radio" id="uniform-optionsRadios1"><input type="radio" name="color" id="optionsRadios1" value="红色" ></div>
+					&nbsp &nbsp&nbsp         红色
+				  </label>
+				  <div style="clear:both"></div>
+				  <label class="radio">
+					<div class="radio" id="uniform-optionsRadios2"><input type="radio" name="color" id="optionsRadios2" value="灰色"></div>
+					&nbsp &nbsp&nbsp         灰色
+				  </label>
+				  <div style="clear:both"></div>
+				  <label class="radio">
+					<div class="radio" id="uniform-optionsRadios2"><input type="radio" name="color" id="optionsRadios2" value="白色"></div>
+					&nbsp &nbsp&nbsp         白色
+				  </label>
+			</div>
+		  <div class="control-group">
+			  <label class="control-label" for="date01">图片提交</label>
+			  <div class="controls">
+				<input type="file" class="input-xlarge datepicker hasDatepicker" id="date01" value="{{ old('gpic')}}" name="gpic">
+			  </div>
+			</div>
+			<div class="control-group hidden-phone">
+			  <label class="control-label" >商品描述</label>
+			  <div class="controls">
+			 <script id="container" name="desc" type="text/plain" style="width: 700px;height: 300px">
+				
+				</script>
+				  <script type="text/javascript">
+					var ue = UE.getEditor('container');
+			</script>
+			</div>
+			</div>
+			<div class="form-actions">
+			  <button type="submit" class="btn btn-primary">提交</button>
+			  <button type="reset" class="btn btn-info">取消</button>
+			</div>
+		  </fieldset>
+		</form>   
 
 
 @endsection

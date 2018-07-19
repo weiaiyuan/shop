@@ -136,9 +136,6 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
-
-
         /*
          * Application Service Providers...
          */
@@ -196,7 +193,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
-       
+    
 
     ],
 

@@ -11,6 +11,7 @@
 |
 */
 
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -19,15 +20,12 @@ Route::get('/','Home\HomeActivityController@index');     //前台首页
 /*
 |----------------  雒小刚 开始位置 (20~70行) ---------------------
 */
-
-
+Route::get('/admin', function () {
+    return view('admin.index.index');
+});
 // 后台订单管理路由
 Route::controller('/admin/order','Admin\OrderController');
 
-//前台路由
-
-
-Route::controller('/admin/order','Admin\OrderController');
 
 
 
@@ -78,8 +76,6 @@ Route::controller('/admin/order','Admin\OrderController');
 */
 
  //用户管理
-
-
 Route::resource('/admin/user','Admin\UserController');
 //用户软删除
 Route::controller('/user/show','Admin\SoftController');
@@ -124,6 +120,10 @@ Route::controller('/home/wenti','Home\WentiController');
 
 
 
+
+Route::resource('/admin/user','Admin\UserController');
+//用户软删除
+Route::controller('/user/show','Admin\SoftController');
 
 
 
@@ -177,9 +177,11 @@ Route::controller('/home/wenti','Home\WentiController');
 /*
 |---------------葛景伟 开始位置 (130~185行) -----------
 */
+
 //后台路由
 Route::group(['middleware'=>'login'],function(){
 Route::resource('/admin/links','Admin\LinkController');//友情链接
+Route::resource('/admin/links','Admin\LinkController');
 //网站配置路由
 Route::resource('/admin/shet','Admin\ShetController');
 Route::get('/admin/restores/{id}','Admin\ShetController@restores');
@@ -198,10 +200,14 @@ Route::get('/home/index','Home\ShetController@homes');//LOGO 标题路由
 Route::controller('home/comment','Home\CommentController');//评论路由
 Route::controller('/home/order','Home\OrderController');//订单路由
 
+
+
+//前台用户
 //LOGO 标题路由
 Route::get('/home/index','Home\ShetController@homes');
 //评论路由
 Route::controller('home/comment','Home\CommentController');
+
 
 
 
@@ -258,19 +264,17 @@ Route::controller('home/comment','Home\CommentController');
 /*
 |----------------蒋旺生 开始位置 (185行之后) -----------
 */
-Route::group(['middleware'=>'login'],function(){
+//后台
 Route::controller('/admin/cate','Admin\CateController'); //商品类别
 Route::resource('/admin/good','Admin\GoodsController'); //商品详情
 Route::controller('/admin/goodlook','Admin\ChaController');//查看内容
-
 Route::resource('/admin/activity','Admin\ActivityController');//活动模块
-
-Route::resource('/admin/activity','Admin\ActivityController');//活动模块
-});
-
+Route::resource('/admin/push','Admin\PushController');//后台推荐位管理
+Route::controller('/admin/pushhuifu','Admin\PushController');//推荐软删除
+//前台
+Route::resource('/home','Home\HomeActivityController');//前台活动控制器
 Route::resource('/home/cate','Home\HomeCateController');//前台类别
+Route::resource('/home/detail','Home\DetailController');//前台商品详情
+Route::controller('/home/goshop','Home\GoshopController');//商品购物车&&删除
+Route::controller('/home/collect','Home\SoucangController');//我的收藏
 
-Route::resource('/home/activity','Home\HomeActivityController');//前台活动控制器
-
-
-Route::resource('/home/cate','Home\HomeCateController');//前台类别

@@ -15,6 +15,5 @@ class ShopUsers extends Model
 		return $this->hasMany('App\Models\Shop_orders','uid');
 	}
 
-  
 
 }

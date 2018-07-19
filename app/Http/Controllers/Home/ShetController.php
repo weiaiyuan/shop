@@ -17,9 +17,6 @@ class ShetController extends Controller
     public function homes()
     {
         $logos = DB::table('shop_shet')->first();
-
-
-        dump($logos);
         return view('home.layout.index',['logos'=>$logos]);
     }
 

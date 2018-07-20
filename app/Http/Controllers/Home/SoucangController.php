@@ -42,6 +42,10 @@ class SoucangController extends Controller
     public function getCreate(Request $request)
     {
         $id = $request -> input('id');
+        $a = Soucang::where('sid',$id)->first();
+        if($a != null){
+            echo 'error';
+        }else{
         $soucang = new Soucang;
         $soucang -> sid = $id;
         // dd('success');
@@ -49,6 +53,7 @@ class SoucangController extends Controller
             echo 'success';
         } else {
             echo 'error';
+        }
         }
     }
 
@@ -104,8 +109,15 @@ class SoucangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy(Request $request, $id)
     {
-        //
+        $ids = $request->input('id');
+        $a = Soucang::where('sid',$ids)->first();
+        $k = Soucang::destroy($a->id); 
+        if ($k == 1) {
+            echo 'success';
+        } else  {
+            echo 'error';
+        }
     }
 }

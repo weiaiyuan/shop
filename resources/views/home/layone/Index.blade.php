@@ -49,10 +49,10 @@
 								<div class="menu-hd MyShangcheng"><a href="/home/." target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 							</div>
 							<div class="topMessage mini-cart">
-								<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+								<div class="menu-hd"><a id="mc-menu-hd" href="/home/goshop/show" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">{{$num}}</strong></a></div>
 							</div>
 							<div class="topMessage favorite">
-								<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
+								<div class="menu-hd"><a href="/home/collect/index" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
 						</ul>
 						</div>
 
@@ -130,14 +130,14 @@
 			</div>
 
 			<aside class="menu">
-				<ul>
+					<ul>
 					<li class="person">
 						<a href="index.html">个人中心</a>
 					</li>
 					<li class="person">
 						<a href="#">个人资料</a>
 						<ul>
-							<li class="active"> <a href="/home/geren/dall">个人信息</a></li>
+							<li> <a href="/home/geren/dall">个人信息</a></li>
 							<li> <a href="/home/geren/show">安全设置</a></li>
 							<li> <a href="/home/dizhi/index">收货地址</a></li>
 						</ul>
@@ -146,28 +146,18 @@
 						<a href="#">我的交易</a>
 						<ul>
 							<li><a href="/home/order/index">订单管理</a></li>
-							<li> <a href="xhange.html">退款售后</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的资产</a>
-						<ul>
-							<li> <a href="coupon.html">优惠券 </a></li>
-							<li> <a href="bonus.html">红包</a></li>
-							<li> <a href="bill.html">账单明细</a></li>
+							<li> <a href="change.html">退款售后</a></li>
 						</ul>
 					</li>
 
 					<li class="person">
 						<a href="#">我的小窝</a>
 						<ul>
-							<li> <a href="collection.html">收藏</a></li>
+							<li class="active"> <a href="/home/collect/index">收藏</a></li>
 							<li> <a href="foot.html">足迹</a></li>
 							<li> <a href="/home/comment/index">评价</a></li>
-							<li> <a href="news.html">消息</a></li>
 						</ul>
 					</li>
-
 				</ul>
 
 			</aside>

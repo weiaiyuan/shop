@@ -28,11 +28,15 @@
 		<!--顶部导航条 -->
 		<div class="am-container header">
 			<ul class="message-l">
-				<div class="topMessage">
-					<div class="menu-hd">
-						<a href="#" target="_top" class="h">亲，请登录</a>
-						<a href="#" target="_top">免费注册</a>
-					</div>
+				<div class="menu-hd">
+					@if(session('username')==null)
+					<a href="/home/login/index" target="_top" class="h">请登录</a>
+					
+					<a href="/home/zhuce/index" target="_top">免费注册</a>
+					@elseif(session('username')!=null)
+					欢迎您：<a href="/home/geren/dall" target="_top" class="h">{{session('username')}}</a> 登录&nbsp &nbsp
+					<a href="/home/login/outlogin">退出</a>
+					@endif
 				</div>
 			</ul>
 			<ul class="message-r">
@@ -40,7 +44,7 @@
 					<div class="menu-hd"><a href="/home" target="_top" class="h">商城首页</a></div>
 				</div>
 				<div class="topMessage my-shangcheng">
-					<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+					<div class="menu-hd MyShangcheng"><a href="/home/geren/dall" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 				</div>
 				<div class="topMessage mini-cart">
 					<div class="menu-hd"><a id="mc-menu-hd" href="/home/goshop/show" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">{{ $num }}</strong></a></div>
@@ -369,7 +373,7 @@
 									if(msg == 'success') {
 										alert('恭喜！宝贝添加成功');
 									} else {
-										alert('sorry! 宝贝添加失败!可能购物车已有该商品');
+										alert('sorry!购物车已有该商品');
 									}
 								},
 								async:false,

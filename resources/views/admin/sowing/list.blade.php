@@ -45,6 +45,7 @@
 					</tr>
 				@endforeach
 				</table>
+
 				<div class="pagination pagination-centered">
 					            {!! $data->render() !!} 
 				</div>

@@ -77,18 +77,16 @@
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet">用户管理</span></a>
+							<a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> 用户管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/user/create"><i class="icon-plus"></i><span class="hidden-tablet"> 用户添加</span></a></li>
 								<li><a class="submenu" href="/admin/user"><i class="icon-list"></i><span class="hidden-tablet"> 用户列表</span></a></li>
 								<li><a class="submenu" href="/user/show/show"><i class="icon-trash"></i><span class="hidden-tablet"> 回收站</span></a></li>
 							</ul>
 						</li>
-
-
 								<!-- 订单管理开始 -->
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-list"></i><span class="hidden-tablet">订单管理</span></a>
+							<a class="dropmenu" href="#"><i class="icon-list"></i><span class="hidden-tablet"> 订单管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/order/index"><i class="icon-align-left"></i><span class="hidden-tablet">订单列表</span></a></li>
 							</ul>
@@ -96,7 +94,7 @@
 								<!-- 订单管理结束 -->
 
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-tasks"></i><span class="hidden-tablet">分类管理</span></a>
+							<a class="dropmenu" href="#"><i class="icon-tasks"></i><span class="hidden-tablet"> 分类管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/cate/create"><i class="icon-star"></i><span class="hidden-tablet"> 添加分类</span></a></li>
 								<li><a class="submenu" href="/admin/cate"><i class="icon-align-justify"></i><span class="hidden-tablet">分类列表</span></a></li>
@@ -104,7 +102,7 @@
 						</li>
 
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">商品管理</span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 商品管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/good/create"><i class="icon-star"></i><span class="hidden-tablet">添加商品</span></a></li>
 								<li><a class="submenu" href="/admin/good"><i class="icon-file-alt"></i>商品列表</a></li>
@@ -114,7 +112,7 @@
 
 						<!--推荐位-->
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">推荐位管理</span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 推荐位管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/push/create"><i class="icon-star"></i><span class="hidden-tablet">添加推荐位</span></a></li>
 								<li><a class="submenu" href="/admin/push"><i class="icon-file-alt"></i>推荐位列表</a></li>
@@ -123,7 +121,7 @@
 						</li>
 						<!--活动-->
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">活动管理</span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 活动管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/activity/create"><i class="icon-star"></i><span class="hidden-tablet">添加活动</span></a></li>
 								<li><a class="submenu" href="/admin/activity"><i class="icon-file-alt"></i>活动列表</a></li>
@@ -132,14 +130,14 @@
 
 						<!--评价链接-->
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">评价管理</span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 评价管理</span></a>
 							<ul>	
 								<li><a class="submenu" href="/admin/comment"><i class="icon-file-alt"></i>评论列表</a></li>
 							</ul>
 						</li> 
 						<!-- 反馈管理 -->
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">反馈管理</span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> 反馈管理</span></a>
 							<ul>	
 								<li><a class="submenu" href="/admin/wenti/index"><i class="icon-file-alt"></i>反馈列表</a></li>
 							</ul>
@@ -147,7 +145,7 @@
 
 					<!--友情链接-->
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-link"></i><span class="hidden-tablet"> 友情链接</span></a>
+							<a class="dropmenu" href="#"><i class="icon-link"></i><span class="hidden-tablet">  友情链接</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/links/create"><i class="icon-plus"></i><span class="hidden-tablet">链接添加</span></a></li>
 								<li><a class="submenu" href="/admin/links"><i class="icon-list"></i><span class="hidden-tablet"> 链接列表</span></a></li>

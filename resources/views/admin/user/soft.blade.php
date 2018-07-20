@@ -47,24 +47,26 @@
           <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending">性别</th>
           <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending">头像</th>
           <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending">操作</th></tr>
-        <tbody role="alert" aria-live="polite" aria-relevant="all">
-        	@foreach ($del_data as $k=>$v)
-          <tr class="odd">
-            <td class="sorting_1">{{$v->id}}</td>
-            <td class="center ">{{$v->uname}}</td>
-            <td class="center ">{{$v->phone}}</td>
-            <td class="center ">{{$v->email}}</td>@if($v->qx==1)
-            <td class="center ">管理员</td>@elseif($v->qx==2)
-            <td class="center ">普通用户</td>@endif @if($v->sex=='w')
-            <td class="center ">女</td>@elseif($v->sex=='m')
-            <td class="center ">男</td>@elseif($v->sex=='x')
-            <td class="center ">保密</td>@endif
-            <td>
-              <img src="/uploads/{{$v->tou}}" width="50" height="50"></td>
-            <td class="center ">
-              <a href="/user/show/reset/{{$v->id}}" class="btn btn-warning">恢复</a>
-              <a href="/user/show/del/{{$v->id}}" class="btn btn-danger" onclick="return confirm('确认删除吗?')">永久删除</a></td>
-          </tr>@endforeach</tbody>
+        	<tbody role="alert" aria-live="polite" aria-relevant="all">
+		        @foreach ($del_data as $k=>$v)
+		        <tr class="odd">
+		            <td class="sorting_1">{{$v->id}}</td>
+		            <td class="center ">{{$v->uname}}</td>
+		            <td class="center ">{{$v->phone}}</td>
+		            <td class="center ">{{$v->email}}</td>@if($v->qx==1)
+		            <td class="center ">管理员</td>@elseif($v->qx==2)
+		            <td class="center ">普通用户</td>@endif @if($v->sex=='w')
+		            <td class="center ">女</td>@elseif($v->sex=='m')
+		            <td class="center ">男</td>@elseif($v->sex=='x')
+		            <td class="center ">保密</td>@endif
+		            <td>
+		              <img src="/uploads/{{$v->tou}}" width="50" height="50"></td>
+		            <td class="center ">
+		              <a href="/user/show/reset/{{$v->id}}" class="btn btn-warning">恢复</a>
+		              <a href="/user/show/del/{{$v->id}}" class="btn btn-danger" onclick="return confirm('确认删除吗?')">永久删除</a></td>
+		        </tr>
+		      	@endforeach
+	      	</tbody>
       </table>
     </div>
     <div class="pagination pagination-centered">{!! $del_data->render() !!}</div></div>

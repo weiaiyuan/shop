@@ -11,7 +11,7 @@ use App\Models\Shop_pushs;
 use App\Models\Shop_goods;
 use App\Models\Goshop;
 use App\Http\Controllers\Home\HomeActivityController;
-
+use DB;
 class HomeActivityController extends Controller
 {
     /**
@@ -87,10 +87,10 @@ class HomeActivityController extends Controller
         // dd($num);
         $goshop = Shop_goods::find($gid); //查找商品里在购物车里的
         // dd($goshop);
-
+        $data = DB::table('shop_sowing')->get();
         // dd($good);
         // dd($activity);
-        return view('home.layout.qiantai',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'activity'=>$activity,'push'=>$push,'good'=>$good,'goods'=>$goods,'num'=>$num]);
+        return view('home.layout.qiantai',['cates'=>$cates,'cate'=>$cate,'catess'=>$catess,'activity'=>$activity,'push'=>$push,'good'=>$good,'goods'=>$goods,'num'=>$num,'data'=>$data]);
         // return view('home.layout.index',['activity'=>$activity]);
     }
 

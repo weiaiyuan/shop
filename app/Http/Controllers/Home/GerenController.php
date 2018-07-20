@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\Models\ShopUsers;
 use Hash;
+use App\Models\Goshop;
 use App\Http\Requests\BsPostRequest;
 class GerenController extends Controller
 {
@@ -31,10 +32,21 @@ class GerenController extends Controller
         
          $id = session('id');
          $data = DB::table('shop_users')->where('id',$id)->first();
-       
-       
+        
+        $goshop = Goshop::all();
+        $gid = [];
+        foreach ($goshop as $k=>$v) 
+        {
+            $gid[] = $v->gid;
+        }
+        // dd($gid);
+        $num = 0;
+        foreach ($gid as $key => $value) {
+            $num += 1;
+        }
+        
 
-        return view('home.geren.index',['logos'=>$logos,'data'=>$data]);
+        return view('home.geren.index',['logos'=>$logos,'data'=>$data,'num'=>$num]);
     }
 
     /**

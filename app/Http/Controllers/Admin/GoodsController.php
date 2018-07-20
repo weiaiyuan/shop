@@ -49,6 +49,7 @@ class GoodsController extends Controller
      */
     public function store(GoodInsertRequest $request)
     {
+
      
         //获取文件
 
@@ -57,6 +58,9 @@ class GoodsController extends Controller
         if(substr_count($path->path,',') != 2) {
             return back()->with('error','必选选择3级分类');
         }
+
+        //获取文件
+
         $file = $request->file('gpic');
         // dump($file);
         //获取文件扩展名
@@ -83,7 +87,6 @@ class GoodsController extends Controller
         $goods -> title = $request -> input('title','');
         $goods -> color = $request -> input('color','');
         $goods -> pack = $request -> input('pack','');
-
         if ($goods -> save()) {
             return redirect('/admin/good')->with('success','添加成功！');
         }else{
@@ -122,6 +125,7 @@ class GoodsController extends Controller
             $n = substr_count($v->path,',');
             $v->cname = str_repeat('|----',$n).$v->cname;
         }
+
         return view('admin.goods.edit',['data'=>$data,'id'=>$id,'cates'=>$cates]);
     }
 
@@ -132,8 +136,10 @@ class GoodsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   public function update(GoodInsertRequest $request,$id)
-    {   
+    public function update(GoodInsertRequest $request,$id)   
+    {
+  
+
         //获取文件
         $ids = $request->input('cid');//获取当前cid的值
         $path = Shop_cates::find($ids);    //获取在cid中的

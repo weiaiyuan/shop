@@ -78,11 +78,12 @@
 							</td>
 						</tr>
 					@endforeach
+						<td>操作</td>
+					</tr>
 				</table>
 
 				<div class="dataTables_paginate paging_bootstrap pagination">
 					
-
 				</div>
 			</div>
 		</div>

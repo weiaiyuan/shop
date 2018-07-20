@@ -28,28 +28,28 @@
 				<td>操作</td>
 			</tr>
 			@foreach ($cate as $k=>$v)
-		<tr>
-			<td>{{ $v->id }}</td>
-			<td>{{ $v->cname }}</td>
-			<td>{{ $v->pid }}</td>
-			<td>{{ $v->path }}</td>
-			<td>{{ $v->status == 1 ? '开启' : '关闭'}} </td>
-				<td>
-			<!-- 	<a class="btn btn-success" href="#">
-						<i class="halflings-icon white zoom-in"></i>  
-					</a> -->
-					<form action="/admin/cate/edit/{{ $v->id }}" method="post" style="display:inline">
-						{{ csrf_field() }}
-						<input type="submit" name="" value="修改" class="btn btn-warning" >
-					</form>
-					<form action="/admin/cate/destroy/{{ $v->id }}" method="post" style="display:inline">
-						{{ csrf_field() }}
-						<input type="submit" name="" value="删除" class="btn btn-danger" >
-					</form>
-					
-				</td>
-			</tr>
-		@endforeach
+			<tr>
+				<td>{{ $v->id }}</td>
+				<td>{{ $v->cname }}</td>
+				<td>{{ $v->pid }}</td>
+				<td>{{ $v->path }}</td>
+				<td>{{ $v->status == 1 ? '开启' : '关闭'}} </td>
+					<td>
+				<!-- 	<a class="btn btn-success" href="#">
+							<i class="halflings-icon white zoom-in"></i>  
+						</a> -->
+						<form action="/admin/cate/edit/{{ $v->id }}" method="post" style="display:inline">
+							{{ csrf_field() }}
+							<input type="submit" name="" value="修改" class="btn btn-warning" >
+						</form>
+						<form action="/admin/cate/destroy/{{ $v->id }}" method="post" style="display:inline">
+							{{ csrf_field() }}
+							<input type="submit" name="" value="删除" class="btn btn-danger" >
+						</form>
+						
+					</td>
+				</tr>
+			@endforeach
 		</table>
 	
 	<div class="pagination pagination-centered"><ul>{!! $cate->render() !!}</ul></div>

@@ -42,7 +42,7 @@
             <td>{{$v->fankui}}</td>
             <td>
               <a href="/admin/wenti/edit/{{$v->id}}" class="btn btn-warning">解答</a>
-              <a href="/admin/wenti/del/{{$v->id}}" class="btn btn-danger">删除</a>
+              <a href="/admin/sowing/del" class="btn btn-danger">删除</a>
             </td>
           </tr>
       @endforeach

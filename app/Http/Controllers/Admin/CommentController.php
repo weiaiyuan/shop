@@ -20,6 +20,7 @@ class CommentController extends Controller
         $res = Shop_coms::get();
         //dump($res);
         return view('admin.comment.index',['res'=>$res]);
+        return view('admin.comment.index');
     }
 
     /**
@@ -59,6 +60,29 @@ class CommentController extends Controller
         return view('admin.comment.content',['com'=>$com,'good'=>$good]);
     }
 
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
     /**
      * Remove the specified resource from storage.

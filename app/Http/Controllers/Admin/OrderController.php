@@ -22,10 +22,11 @@ class OrderController extends Controller
      * @return order.index页面
      */
     public function getIndex(Request $request)
-    {
+    {   
         $name = $request ->input('num');
         $orders = Shop_orders::where('num','like','%'.$name.'%')->paginate(3);
         $user = ShopUsers::get();
+
         return view('admin.order.index',['orders'=>$orders,'user'=>$user]);
     }  
 

@@ -22,11 +22,15 @@
 		<!--顶部导航条 -->
 		<div class="am-container header">
 			<ul class="message-l">
-				<div class="topMessage">
-					<div class="menu-hd">
-						<a href="#" target="_top" class="h">亲，请登录</a>
-						<a href="#" target="_top">免费注册</a>
-					</div>
+				<div class="menu-hd">
+					@if(session('username')==null)
+					<a href="/home/login/index" target="_top" class="h">请登录</a>
+					
+					<a href="/home/zhuce/index" target="_top">免费注册</a>
+					@elseif(session('username')!=null)
+					欢迎您：<a href="/home/geren/dall" target="_top" class="h">{{session('username')}}</a> 登录&nbsp &nbsp
+					<a href="/home/login/outlogin">退出</a>
+					@endif
 				</div>
 			</ul>
 			<ul class="message-r">
@@ -34,7 +38,7 @@
 					<div class="menu-hd"><a href="/home" target="_top" class="h">商城首页</a></div>
 				</div>
 				<div class="topMessage my-shangcheng">
-					<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+					<div class="menu-hd MyShangcheng"><a href="/home/geren/dall" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 				</div>
 				<div class="topMessage mini-cart">
 					<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">{{ $num }}</strong></a></div>
@@ -121,14 +125,14 @@
 										</div>
 										<div class="item-info">
 											<div class="item-basic-info">
-												<a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色" class="item-title J_MakePoint" data-point="tbcart.8.11">{{$v->gname}}</a>
+												<a href="#" target="_blank" title="{{$v->title}}" class="item-title J_MakePoint" data-point="tbcart.8.11">{{$v->gname}}</a>
 											</div>
 										</div>
 									</li>
 									<li class="td td-info">
 										<div class="item-props item-props-can">
 											<span class="sku-line">颜色：{{ $v->color }}</span>
-											<span class="sku-line">包装：{{ $v->goshop->pack }}</span>
+											<span class="sku-line">包装：{{ $v->goshop->pack or '暂无'}}</span>
 											<i class="theme-login am-icon-sort-desc"></i>
 										</div>
 									</li>
@@ -172,64 +176,66 @@
 <!-- 蒋旺生做的商品购物车页面结尾 -->
 				<script type="text/javascript">
 						$(function(){
-						var i =0;
-						$('.check-all').click(function(){
-							$('.check').attr('checked',true);
-							if(i==1){
-								$('.check').attr('checked',false);
+						var i =0;//定义遍历i=0
+						$('.check-all').click(function(){//当点击全选按钮时
+							$('.check').attr('checked',true);//所有的按钮为选中
+							if(i==1){//判断i=0
+								$('.check').attr('checked',false);//则全部为不选
 							}
-							i++;
-							if(i>1){
-								i=0;
+							i++;//i++
+							if(i>1){//如果i一旦大于1
+								i=0;//i=0
 							}
 						});
-						$('.check[type=checkbox]').click(function(){
-							n = $('.dx:checked').size();
+						$('.check[type=checkbox]').click(function(){//当按钮点击时
+							n = $('.dx:checked').size();//获取所有按钮的长度
 							// alert(n)
-							$('#J_SelectedItemsCount').text(n)
+							$('#J_SelectedItemsCount').text(n)//将当前所有长度放入件数中
 							// num = $('.dx:checked').parent().parent().parent().find('.zj').text();
-							k = 0;
-							$('.dx:checked').parent().parent().parent().find('.zj').each(function(){
-								k += parseInt($(this).text());
+							k = 0;					//定义一个k的变量
+							$('.dx:checked').parent().parent().parent().find('.zj').each(function(){		//遍历 所有的金额
+								k += parseInt($(this).text());//让k每个值都加上一遍
 							})
 							// alert(k)
-							$('#J_Total').html(k);
+							$('#J_Total').html(k);		//	将结算的总金额放入金额里
 						})
-						$('.delete').click(function (){
-							s = $(this).find('.hiddens').val()
+						$('.delete').click(function (){		//删除按钮的时候
+							s = $(this).find('.hiddens').val()	//获取当前隐藏域里面的id
 							// alert(s)
-							if(confirm('确认删除吗？')){
-								$.ajax({'url':'/home/goshop/destroy/ss',
-									data:{'id':s},
-									type:'get',
-									async:false,
-									success:function(msg){
+							if(confirm('确认删除吗？')){	//给个判断 
+								$.ajax({'url':'/home/goshop/destroy/ss',//发ajax发异步以防止不等待直接运行
+									data:{'id':s},//将id传过去删除
+									type:'get',//发送类型，推荐用隐式get
+									async:false,	//异步等待
+									success:function(msg){	//回调函数
 										if(msg == 'success') {
 											alert('删除成功')
 										} else {
 											alert('删除失败')
 										}
 									},
-									datatype:'html',
+									datatype:'html',//返回类型为html
 								})
-								$(this).parent().parent().parent().remove();
+								$(this).parent().parent().parent().remove();//成功之后删除当前的li标签
 							}
 						})
-						$('.deleteAll').click(function(){
-							if($('.dx:checked').size() == 0){
+						$('.deleteAll').click(function(){	//当点击全部删除时
+							if($('.dx:checked').size() == 0){	//判断有没有被选中
 								alert('请选择要删除的商品');
+								return;
 							}
-						 	arr = [];
-							$('.dx:checked').parent().parent().parent().find('.hiddens').each(function(){
-								arr.push($(this).val());
+							if(confirm('确认删除吗？')){
+						 	arr = [];		//定义一个空数组，来删除多条id
+							$('.dx:checked').parent().parent().parent().find('.hiddens').each(function(){		//遍历所有按钮中的隐藏域
+								arr.push($(this).val());	//将所有值压入数组中
 								// console.log(arr);
 							})
 							// alert(arr)
-							$.ajax({'url':'/home/goshop/create',
-									type:'get',
-									data:{'arr':arr},
-									async:false,
-									success:function(msg){
+							$.ajax({'url':'/home/goshop/create',	//发送ajax
+									type:'get',			//get方式
+									data:{'arr':arr},	//数据传入
+									async:false,	//异步
+									success:function(msg){	//回调函数
 										if(msg == 'success'){
 											alert('删除成功');
 										}else{
@@ -237,7 +243,9 @@
 										}
 									},
 								});
+							}
 						});
+
 					})
 				</script>
 						</div>

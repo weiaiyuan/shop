@@ -12,7 +12,7 @@
 
 		<link href="/static/home/css/personal.css" rel="stylesheet" type="text/css">
 		<link href="/static/home/css/colstyle.css" rel="stylesheet" type="text/css">
-
+		<script type="text/javascript" src="/static/home/js/jquery-1.8.2.min.js"></script>
 	</head>
 
 	<body>
@@ -112,7 +112,7 @@
 											</a>
 										</div>
 										<div class="s-info">
-											<div class="s-title"><a href="#" title="包邮s925纯银项链女吊坠短款锁骨链颈链日韩猫咪银饰简约夏配饰">{{$v->gname}}</a></div>
+											<div class="s-title"><a href="#" title="{{$v->title}}">{{$v->gname}}</a></div>
 											<div class="s-price-box">
 												<span class="s-price"><em class="s-price-sign">¥</em><em class="s-value">{{$v->price}}</em></span>
 												<span class="s-history-price"><em class="s-price-sign">¥</em><em class="s-value">68.00</em></span>
@@ -123,11 +123,11 @@
 											</div>
 										</div>
 										<div class="s-tp">
-											<span class="ui-btn-loading-before">找相似</span>
+											<input type="hidden" name="" value="{{ $v->id }}"><span class="ui-btn-loading-before delete">取消收藏</span>
 											<i class="am-icon-shopping-cart"></i>
-											<a href="#" class="{{$v->id}}"><span class="ui-btn-loading-before buy">加入购物车</span></a>
+											<a href="/home/detail/{{ $v->id }}" class="bub"><span class="ui-btn-loading-before buy">加入购物车</span></a>
 											<p>
-												<a href="javascript:;" class="c-nodo J_delFav_btn">取消收藏</a>
+												<a href="javascript:;" class="c-nodo J_delFav_btn"></a>
 											</p>
 										</div>
 									</div>
@@ -142,7 +142,26 @@
 					</div>
 				</div>
 				<script type="text/javascript">
-				$('.buy').click()
+				$('.delete').click(function(){
+					if(confirm('确认取消吗？==')){
+						a = $(this).prev().val();
+						$.ajax({
+							'url':'/home/collect/destroy/s',
+							data:{'id':a},
+							'datatype':'html',
+							'type':'get',
+							async:false,
+							success:function(msg){
+								if (msg == 'success') {
+									alert('取消收藏成功！┭┮﹏┭┮');
+									$(this).parent().parent().parent().remove();
+								} else {
+									alert('取消失败了！可能是网络原因！^_^');
+								}
+							}
+						})
+					}
+				})
 				</script>
 				<!--底部-->
 				<div class="footer">
@@ -170,44 +189,35 @@
 			</div>
 
 			<aside class="menu">
-				<ul>
+					<ul>
 					<li class="person">
 						<a href="index.html">个人中心</a>
 					</li>
 					<li class="person">
 						<a href="#">个人资料</a>
 						<ul>
-							<li> <a href="information.html">个人信息</a></li>
-							<li> <a href="safety.html">安全设置</a></li>
-							<li> <a href="address.html">收货地址</a></li>
+							<li> <a href="/home/geren/dall">个人信息</a></li>
+							<li> <a href="/home/geren/show">安全设置</a></li>
+							<li> <a href="/home/dizhi/index">收货地址</a></li>
 						</ul>
 					</li>
 					<li class="person">
 						<a href="#">我的交易</a>
 						<ul>
-							<li><a href="order.html">订单管理</a></li>
+							<li><a href="/home/order/index">订单管理</a></li>
 							<li> <a href="change.html">退款售后</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的资产</a>
-						<ul>
-							<li> <a href="coupon.html">优惠券 </a></li>
-							<li> <a href="bonus.html">红包</a></li>
-							<li> <a href="bill.html">账单明细</a></li>
 						</ul>
 					</li>
 
 					<li class="person">
 						<a href="#">我的小窝</a>
 						<ul>
-							<li class="active"> <a href="collection.html">收藏</a></li>
+							<li class="active"> <a href="/home/collect/index">收藏</a></li>
 							<li> <a href="foot.html">足迹</a></li>
-							<li> <a href="comment.html">评价</a></li>
-							<li> <a href="news.html">消息</a></li>
+							<li> <a href="/home/comment/index">评价</a></li>
 						</ul>
 					</li>
-
+				</ul>
 				</ul>
 
 			</aside>

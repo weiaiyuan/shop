@@ -47,13 +47,43 @@
 						<td>商品ID</td>
 						<td>订单ID</td>
 						<td>时间</td>
+						<td>好评</td>
+						<td>操作</td>
+					</tr>
+					@foreach($res as $k=>$v)
+						<tr>
+							<td>{{ $v->id }}</td>
+							<td>{{ $v->uid }}</td>
+							<td>{{ $v->gid }}</td>
+							<td>{{ $v->oid }}</td>
+							<td>{{ $v->created_at }}</td>
+							
+								@if($v->hp==1)
+								<td>好评</td>
+								@endif
+								@if($v->hp==2)
+								<td>中评</td>
+								@endif
+								@if($v->hp==3)
+								<td>差评</td>
+								@endif
+							
+							<td>
+								<a href="/admin/comment/{{ $v->id }}" class="btn btn-success">查看</a>
+								<form action="/admin/comment/{{ $v->id }}" method="post" style="display: inline;">
+									{{ csrf_field() }}
+									{{ method_field('DELETE') }}
+									<button class="btn btn-danger">删除</button>
+								</form>
+							</td>
+						</tr>
+					@endforeach
 						<td>操作</td>
 					</tr>
 				</table>
 
 				<div class="dataTables_paginate paging_bootstrap pagination">
 					
-
 				</div>
 			</div>
 		</div>

@@ -44,7 +44,7 @@
 			 <div class="control-group hidden-phone">
 				  <label class="control-label" for="textarea2">内容&nbsp</label>
 				  <div class="controls">
-					<div class="cleditorMain" style="width: 500px; height: 250px;"><textarea class="cleditor" id="textarea2" rows="3" style="display: none; width: 500px; height: 197px;" name="content" value="{{ $activity->content }}"></textarea><iframe frameborder="0" src="javascript:true;" style="width: 500px; height: 197px;"></iframe></div>
+					<div class="cleditorMain" style="width: 500px; height: 250px;"><textarea class="cleditor" id="textarea2" rows="3" style="display: none; width: 500px; height: 197px;" name="content" value="">{{ $activity->content }}</textarea><iframe frameborder="0" src="javascript:true;" style="width: 500px; height: 197px;"></iframe></div>
 				  </div>
 			</div>
 			  <div class="form-actions">

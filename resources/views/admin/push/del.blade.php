@@ -37,6 +37,7 @@
 				{{ $v->direction == 'left' ? '左' : ''}}
 				{{ $v->direction == 'right' ? '右' : ''}}
 				{{ $v->direction == 'center' ? '中' : ''}}
+				{{ $v->direction == 'no' ? '暂无' : ''}}
 				</td>
 				<td style="text-align: center;">
 				<form action="/admin/pushhuifu/huifu/{{$v->id}}" method="get" style="display:inline">

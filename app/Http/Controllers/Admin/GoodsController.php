@@ -140,42 +140,47 @@ class GoodsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   public function update(GoodInsertRequest $request,$id)
+   public function update(Request $request,$id)
     {
-        // $this->validate($request,[
-        //         'gname' => 'required|unique:shop_goods',
-        //         'price' => 'required',
-        //         'title' => 'required',
-        //         'gpic' => 'required',
-        //         'desc' => 'required'
-        //     ],[
-        //     'gname.required'=>'名称未填写',
-        //     'price.required'=>'价格未填写',
-        //     'title.required'=>'主题未填写',
-        //     'gpic.required'=>'图片未提交',
-        //     'desc.required'=>'描述未填写',
-        //     ]);
-        //     
+        $this->validate($request,[
+                'gname' => 'required',
+                'price' => 'required|regex:/[0-9]+/',
+                'title' => 'required',
+                'cid' => 'required',
+                'desc' => 'required'
+            ],[
+            'gname.required'=>'名称未填写',
+            'price.required'=>'价格未填写',
+            'cid.required'=>'类别未选择',
+            'price.regex'=>'价格请输入数字',
+            'title.required'=>'主题未填写',
+            'desc.required'=>'描述未填写',
+            ]);
+            
         //获取文件
         $ids = $request->input('cid');//获取当前cid的值
         $path = Shop_cates::find($ids);    //获取在cid中的
         if(substr_count($path->path,',') != 2) {
             return back()->with('error','必选选择3级分类');
         }
-        $file = $request->file('gpic');
-        // dump($file);
-        //获取文件扩展名
-        $ext = $file->getClientOriginalExtension();
-        // dump($ext);
-        //获取随机数
-        $str = str_random(20);
-        $filename = $str.'.'.$ext;
-        $data = date('Ymd',time());
-        // echo $str;//存入public公共部分中
-        $file -> move('./images/goods/'.$data,$filename);
         $goods = Shop_goods::find($id);
-        // dd($data.'/'.$filename);
-        $goods -> gpic = $data.'/'.$filename;
+        if($request->hasfile('gpic')){
+             $file = $request->file('gpic');
+            // dump($file);
+            //获取文件扩展名
+            $ext = $file->getClientOriginalExtension();
+            // dump($ext);
+            //获取随机数
+            $str = str_random(20);
+            $filename = $str.'.'.$ext;
+            $data = date('Ymd',time());
+            // echo $str;//存入public公共部分中
+            $file -> move('./images/goods/'.$data,$filename);
+
+            // dd($data.'/'.$filename);
+            $goods -> gpic = $data.'/'.$filename;
+        }
+       
         $goods -> cid = $ids;
         $goods -> gname = $request -> input('gname','');
         $goods -> pack = $request -> input('pack','');

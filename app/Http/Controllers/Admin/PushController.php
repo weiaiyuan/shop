@@ -53,9 +53,10 @@ class PushController extends Controller
     public function store(Request $request)
     {
         $p = $request->input('direction');
-        $pp = Shop_pushs::where('direction','=',$p)->first();
+        $uid = $request->input('uid');
+        $pp = Shop_pushs::where('direction','=',$p)->orwhere('uid',$uid)->first();
         if ($pp != null) {
-            return back()->with('error','该推荐位已存在,请重新选择或删除原有的');
+            return back()->with('error','该推荐位或商品已被推荐,请重新选择或删除原有的');
         }
         $this->validate($request,[
                 'direction'=>'required',
@@ -99,7 +100,21 @@ class PushController extends Controller
     }
     public function getHuifu($id)
     {
+        
         $a = Shop_pushs::withTrashed()->find($id)->restore();//恢复被软删除的指定id
+        $b = Shop_pushs::where('id',$id)->first();             //查找被恢复的id
+        $data = Shop_pushs::all();                              //获取所有
+        $c = 0;
+        foreach ($data as $k=>$v) 
+        {
+            if($b->direction == $v->direction) {
+                $c += 1;
+            }
+            if($c > 1){
+                $b -> direction = 'no';
+                $b -> save();
+            }
+        }
         if ($a) {
             return redirect('/admin/push/$id')->with('success','恢复成功');
         } else {
@@ -135,7 +150,7 @@ class PushController extends Controller
         $pp = Shop_pushs::where('direction','=',$p)->first();
         // dd($pp);
         if ($pp != null) {
-            return back()->with('error','该推荐位已存在,请重新选择或删除原有的');
+            return back()->with('error','该推荐位已存在,请重新选择或回收原有的');
         }
         $this->validate($request,[
                 'direction'=>'required',

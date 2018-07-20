@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Shop_orders;
 use App\Models\ShopUsers;
 use App\Models\Shop_goods;
+use App\Models\Shop_coms;
+use App\Models\Goshop;
 
 class commentController extends Controller
 {
@@ -19,21 +21,43 @@ class commentController extends Controller
      */
     public function getIndex()
     {
-        echo 'aa';   
+        $uid = (session('id'));//这里需要登录用户的id
+        $com = Shop_coms::where('uid',$uid)->get();
+        //dump($com);die;
+        
+        //购物车数量
+        $goshop = Goshop::all();
+        $gid = [];
+        foreach ($goshop as $k=>$v) 
+        {
+            $gid[] = $v->gid;
+        }
+        // dd($gid);
+        $num = 0;
+        foreach ($gid as $key => $value) {
+            $num += 1;
+        }
+        return view('home.comment.index',['com'=>$com,'num'=>$num]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the foorm for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getCreate()
+    public function getCreate($num)
     {
-        $id = 19;
-        $order = Shop_orders::find($id);
+        $order = Shop_orders::where('num',$num)->first();
+        //dd($order);
+        $gid = $order->gid;
+        // dump($gid);
+        // exit;
+        // 获取商品中的数据
+        $data = Shop_goods::find($gid);
+        //dd($data);
         $uid = $order->uid;
-        $data = ShopUsers::find($uid);
-        //return view('home.comment.index',['data'=>$data]);
+        // 用户的信息
+        //$uname = ShopUsers::find($uid);
         return view('home.comment.create',['data'=>$data]);
     }
 
@@ -43,9 +67,29 @@ class commentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postStore(Request $request)
+    public function getStore(Request $request)
     {
+        $gid = $request-> input('id');
+        $oid = Shop_orders::where('gid',$gid)->first();
+        $goods = Shop_goods::where('id',$gid)->first(); 
 
+        //添加评价表中的数据
+        $a=$request->input('hp');
+        $res=new Shop_coms;
+        //dd($goods->gname);
+        $res->gname = $goods->gname;
+        $res->gimg = $goods->gpic;
+        $res->num = $oid->num;
+        $res->gid = $gid;
+        $res->oid = $oid->id;
+        $res->uid = session('id');  
+        $res->content = $request-> input('content');
+        $res->hp=$a;
+        if($res->save()){
+            echo 'success';    
+        }else{
+            echo "error";
+        }
     }
 
     /**

@@ -108,7 +108,7 @@
 
 										<div class="s-pic">
 											<a href="#" class="s-pic-link">
-												<img src="/images/goods/{{$v->gpic}}" alt="包邮s925纯银项链女吊坠短款锁骨链颈链日韩猫咪银饰简约夏配饰" title="{{$v->title}}" class="s-pic-img s-guess-item-img">
+												<img src="/images/goods/{{$v->gpic}}" alt="包邮s925纯银项链女吊坠短款锁骨链颈链日韩猫咪银饰简约夏配饰" title="{{$v->title}}" class="s-pic-img s-guess-item-img" style="width:200px;height: 200px;">
 											</a>
 										</div>
 										<div class="s-info">
@@ -143,7 +143,7 @@
 				</div>
 				<script type="text/javascript">
 				$('.delete').click(function(){
-					if(confirm('确认删除吗？')){
+					if(confirm('确认取消吗？==')){
 						a = $(this).prev().val();
 						$.ajax({
 							'url':'/home/collect/destroy/s',

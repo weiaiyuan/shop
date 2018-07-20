@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Shop_goods;
 use App\Models\Goshop;
+use App\Models\Shop_cates;
 
 class DetailController extends Controller
 {
@@ -26,9 +27,9 @@ class DetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+
     }
 
     /**
@@ -80,6 +81,42 @@ class DetailController extends Controller
     public function edit($id)
     {
         //
+        $good = Shop_goods::where('cid',$id)->first();
+        // dd($good);
+        if($good == null){
+            $goshop = Goshop::all();
+            $gid = [];
+            foreach ($goshop as $k=>$v) 
+            {
+                $gid[] = $v->gid;
+            }
+            // dd($gid);
+            $num = 0;
+            foreach ($gid as $key => $value) {
+                $num += 1;
+            }
+            return view('home.homecate.cgood',['num'=>$num]);
+        }else{
+            $good = Shop_goods::where('cid',$id)->get();
+            $cate = Shop_cates::where('id',$id)->first();
+            $goods = Shop_goods::all();
+            // dd($good);
+            $goshop = Goshop::all();
+            $gid = [];
+            foreach ($goshop as $k=>$v) 
+            {
+                $gid[] = $v->gid;
+            }
+            // dd($gid);
+            $num = 0;
+            foreach ($gid as $key => $value) {
+                $num += 1;
+            }
+            // dd($num);
+            $goshop = Shop_goods::find($gid);
+            // dd($goshop);
+            return view('home.homecate.cate',['goods'=>$goods,'good'=>$good,'num'=>$num,'cate'=>$cate]);
+            }
     }
 
     /**

@@ -57,7 +57,7 @@
 							</dt>
 							<dd>
 							@foreach ($va['sub'] as $kaa=>$vaa)
-							<a title="{{ $vaa->cname}}" href="/home/detail/59"><span>
+							<a title="{{ $vaa->cname}}" href="/home/detail/{{$vaa->id}}/edit"><span>
 								{{ $vaa->cname }} |
 							</span></a>
 							@endforeach

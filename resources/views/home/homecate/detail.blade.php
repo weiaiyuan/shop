@@ -187,30 +187,8 @@
 								<div class="clear"></div>
 							</div>
 
-							<!--地址-->
-							<dl class="iteminfo_parameter freight">
-								<dt>配送至</dt>
-								<div class="iteminfo_freprice">
-									<div class="am-form-content address">
-										<select data-am-selected>
-											<option value="a">浙江省</option>
-											<option value="b">湖北省</option>
-										</select>
-										<select data-am-selected>
-											<option value="a">温州市</option>
-											<option value="b">武汉市</option>
-										</select>
-										<select data-am-selected>
-											<option value="a">瑞安区</option>
-											<option value="b">洪山区</option>
-										</select>
-									</div>
-									<div class="pay-logis">
-										快递<b class="sys_item_freprice">10</b>元
-									</div>
-								</div>
-							</dl>
-							<div class="clear"></div>
+							
+
 
 							<!--销量-->
 							<ul class="tm-ind-panel">
@@ -357,9 +335,11 @@
 
 						if(!$('.kw li').hasClass('selected')){ //如果selected类不存在，则弹出
 							alert('请选择口味');
+							return;
 						}
 						if(!$('.pack li').hasClass('selected')){ //如果selected类不存在，则弹出
 							alert('请选择包装');
+							return;
 						}
 						$.ajax({
 							url:'/home/goshop/index',
@@ -369,7 +349,7 @@
 									if(msg == 'success') {
 										alert('恭喜！宝贝添加成功');
 									} else {
-										alert('sorry! 宝贝添加失败!可能购物车已有该商品');
+										alert('sorry!购物车已有该商品');
 									}
 								},
 								async:false,
@@ -377,6 +357,34 @@
 								dataType:'html'
 						});
 					});
+					$('#LikBuy').click(function(){
+						x = $('#text_box').val();
+						sum = (x*{{$good->price}});
+						// alert(sum)
+						// return;
+						// alert(x)
+						if(!$('.kw li').hasClass('selected')){ //如果selected类不存在，则弹出
+							alert('请选择口味');
+							return;
+						}
+						if(!$('.pack li').hasClass('selected')){ //如果selected类不存在，则弹出
+							alert('请选择包装');
+							return;
+						}
+						$.ajax({
+							'url':'/home/js/index',
+							'data':{'id':{{$good->id}},'num':x,'sum':sum},
+							'type':'get',
+							'datatype':'html',
+							success:function(msg){
+								if (msg == 'success') {
+									alert('购买成功@！☺');
+								} else {
+									alert('购买失败！请检查网络');
+								}
+							}
+						})
+					})
 					</script>
 					<div class="clear"></div>
 
@@ -463,8 +471,9 @@
 
 									<div class="details">
 										<div class="attr-list-hd after-market-hd">
-											<h4>商品细节</h4>
+											<h4>商品描述</h4>
 										</div>
+										{!! $good -> desc !!}
 									</div>
 									<div class="clear"></div>
 
@@ -960,7 +969,7 @@
 										@foreach ($goods as $ka=>$va)
 											<li>
 												<div class="i-pic limit">
-													<a href="/home/detail/{{ $va->id }}"><img src="/images/goods/{{ $va->gpic }}" /></a>
+													<a href="/home/detail/{{ $va->id }}"><img src="/images/goods/{{ $va->gpic }}" style="width:150px;height: 150px;"></a>
 													<p>{{ $va->gname }}
 														<span>{{ $va->title }}</span></p>
 													<p class="price fl">

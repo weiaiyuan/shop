@@ -45,14 +45,15 @@ class SoucangController extends Controller
         $a = Soucang::where('sid',$id)->first();
         if($a != null){
             echo 'error';
-        }
-        $soucang = new Soucang;
-        $soucang -> sid = $id;
-        // dd('success');
-        if ($soucang->save()) {
-            echo 'success';
-        } else {
-            echo 'error';
+        }else{
+          $soucang = new Soucang;
+            $soucang -> sid = $id;
+            // dd('success');
+            if ($soucang->save()) {
+                echo 'success';
+            } else {
+                echo 'error';
+            }
         }
     }
 

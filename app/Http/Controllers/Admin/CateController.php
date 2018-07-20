@@ -32,7 +32,7 @@ class CateController extends Controller
     public function getIndex(Request $request)
     {
         $a = $request->input('cname');//dump($a);
-        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->where('cname','like','%'.$a.'%')->paginate(5)->appends($request->input());
+        $cate = Shop_cates::select('*',DB::raw("concat(path,',',id) as paths"))->orderBy('paths','asc')->where('cname','like','%'.$a.'%')->paginate(2)->appends($request->input());
         foreach($cate as $k=>$v) 
         {
             // 统计，号的次数

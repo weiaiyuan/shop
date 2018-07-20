@@ -218,6 +218,7 @@
 						$('.deleteAll').click(function(){	//当点击全部删除时
 							if($('.dx:checked').size() == 0){	//判断有没有被选中
 								alert('请选择要删除的商品');
+								return;
 							}
 							if(confirm('确认删除吗？')){
 						 	arr = [];		//定义一个空数组，来删除多条id

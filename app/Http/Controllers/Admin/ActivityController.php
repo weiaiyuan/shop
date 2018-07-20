@@ -99,21 +99,34 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ActivityRequest $request, $id)
+    public function update(Request $request, $id)
     {
         // dd($request->input('aid'));
          // dd($id)
+        $this->validate($request,[
+                'title'=>'required',
+                'day'=>'required',
+                'content'=>'required',
+            ],[
+                'title.required'=>'名称未填写',
+                'day.required'=>'过期时间未提交',
+                'content.required'=>'缺少内容'
+            ]);
         $activity = Shop_activity::find($id);
-        $file = $request->file('price');
-        $ext = $file ->getClientOriginalExtension();
-        $str = str_random(15);
-        $time = date('ymd',time());
-        $filename = $time.'/'.$str.'.'.$ext;
-        $file -> move('./images/activity/'.$time,$filename);
+        if($request->hasfile('price')){
+            $file = $request->file('price');
+            $ext = $file ->getClientOriginalExtension();
+            $str = str_random(15);
+            $time = date('ymd',time());
+            $filename = $time.'/'.$str.'.'.$ext;
+            $file -> move('./images/activity/'.$time,$filename);
+            $activity -> price = $filename;
+        }
+       
         $activity -> title =  $request->input('title','');
         $activity -> day = ($request->input('day',''));
         $activity -> content =  $request->input('content','');
-        $activity -> price = $filename;
+       
        //dd($activity->save());
        // $a=$activity->save();
         if($activity->save()) {

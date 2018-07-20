@@ -29,17 +29,15 @@
 				</tr>
 			</thead>
 			<tbody role="alert" aria-live="polite" aria-relevant="all">
-				@foreach($orders as $k=>$v)
 				<tr>
 					<td>{{ $good->gname }}</td>
 					<td><img src="/images/goods/{{ $good->gpic }}" style="width:80px"></td>
 					<td></td>
 					<td></td>
 					<td></td>
-					<td>{{ $v->rec }}</td>
-					<td>{{ $v->sum }}</td>
+					<td>{{ $orders->rec }}</td>
+					<td>{{ $orders->sum }}</td>
 				</tr>
-				@endforeach
 			</tbody>
 		</table>
 		<div class="pagination pagination-centered"></div>

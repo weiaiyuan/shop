@@ -26,7 +26,6 @@ class OrderController extends Controller
         $name = $request ->input('num');
         $orders = Shop_orders::where('num','like','%'.$name.'%')->paginate(3);
         $user = ShopUsers::get();
-        //dump($user);
         return view('admin.order.index',['orders'=>$orders,'user'=>$user]);
     }  
 
@@ -35,15 +34,11 @@ class OrderController extends Controller
      * @param  Request $request 
      * @return oreder_detail
      */
-    public function getDetail()
+    public function getDetail($id)
     {
-        $orders = Shop_orders::paginate(3);
-        //dd($orders);
-        foreach($orders as $k=>$v){
-            $gid = $v->gid;
-        }
+        $orders = Shop_orders::find($id);
+        $gid = $orders->gid;
         $good = Shop_goods::where('id',$gid)->first();
-        //dump($good);die;
         return view('admin.order.order_detail',['orders'=>$orders,'good'=>$good]);
     }
     /**

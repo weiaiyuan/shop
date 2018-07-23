@@ -55,7 +55,7 @@
 			<div class="nav white">
 				<div class="logo"><img src="/static/home/images/logo.png" /></div>
 				<div class="logoBig">
-					<li><img src="/static/home/images/logobig.png" /></li>
+					<li><img src="/static/home/images/logobig.png" style="width:150px;height: 90px"/></li>
 				</div>
 				<div class="search-bar pr">
 					<a name="index_none_header_sysc" href="#"></a>
@@ -373,12 +373,13 @@
 						}
 						$.ajax({
 							'url':'/home/js/index',
-							'data':{'id':{{$good->id}},'num':x,'sum':sum},
+							'data':{'id':{{$good->id}},'num':x,'sum':sum,'pack':s},
 							'type':'get',
 							'datatype':'html',
 							success:function(msg){
 								if (msg == 'success') {
 									alert('购买成功@！☺');
+									location.href="/home/js/create"
 								} else {
 									alert('购买失败！请检查网络');
 								}

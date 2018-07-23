@@ -24,4 +24,8 @@ class Shop_goods extends Model
     {
     	return $this->beLongsTo('App\Models\Soucang','sid');
     }
+    public function order()
+    {
+        return $this->hasOne('App\Models\Shop_orders','gid');
+    }
 }

@@ -49,7 +49,7 @@
 			<div class="nav white">
 				<div class="logo"><img src="/static/home/images/logo.png" /></div>
 				<div class="logoBig">
-					<li><img src="/static/home/images/logobig.png" /></li>
+					<li><img src="/static/home/images/logobig.png" style="width:150px;height: 90px"/></li>
 				</div>
 
 				<div class="search-bar pr">
@@ -111,6 +111,7 @@
 									<li class="td td-chk">
 										<div class="cart-checkbox ">
 											<input class="check dx" id="J_CheckBox_170037950254" name="items[]" value="170037950254" type="checkbox">
+											<input type="hidden" name="" value="{{$v->id}}">
 											<label for="J_CheckBox_170037950254"></label>
 										</div>
 									</li>
@@ -148,7 +149,9 @@
 										<div class="amount-wrapper ">
 											<div class="item-amount ">
 												<div class="sl">
+													<input class="min am-btn" name="" type="button" value="-" />
 													<input class="text_box" name="" type="text" value="{{ $v->goshop->num }}" style="width:30px;" />
+													<input class="add am-btn" name="" type="button" value="+" />
 												</div>
 											</div>
 										</div>
@@ -169,81 +172,7 @@
 								</ul>
 							</div>
 						@endforeach
-<!-- 蒋旺生做的商品购物车页面结尾 -->
-				<script type="text/javascript">
-						$(function(){
-						var i =0;//定义遍历i=0
-						$('.check-all').click(function(){//当点击全选按钮时
-							$('.check').attr('checked',true);//所有的按钮为选中
-							if(i==1){//判断i=0
-								$('.check').attr('checked',false);//则全部为不选
-							}
-							i++;//i++
-							if(i>1){//如果i一旦大于1
-								i=0;//i=0
-							}
-						});
-						$('.check[type=checkbox]').click(function(){//当按钮点击时
-							n = $('.dx:checked').size();//获取所有按钮的长度
-							// alert(n)
-							$('#J_SelectedItemsCount').text(n)//将当前所有长度放入件数中
-							// num = $('.dx:checked').parent().parent().parent().find('.zj').text();
-							k = 0;					//定义一个k的变量
-							$('.dx:checked').parent().parent().parent().find('.zj').each(function(){		//遍历 所有的金额
-								k += parseInt($(this).text());//让k每个值都加上一遍
-							})
-							// alert(k)
-							$('#J_Total').html(k);		//	将结算的总金额放入金额里
-						})
-						$('.delete').click(function (){		//删除按钮的时候
-							s = $(this).find('.hiddens').val()	//获取当前隐藏域里面的id
-							// alert(s)
-							if(confirm('确认删除吗？')){	//给个判断 
-								$.ajax({'url':'/home/goshop/destroy/ss',//发ajax发异步以防止不等待直接运行
-									data:{'id':s},//将id传过去删除
-									type:'get',//发送类型，推荐用隐式get
-									async:false,	//异步等待
-									success:function(msg){	//回调函数
-										if(msg == 'success') {
-											alert('删除成功')
-										} else {
-											alert('删除失败')
-										}
-									},
-									datatype:'html',//返回类型为html
-								})
-								$(this).parent().parent().parent().remove();//成功之后删除当前的li标签
-							}
-						})
-						$('.deleteAll').click(function(){	//当点击全部删除时
-							if($('.dx:checked').size() == 0){	//判断有没有被选中
-								alert('请选择要删除的商品');
-								return;
-							}
-							if(confirm('确认删除吗？')){
-						 	arr = [];		//定义一个空数组，来删除多条id
-							$('.dx:checked').parent().parent().parent().find('.hiddens').each(function(){		//遍历所有按钮中的隐藏域
-								arr.push($(this).val());	//将所有值压入数组中
-								// console.log(arr);
-							})
-							// alert(arr)
-							$.ajax({'url':'/home/goshop/create',	//发送ajax
-									type:'get',			//get方式
-									data:{'arr':arr},	//数据传入
-									async:false,	//异步
-									success:function(msg){	//回调函数
-										if(msg == 'success'){
-											alert('删除成功');
-										}else{
-											alert('删除失败');
-										}
-									},
-								});
-							}
-						});
 
-					})
-				</script>
 						</div>
 					</tr>
 					<div class="clear"></div>
@@ -276,8 +205,8 @@
 							<strong class="price">¥<em id="J_Total">0.00</em></strong>
 						</div>
 						<div class="btn-area js">
-							<a href="" id="J_Go" class="submit-btn submit-btn-disabled" aria-label="请注意如果没有选择宝贝，将无法结算">
-								<span>结&nbsp;算</span></a>
+							
+								<a><span>结&nbsp;算</span></a>
 						</div>
 					</div>
 
@@ -374,3 +303,161 @@
 	</body>
 
 </html>
+<!-- 蒋旺生做的商品购物车页面结尾 -->
+				<script type="text/javascript">
+						$(function(){
+						var i =0;//定义遍历i=0
+						$('.check-all').click(function(){//当点击全选按钮时
+							$('.check').attr('checked',true);//所有的按钮为选中
+							if(i==1){//判断i=0
+								$('.check').attr('checked',false);//则全部为不选
+							}
+							i++;//i++
+							if(i>1){//如果i一旦大于1
+								i=0;//i=0
+							}
+						});
+						$('.min').each(function(){
+						$(this).click(function(){
+							x = parseInt($(this).parent().parent().parent().parent().prev().find('.dj').text());
+							y = parseInt($(this).next().val())-1
+							if(y < 0){
+								y=0;
+							}
+							$(this).parent().parent().parent().parent().next().text(x*y)
+							})
+						})
+						$('.add').each(function(){
+						$(this).click(function(){
+							x = parseInt($(this).parent().parent().parent().parent().prev().find('.dj').text());
+							y = parseInt($(this).prev().val())+1
+							$(this).parent().parent().parent().parent().next().text(x*y)
+							})
+						})
+						$('.check[type=checkbox]').click(function(){//当按钮点击时
+							n = $('.dx:checked').size();//获取所有按钮的长度
+							// alert(n)
+							$('#J_SelectedItemsCount').text(n)//将当前所有长度放入件数中
+							k = 0;					//定义一个k的变量
+							$('.dx:checked').parent().parent().parent().find('.td-sum').each(function(){		//遍历 所有的金额
+								k += parseInt($(this).text());//让k每个值都加上一遍
+							})
+							// alert(k)
+							$('#J_Total').html(k);	
+						$('.min').each(function(){
+						$(this).click(function(){
+							x = parseInt($(this).parent().parent().parent().parent().prev().find('.dj').text());
+							y = parseInt($(this).next().val())
+							if(y < 0){
+								y=0;
+							}
+							$(this).parent().parent().parent().parent().next().text(x*y)
+							
+							k = 0;					//定义一个k的变量
+							$('.dx:checked').parent().parent().parent().find('.td-sum').each(function(){		//遍历 所有的金额
+								k += parseInt($(this).text());//让k每个值都加上一遍
+							})
+							// alert(k)
+							$('#J_Total').html(k);	
+							})
+						})
+						$('.add').each(function(){
+						$(this).click(function(){
+							x = parseInt($(this).parent().parent().parent().parent().prev().find('.dj').text());
+							y = parseInt($(this).prev().val())
+							$(this).parent().parent().parent().parent().next().text(x*y)
+							k = 0;					//定义一个k的变量
+							$('.dx:checked').parent().parent().parent().find('.td-sum').each(function(){		//遍历 所有的金额
+								k += parseInt($(this).text());//让k每个值都加上一遍
+							})
+							// alert(k)
+							$('#J_Total').html(k);	
+							})
+						})
+								//	将结算的总金额放入金额里
+						})
+						$('.delete').click(function (){		//删除按钮的时候
+							s = $(this).find('.hiddens').val()	//获取当前隐藏域里面的id
+							// alert(s)
+							if(confirm('确认删除吗？')){	//给个判断 
+								$.ajax({'url':'/home/goshop/destroy/ss',//发ajax发异步以防止不等待直接运行
+									data:{'id':s},//将id传过去删除
+									type:'get',//发送类型，推荐用隐式get
+									async:false,	//异步等待
+									success:function(msg){	//回调函数
+										if(msg == 'success') {
+											alert('删除成功')
+										} else {
+											alert('删除失败')
+										}
+									},
+									datatype:'html',//返回类型为html
+								})
+								$(this).parent().parent().parent().remove();//成功之后删除当前的li标签
+							}
+						})
+						$('.deleteAll').click(function(){	//当点击全部删除时
+							if($('.dx:checked').size() == 0){	//判断有没有被选中
+								alert('请选择要删除的商品');
+								return;
+							}
+							if(confirm('确认删除吗？')){
+						 	arr = [];		//定义一个空数组，来删除多条id
+							$('.dx:checked').parent().parent().parent().find('.hiddens').each(function(){		//遍历所有按钮中的隐藏域
+								arr.push($(this).val());	//将所有值压入数组中
+								// console.log(arr);
+							})
+							// alert(arr)
+							$.ajax({'url':'/home/goshop/create',	//发送ajax
+									type:'get',			//get方式
+									data:{'arr':arr},	//数据传入
+									async:false,	//异步
+									success:function(msg){	//回调函数
+										if(msg == 'success'){
+											alert('删除成功');
+										}else{
+											alert('删除失败');
+										}
+									},
+								});
+							}
+						});
+							$('.js').click(function(){
+							if($('.dx:checked').size()==0) {
+								alert('请选择要购买的商品!');
+								return;
+							}
+							id = [];
+							$('.dx:checked').next().each(function(){
+								id.push($(this).val())
+							})
+							num = [];
+							$('.dx:checked').parent().parent().parent().find('.text_box').each(function(){
+								num.push($(this).val())
+							})
+							// id.push(num)
+							sum=[];
+							$('.dx:checked').parent().parent().parent().find('.td-sum').each(function(){
+								sum.push(parseInt($(this).text()))
+							})
+							// id.push(sum)
+							$.ajax({
+							'url':'/home/js/show',
+							'data':{'id':id,'num':num,'sum':sum},
+							// 'type':'get',
+							// 'datatype':'html',
+							success:function(msg){
+								// alert(msg)
+									if (msg != 'error') {
+									alert('购买成功@！☺');
+									location.href='/home/js/create';
+								} else {
+									alert('购买失败！请检查网络');
+								}
+							},
+							async:false,
+						})
+
+					})
+				})
+				</script>
